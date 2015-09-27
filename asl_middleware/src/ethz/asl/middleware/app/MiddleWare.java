@@ -2,9 +2,16 @@ package ethz.asl.middleware.app;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.Executors;
 
 public class MiddleWare {
 
+	
+	
+	
 	public static void main(String[] args) {
 
 		if(args.length != 1){
@@ -12,14 +19,31 @@ public class MiddleWare {
 			System.exit(1);
 		}
 		
-			int portNumber = Integer.parseInt(args[0]);
+		int portNumber = Integer.parseInt(args[0]);
+		
+		ExecutorService executor = Executors.newFixedThreadPool(10);
+		
+		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
+	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
+	    
+	    InboxProcessingThread inboxProcessor = new InboxProcessingThread(in, out);
+	    OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
+	    
+	    (new Thread(inboxProcessor)).start();
+	    (new Thread(outboxProcessor)).start();
+	    
+		
+			
 			boolean listening = true;
 			
 			try(ServerSocket serverSocket = new ServerSocket(portNumber)){
 				while(listening){
 					//start one thread for each new client
-					new MiddleWareThread(serverSocket.accept()).start();
+					//new ClientWorker(serverSocket.accept(), in , out).start();
+					executor.execute(new ClientWorker(serverSocket.accept(), in));
 				}
+				
+				executor.shutdown();
 			} catch (IOException e){
 				System.err.println("Error with port "+portNumber+"\nUnable to listen.");
 				e.printStackTrace();

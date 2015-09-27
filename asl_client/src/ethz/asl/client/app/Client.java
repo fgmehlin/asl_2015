@@ -46,6 +46,7 @@ public class Client {
 							// list queues where msg for client are waiting
 							
 							out.println("list queues");
+							
 						}else if(command_tokens[1].equals("-c")){
 							// list clients
 							out.println("list clients");
@@ -104,6 +105,11 @@ public class Client {
 						System.err.println("Bad command");
 						break;
 				}
+				
+				
+				String response = in.readLine();
+				System.out.println("Server response : " + response);
+				
 			}
 			
 		}catch(IOException e){
