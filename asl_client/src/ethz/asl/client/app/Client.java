@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Client {
 	
 	static boolean running = true;
+	
+	private static Random rand;
 
 	public static void main(String[] args) {
 		if (args.length != 2) {
@@ -18,108 +21,142 @@ public class Client {
             System.exit(1);
         }
 		
+		rand = new Random();
+		
+		long start = System.currentTimeMillis();
+		long end = start + 60*1000;
+		
 		String hostName = args[0];
 		int portNumber = Integer.parseInt(args[1]);
 		
 		System.out.println("hostname : " + hostName + ", port : " + portNumber );
 		
-		try (
-	            Socket clientSocket = new Socket(hostName, portNumber);
-	            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-	            BufferedReader in = new BufferedReader(
-	                new InputStreamReader(clientSocket.getInputStream()));
-	        ){
+		
+		while(System.currentTimeMillis() < end){
 			
-			Scanner s = new Scanner(System.in);
-			String command = "";
-			System.out.println("Type \"list cmd\" to display the list of commands");
+			int r = rand.nextInt(100);
 			
-			String[] command_tokens;
-			while(running){
-				command = s.nextLine();
-				//System.out.println("Wrote : " + command);
-				command_tokens = command.split(" ");
+		
+			try (
+		            Socket clientSocket = new Socket(hostName, portNumber);
+		            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+		            BufferedReader in = new BufferedReader(
+		                new InputStreamReader(clientSocket.getInputStream()));
+		        ){
 				
-				switch(command_tokens[0]){
-					case "list":
-						if(command_tokens[1].equals("-q")){
-							// list queues where msg for client are waiting
-							
-							out.println("list queues");
-							
-						}else if(command_tokens[1].equals("-c")){
-							// list clients
-							out.println("list clients");
-						}else if(command_tokens[1].equals("-cmd")){
-							System.out.println("list cmds");
-						}else{
-							//error
-							System.err.println("list error");
-						}
-						break;
-					case "q":
-						if(command_tokens[1].equals("-create")){
-							// create a queue and return <queue_id> to client
-							out.println("create queue");
-						}else if(command_tokens[1].equals("-delete") && command_tokens.length==3){
-							int q_id = Integer.parseInt(command_tokens[2]);
-							out.println("delete queue id="+q_id);
-						}else{
-							//error
-							System.err.println("q error");
-						}
-						break;
-					case "getmsg":
-						if(command_tokens[1].equals("-fromq") && command_tokens.length==3){
-							// create a queue and return <queue_id> to client
-							int q_id = Integer.parseInt(command_tokens[2]);
-							out.println("get msg from queue id=" + q_id);
-						}else if(command_tokens[1].equals("-fromc") && command_tokens.length==3){
-							// delete a queue and return confirmation
-							int c_id = Integer.parseInt(command_tokens[2]);
-							out.println("get msg from client id=" + c_id);
-						}else{
-							//error
-							System.err.println("getmsg error");
-						}
-						break;
-					case "sndmsg":
-						if(command_tokens.length >= 4){
-							int client_id = Integer.parseInt(command_tokens[1]);
-							String msg = command_tokens[command_tokens.length-1];
-							String test = "send msg=\""+msg+"\" to client id="+client_id+" to queues ids=";
-							int[] queues = new int[command_tokens.length-3];
-							for (int i = 0; i < queues.length; i++) {
-								queues[i] = Integer.parseInt(command_tokens[i+2]);
-								test += queues[i] + " ";
-							}
-							out.println(test);
-							
-							//snd_msg
-						}else{
-							//error
-							System.err.println("sndmsg error");
-						}
-						break;
-					default:
-						System.err.println("Bad command");
-						break;
+				if(r >= 0 && r < 25){
+					sendMessage(out, in);
+				}else if(r >= 25 && r < 45){
+					peekMessage(out, in);
+				}else if(r >= 45 && r < 61){
+					getMessageFromQueue(out, in);
+				}else if(r >= 61 && r < 77){
+					getMessageFromSender(out, in);
+				}else if(r >= 77 && r < 85){
+					createQueue(out, in);
+				}else{
+					deleteQueue(out, in);
 				}
+	
+		
 				
-				
-				String response = in.readLine();
-				System.out.println("Server response : " + response);
-				
+			}catch(IOException e){
+				System.err.println("Couldn't get I/O for the connection to " + hostName);
+		            System.exit(1);
 			}
-			
-		}catch(IOException e){
-			System.err.println("Couldn't get I/O for the connection to " +
-	                hostName);
-	            System.exit(1);
-		}catch (NumberFormatException e) {
-			System.err.println("Argument parsing exception. type list -cmd for command list");
 		}
 
+	}
+	
+	// Proba : 0.25
+	public static void sendMessage(PrintWriter out, BufferedReader in) throws IOException{
+		int client = getClient(out, in);
+		int queue = getQueue(out, in);
+		
+		if(queue > 0){
+			if(client > 0){
+				out.println("SM#CLIENT_ID#"+client+"#"+queue+"#UFIBFAJSdJASNDIBASZDVBOAUSVAUFIASDBOVUZASVDZVASDVAOUS");
+			}else{
+				System.out.println("No client available");
+			}
+		}else{
+			System.out.println("No queue available");
+		}
+		
+	}
+	
+	
+	// Proba : 0.20
+	public static void peekMessage(PrintWriter out, BufferedReader in) throws IOException{
+		int queue = getQueue(out, in);
+		
+		out.println("PM#CLIENTID#"+queue);
+		String messagePeeked = in.readLine();
+	}
+	
+	//Proba : 0.16
+	public static void getMessageFromQueue(PrintWriter out, BufferedReader in) throws IOException{
+		int queue = getQueue(out, in);
+		out.println("GMQ#CLIENTID#"+queue);
+		String messageFromQueue = in.readLine();
+	}
+	
+	//Proba : 0.16
+	public static void getMessageFromSender(PrintWriter out, BufferedReader in) throws IOException{
+		int sender = getClient(out, in);
+		out.println("GMS#CLIENTID#"+sender);
+		String messageFromSender = in.readLine();
+		
+	}
+	
+	//Proba : 0.15
+	public static void createQueue(PrintWriter out, BufferedReader in) throws IOException{
+		out.println("CQ#CLIENT_ID");
+	}
+	
+	// Able to delete queue containing messages ?
+	//Proba : 0.08
+	public static void deleteQueue(PrintWriter out, BufferedReader in) throws IOException{
+		int queue = getQueue(out, in);
+		if(queue >=0){
+			out.println("DQ#"+queue);
+		}else{
+			System.out.println("No queue available for client ID=CLIENT_ID");
+		}
+	}
+	
+
+	private static int getClient(PrintWriter out, BufferedReader in) throws IOException{
+		out.println("LC#CLIENT_ID");
+		String clients = in.readLine();
+		if(!clients.isEmpty()){
+			int receiver_index = rand.nextInt(clients.split("#").length-1);
+			return receiver_index;
+		}else{
+			return -1;
+		}
+	}
+	
+	private static int getQueue(PrintWriter out, BufferedReader in) throws IOException{
+		out.println("LQ#CLIENT_ID");
+		String queues = in.readLine();
+		if(!queues.isEmpty()){
+			int queue_index = rand.nextInt(queues.split("#").length-1);
+			return queue_index;
+		}else{
+			return -1;
+		}
+	}
+	
+	private static int getQueueWithMSG(PrintWriter out, BufferedReader in) throws IOException{
+		out.println("LQWM#CLIENT_ID");
+		String queues = in.readLine();
+		if(!queues.isEmpty()){
+			int queue_index = rand.nextInt(queues.split("#").length-1);
+			return queue_index;
+		}else{
+			return -1;
+		}
 	}
 
 }

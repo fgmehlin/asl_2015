@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION createMessage200(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(200)) RETURNS VOID AS
+$$
+DECLARE
+ messid integer;
+BEGIN
+    INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
+    (default, sender, receiver, now(), message);
+    
+    SELECT max(message_id) INTO messid FROM messages WHERE sender_id=sender;
+
+    INSERT INTO message_queue (queue_id, message_id) VALUES(
+        queue, messid);
+END
+$$
+    LANGUAGE 'plpgsql';

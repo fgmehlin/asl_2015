@@ -1,0 +1,7 @@
+CREATE or REPLACE FUNCTION createQueue(clientid INTEGER) RETURNS VOID AS
+$$
+BEGIN
+	INSERT INTO queues (queue_id, owner) VALUES (default, clientid);
+END
+$$
+	LANGUAGE ‘plpgsql’;

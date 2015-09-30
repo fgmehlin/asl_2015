@@ -8,6 +8,7 @@ public class QueryObject {
 	private String reply;
 //	private ClientWorker client;
 	private PrintWriter clientChannel;
+	
 
 	public QueryObject(String command, PrintWriter clientChannel){
 		this.command = command;
