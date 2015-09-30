@@ -1,0 +1,1 @@
+psql -U asl_pg -d asl -h 127.0.0.1 -W

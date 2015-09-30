@@ -21,12 +21,14 @@ public class MiddleWare {
 		
 		int portNumber = Integer.parseInt(args[0]);
 		
+		DatabaseCommunication dbComm = new DatabaseCommunication();
+		
 		ExecutorService executor = Executors.newFixedThreadPool(10);
 		
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
 	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
 	    
-	    InboxProcessingThread inboxProcessor = new InboxProcessingThread(in, out);
+	    InboxProcessingThread inboxProcessor = new InboxProcessingThread(in, out, dbComm);
 	    OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
 	    
 	    (new Thread(inboxProcessor)).start();

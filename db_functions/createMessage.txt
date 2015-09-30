@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createMessage200(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(200)) RETURNS VOID AS
+CREATE OR REPLACE FUNCTION createMessage(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(2000)) RETURNS VOID AS
 $$
 DECLARE
  messid integer;

@@ -1,0 +1,11 @@
+CREATE or REPLACE FUNCTION peekMessageBySender(clientid INTEGER, senderid INTEGER) RETURNS VARCHAR(200) AS
+$peekedmessage$
+DECLARE
+	peekedmessage VARCHAR(2000);
+BEGIN
+	
+SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa DESC LIMIT 1;
+RETURN peekedmessage;
+END;
+$peekedmessage$
+	LANGUAGE 'plpgsql';

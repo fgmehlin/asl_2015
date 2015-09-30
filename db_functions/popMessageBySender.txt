@@ -1,0 +1,16 @@
+CREATE or REPLACE FUNCTION popMessageBySender(clientid INTEGER, senderid INTEGER) RETURNS VARCHAR(2000) AS
+$popMessage$
+DECLARE
+	popMessage VARCHAR(2000);
+	messid integer;
+BEGIN
+	
+SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa DESC LIMIT 1;
+
+DELETE FROM message_queue WHERE message_id = messid;
+DELETE FROM messages WHERE message_id = messid;
+
+RETURN popMessage;
+END;
+$popMessage$
+	LANGUAGE ‘plpgsql’;
