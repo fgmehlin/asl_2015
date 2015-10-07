@@ -17,7 +17,6 @@ public class ClientWorker implements Runnable{
 	
 	public ClientWorker(Socket socket, BlockingQueue<QueryObject> inbox){
 		this.clientSocket = socket;
-		System.out.println("Client connected");
 		this.inbox = inbox;
 	}
 
@@ -32,6 +31,9 @@ public class ClientWorker implements Runnable{
 			 while ((inputLine = in.readLine()) != null) {
 				// System.out.println(inputLine);
 				// inbox.put(inputLine);
+				/* if(inputLine.contains("#")){
+					 clientQuery.setClientID(Integer.parseInt(inputLine.split("#")[1]));
+				 }*/
 				 
 				 clientQuery = new QueryObject(inputLine, out);
 				 
@@ -47,7 +49,6 @@ public class ClientWorker implements Runnable{
 			e.printStackTrace();
 		}
 				
-		System.out.println("end of run");
 	}
 		
 	

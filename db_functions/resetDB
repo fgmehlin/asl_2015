@@ -1,0 +1,18 @@
+CREATE or REPLACE FUNCTION resetDB() RETURNS VOID AS
+$$
+BEGIN
+	
+	DELETE FROM message_queue;
+	DELETE FROM queues;
+	DELETE FROM messages;
+	DELETE FROM clients;
+
+	ALTER SEQUENCE client_id_seq RESTART WITH 1;
+	ALTER SEQUENCE message_id_seq RESTART WITH 1;
+	ALTER SEQUENCE queue_id_seq RESTART WITH 1;
+
+	INSERT INTO clients (client_id) VALUES (-1);
+
+END;
+$$
+	LANGUAGE 'plpgsql';

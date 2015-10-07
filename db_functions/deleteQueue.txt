@@ -1,0 +1,20 @@
+CREATE or REPLACE FUNCTION deleteQueue(queueid INTEGER) RETURNS BOOLEAN AS
+$deleteOK$
+DECLARE
+	count integer;
+	deleteOK boolean;
+BEGIN
+	
+SELECT count(mq.message_id) INTO count FROM queues AS q, message_queue AS mq WHERE q.queue_id = mq.queue_id AND q.queue_id = queueid;
+
+IF count = 0 THEN
+	DELETE FROM queues WHERE queue_id = queueid;
+	deleteOK := TRUE;
+ELSE
+	deleteOK := FALSE;
+END IF;
+
+RETURN deleteOK;
+END;
+$deleteOK$
+	LANGUAGE ‘plpgsql’;

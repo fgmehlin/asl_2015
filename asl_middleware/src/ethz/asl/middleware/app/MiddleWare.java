@@ -5,6 +5,9 @@ import java.net.ServerSocket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
+
+import org.apache.log4j.Logger;
+
 import java.util.concurrent.Executors;
 
 public class MiddleWare {
@@ -18,6 +21,9 @@ public class MiddleWare {
 			System.err.println("Usage: java MiddleWare <port number>");
 			System.exit(1);
 		}
+		
+		
+		
 		
 		int portNumber = Integer.parseInt(args[0]);
 		

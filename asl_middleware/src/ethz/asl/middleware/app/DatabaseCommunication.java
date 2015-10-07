@@ -128,21 +128,20 @@ public class DatabaseCommunication {
 		return result;
 	}
 
-	public void createQueue(int owner) {
+	public void createQueue() {
 		Connection conn = null;
-		CallableStatement sndMsgProc = null;
+		CallableStatement createQueueProc = null;
 		conn = getConnection();
 
 		try {
-			sndMsgProc = conn.prepareCall("{ call createqueue(?)}");
-			sndMsgProc.setInt(1, owner);
-			sndMsgProc.execute();
+			createQueueProc = conn.prepareCall("{ call createqueue()}");
+			createQueueProc.execute();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				sndMsgProc.close();
+				createQueueProc.close();
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -150,8 +149,30 @@ public class DatabaseCommunication {
 		}
 	}
 
-	public void deleteQueue() {
+	public boolean deleteQueue(int queueID) {
+		Connection conn = null;
+		CallableStatement deleteQueueProc = null;
+		conn = getConnection();
+		boolean ok = false;
 
+		try {
+			deleteQueueProc = conn.prepareCall("{ ? = call deleteQueue(?)}");
+			deleteQueueProc.setInt(2, queueID);
+			deleteQueueProc.registerOutParameter(1, Types.BOOLEAN);
+			deleteQueueProc.execute();
+			ok = deleteQueueProc.getBoolean(1);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				deleteQueueProc.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ok;
 	}
 
 	public String popMessageBySender(int clientid, int senderid) {
@@ -290,6 +311,32 @@ public class DatabaseCommunication {
 			}
 		}
 
+	}
+	
+	public int createClient() {
+		Connection conn = null;
+		CallableStatement crtClient = null;
+		conn = getConnection();
+		int clientID = 0;
+
+		try {
+			crtClient = conn.prepareCall("{ ? = call createClient()}");
+			crtClient.registerOutParameter(1, Types.INTEGER);
+			crtClient.execute();
+			clientID = crtClient.getInt(1);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				crtClient.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return clientID;
 	}
 
 }

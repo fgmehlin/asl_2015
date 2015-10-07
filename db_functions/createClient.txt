@@ -1,0 +1,11 @@
+CREATE or REPLACE FUNCTION createClient() RETURNS INTEGER AS
+$clientID$
+DECLARE
+	nextval INTEGER;
+BEGIN
+	SELECT nextval('client_id_seq') INTO nextval;
+	INSERT INTO clients (client_id) VALUES (nextval);
+	RETURN nextval;
+END
+$clientID$
+	LANGUAGE 'plpgsql';
