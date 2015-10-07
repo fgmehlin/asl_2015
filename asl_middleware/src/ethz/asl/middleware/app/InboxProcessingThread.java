@@ -15,7 +15,7 @@ public class InboxProcessingThread implements Runnable{
 		this.in = in;
 		this.out = out;
 		this.dbComm = dbComm;
-		logger.info("Test");
+		logger.info("InboxProcessingThread created");
 		
 	}
 	
@@ -26,7 +26,7 @@ public class InboxProcessingThread implements Runnable{
 			
 			try {
 				QueryObject query = in.take();
-				logger.info("Object removed, Inbox size :" + in.size());
+				logger.info("Query removed from inbox, size: " + in.size());
 				String command = query.getCommand();
 				
 				
@@ -89,6 +89,7 @@ public class InboxProcessingThread implements Runnable{
 				
 				
 				out.put(query);
+				logger.info("Reply added to outbox, size: " + out.size());
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
