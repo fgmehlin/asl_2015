@@ -3,6 +3,7 @@ $$
 DECLARE
  messid integer;
 BEGIN
+
     INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
     (default, sender, receiver, now(), message);
     

@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.util.concurrent.Executors;
 
@@ -21,6 +22,9 @@ public class MiddleWare {
 			System.err.println("Usage: java MiddleWare <port number>");
 			System.exit(1);
 		}
+		
+		//PropertyConfigurator.configure("classpath:log4j.properties");
+
 		
 		
 		

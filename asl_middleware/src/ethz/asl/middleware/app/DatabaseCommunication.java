@@ -287,20 +287,24 @@ public class DatabaseCommunication {
 		return message;
 	}
 
-	public void sendMessage(int sender, int receiver, int queue, String message) {
+	public boolean sendMessage(int sender, int receiver, int queue, String message) {
 		Connection conn = null;
 		CallableStatement sndMsgProc = null;
 		conn = getConnection();
+		boolean ok = false;
 
 		try {
-			sndMsgProc = conn.prepareCall("{ call createmessage(?,?,?,?)}");
-			sndMsgProc.setInt(1, sender);
-			sndMsgProc.setInt(2, receiver);
-			sndMsgProc.setInt(3, queue);
-			sndMsgProc.setString(4, message);
+			sndMsgProc = conn.prepareCall("{? = call createmessage(?,?,?,?)}");
+			sndMsgProc.setInt(2, sender);
+			sndMsgProc.setInt(3, receiver);
+			sndMsgProc.setInt(4, queue);
+			sndMsgProc.setString(5, message);
+			sndMsgProc.registerOutParameter(1, Types.BOOLEAN);
 			sndMsgProc.execute();
+			ok = sndMsgProc.getBoolean(1);
 
 		} catch (SQLException e) {
+			System.out.println("Message could not be sent");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -310,6 +314,7 @@ public class DatabaseCommunication {
 				e.printStackTrace();
 			}
 		}
+		return ok;
 
 	}
 	

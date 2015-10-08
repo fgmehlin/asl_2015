@@ -48,19 +48,31 @@ ALTER FUNCTION public.createclient() OWNER TO asl_pg;
 -- Name: createmessage(integer, integer, integer, character varying); Type: FUNCTION; Schema: public; Owner: asl_pg
 --
 
-CREATE FUNCTION createmessage(sender integer, receiver integer, queue integer, message character varying) RETURNS void
+CREATE FUNCTION createmessage(sender integer, receiver integer, queue integer, message character varying) RETURNS boolean
     LANGUAGE plpgsql
     AS $$
 DECLARE
  messid integer;
+ countQ integer;
+ ok boolean;
 BEGIN
+
+SELECT count(*) INTO countQ FROM queues WHERE queue_id = queue;
+
+IF countQ <> 0 THEN
+
     INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
     (default, sender, receiver, now(), message);
     
     SELECT max(message_id) INTO messid FROM messages WHERE sender_id=sender;
 
-    INSERT INTO message_queue (queue_id, message_id) VALUES(
-        queue, messid);
+    INSERT INTO message_queue (queue_id, message_id) VALUES(queue, messid);
+
+    ok = True;
+    ELSE
+    ok = False;
+    END IF;
+    RETURN ok;
 END
 $$;
 
@@ -225,7 +237,7 @@ $$;
 ALTER FUNCTION public.resetdb() OWNER TO asl_pg;
 
 --
--- Name: client_id_seq; Type: SEQUENCE; Schema: public; Owner: florangmehlin
+-- Name: client_id_seq; Type: SEQUENCE; Schema: public; Owner: asl_pg
 --
 
 CREATE SEQUENCE client_id_seq
@@ -236,7 +248,7 @@ CREATE SEQUENCE client_id_seq
     CACHE 1;
 
 
-ALTER TABLE client_id_seq OWNER TO florangmehlin;
+ALTER TABLE client_id_seq OWNER TO asl_pg;
 
 SET default_tablespace = '';
 
@@ -254,7 +266,7 @@ CREATE TABLE clients (
 ALTER TABLE clients OWNER TO asl_pg;
 
 --
--- Name: message_id_seq; Type: SEQUENCE; Schema: public; Owner: florangmehlin
+-- Name: message_id_seq; Type: SEQUENCE; Schema: public; Owner: asl_pg
 --
 
 CREATE SEQUENCE message_id_seq
@@ -265,7 +277,7 @@ CREATE SEQUENCE message_id_seq
     CACHE 1;
 
 
-ALTER TABLE message_id_seq OWNER TO florangmehlin;
+ALTER TABLE message_id_seq OWNER TO asl_pg;
 
 --
 -- Name: message_queue; Type: TABLE; Schema: public; Owner: asl_pg; Tablespace: 
@@ -295,7 +307,7 @@ CREATE TABLE messages (
 ALTER TABLE messages OWNER TO asl_pg;
 
 --
--- Name: queue_id_seq; Type: SEQUENCE; Schema: public; Owner: florangmehlin
+-- Name: queue_id_seq; Type: SEQUENCE; Schema: public; Owner: asl_pg
 --
 
 CREATE SEQUENCE queue_id_seq
@@ -306,7 +318,7 @@ CREATE SEQUENCE queue_id_seq
     CACHE 1;
 
 
-ALTER TABLE queue_id_seq OWNER TO florangmehlin;
+ALTER TABLE queue_id_seq OWNER TO asl_pg;
 
 --
 -- Name: queues; Type: TABLE; Schema: public; Owner: asl_pg; Tablespace: 
@@ -320,7 +332,7 @@ CREATE TABLE queues (
 ALTER TABLE queues OWNER TO asl_pg;
 
 --
--- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: florangmehlin
+-- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: asl_pg
 --
 
 SELECT pg_catalog.setval('client_id_seq', 1, false);
@@ -336,7 +348,7 @@ COPY clients (client_id) FROM stdin;
 
 
 --
--- Name: message_id_seq; Type: SEQUENCE SET; Schema: public; Owner: florangmehlin
+-- Name: message_id_seq; Type: SEQUENCE SET; Schema: public; Owner: asl_pg
 --
 
 SELECT pg_catalog.setval('message_id_seq', 1, false);
@@ -359,7 +371,7 @@ COPY messages (message_id, sender_id, receiver_id, toa, message) FROM stdin;
 
 
 --
--- Name: queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: florangmehlin
+-- Name: queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: asl_pg
 --
 
 SELECT pg_catalog.setval('queue_id_seq', 1, false);
@@ -395,6 +407,13 @@ ALTER TABLE ONLY messages
 
 ALTER TABLE ONLY queues
     ADD CONSTRAINT queues_pkey PRIMARY KEY (queue_id);
+
+
+--
+-- Name: toa_idx; Type: INDEX; Schema: public; Owner: asl_pg; Tablespace: 
+--
+
+CREATE UNIQUE INDEX toa_idx ON messages USING btree (toa);
 
 
 --
@@ -440,13 +459,12 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
--- Name: client_id_seq; Type: ACL; Schema: public; Owner: florangmehlin
+-- Name: client_id_seq; Type: ACL; Schema: public; Owner: asl_pg
 --
 
 REVOKE ALL ON SEQUENCE client_id_seq FROM PUBLIC;
-REVOKE ALL ON SEQUENCE client_id_seq FROM florangmehlin;
-GRANT ALL ON SEQUENCE client_id_seq TO florangmehlin;
-GRANT SELECT,USAGE ON SEQUENCE client_id_seq TO asl_pg;
+REVOKE ALL ON SEQUENCE client_id_seq FROM asl_pg;
+GRANT ALL ON SEQUENCE client_id_seq TO asl_pg;
 
 
 --
@@ -459,13 +477,12 @@ GRANT ALL ON TABLE clients TO asl_pg;
 
 
 --
--- Name: message_id_seq; Type: ACL; Schema: public; Owner: florangmehlin
+-- Name: message_id_seq; Type: ACL; Schema: public; Owner: asl_pg
 --
 
 REVOKE ALL ON SEQUENCE message_id_seq FROM PUBLIC;
-REVOKE ALL ON SEQUENCE message_id_seq FROM florangmehlin;
-GRANT ALL ON SEQUENCE message_id_seq TO florangmehlin;
-GRANT SELECT,USAGE ON SEQUENCE message_id_seq TO asl_pg;
+REVOKE ALL ON SEQUENCE message_id_seq FROM asl_pg;
+GRANT ALL ON SEQUENCE message_id_seq TO asl_pg;
 
 
 --
@@ -487,13 +504,12 @@ GRANT ALL ON TABLE messages TO asl_pg;
 
 
 --
--- Name: queue_id_seq; Type: ACL; Schema: public; Owner: florangmehlin
+-- Name: queue_id_seq; Type: ACL; Schema: public; Owner: asl_pg
 --
 
 REVOKE ALL ON SEQUENCE queue_id_seq FROM PUBLIC;
-REVOKE ALL ON SEQUENCE queue_id_seq FROM florangmehlin;
-GRANT ALL ON SEQUENCE queue_id_seq TO florangmehlin;
-GRANT SELECT,USAGE ON SEQUENCE queue_id_seq TO asl_pg;
+REVOKE ALL ON SEQUENCE queue_id_seq FROM asl_pg;
+GRANT ALL ON SEQUENCE queue_id_seq TO asl_pg;
 
 
 --

@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 
 public class Client {
@@ -31,6 +32,9 @@ public class Client {
 			System.err.println("Usage: java Client <host name> <port number>");
 			System.exit(1);
 		}
+		
+		//PropertyConfigurator.configure("log4j.properties");
+
 		logger.info(System.currentTimeMillis() +" Client started");		
 		int initClientID = -99;
 
@@ -75,11 +79,11 @@ public class Client {
 					peekMessageBySender(out, in);
 				} else if (r >= 41 && r < 57) {
 					peekMessageByQueue(out, in);
-				} else if (r >= 57 && r < 67) {
+				} else if (r >= 57 && r < 70) {
 					popMessageByQueue(out, in);
-				} else if (r >= 67 && r < 77) {
+				} else if (r >= 70 && r < 83) {
 					popMessageBySender(out, in);
-				} else if (r >= 77 && r < 92) {
+				} else if (r >= 83 && r < 92) {
 					createQueue(out, in);
 				} else {
 					deleteQueue(out, in);
@@ -137,7 +141,7 @@ public class Client {
 		//System.out.println("Message peeked from Sender "+client+" :" + messagePeeked);
 	}
 
-	// Proba : 0.10
+	// Proba : 0.10 ==> 0.13
 	public static void popMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
 		out.println("GMQ#"+clientID+"#" + queue);
@@ -146,7 +150,7 @@ public class Client {
 		//System.out.println("Message poped from Queue "+queue+" :" + messageFromQueue);
 	}
 
-	// Proba : 0.10
+	// Proba : 0.10 ==> 0.13
 	public static void popMessageBySender(PrintWriter out, BufferedReader in) throws IOException {
 		int sender = getClient(out, in);
 		out.println("GMS#"+clientID+"#" + sender);
@@ -156,7 +160,7 @@ public class Client {
 
 	}
 
-	// Proba : 0.15
+	// Proba : 0.15 ==> 0.09
 	public static void createQueue(PrintWriter out, BufferedReader in) throws IOException {
 		out.println("CQ#"+clientID+"");
 		logger.info(clientID + " created a queue");
@@ -169,7 +173,7 @@ public class Client {
 		if (queue >= 0) {
 			out.println("DQ#" + queue);
 			// TODO get reply
-			logger.info(clientID +" deleteda queue");
+			logger.info(clientID +" deleted a queue");
 		} else {
 			//System.out.println("No queue available for client ID=CLIENT_ID");
 			logger.info("No queues to delete for client="+clientID);
