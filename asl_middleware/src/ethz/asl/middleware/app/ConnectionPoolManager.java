@@ -41,8 +41,6 @@ class ConnectionPoolManager
 
 	private synchronized boolean checkIfConnectionPoolIsFull()
 	{
-		
-
 		//Check if the pool size is full
 		if(connectionPool.size() < MAX_POOL_SIZE)
 		{
@@ -59,20 +57,19 @@ class ConnectionPoolManager
 
 		try
 		{
-			Class.forName("org.postgresql.Driver");
+			//Class.forName("org.postgresql.Driver");
 			connection = DriverManager.getConnection(db_url, USERNAME, PASSWORD);
-			System.out.println("Connection: "+connection);
 		}
 		catch(SQLException sqle)
 		{
 			System.err.println("SQLException: "+sqle);
 			return null;
 		}
-		catch(ClassNotFoundException cnfe)
+		/*catch(ClassNotFoundException cnfe)
 		{
 			System.err.println("ClassNotFoundException: "+cnfe);
 			return null;
-		}
+		}*/
 
 		return connection;
 	}
@@ -84,7 +81,7 @@ class ConnectionPoolManager
 		//Check if there is a connection available. There are times when all the connections in the pool may be used up
 		if(connectionPool.size() > 0)
 		{
-			connection = (Connection) connectionPool.firstElement();
+			connection = connectionPool.firstElement();
 			connectionPool.removeElementAt(0);
 		}
 		//Giving away the connection from the connection pool

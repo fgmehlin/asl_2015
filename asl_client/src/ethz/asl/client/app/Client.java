@@ -59,7 +59,7 @@ public class Client {
 				
 			initClientID = getClientID(out, in);
 				
-				//System.out.println("Client id given :"  + clientID);
+				System.out.println("Client id given :"  + clientID);
 				
 		}catch(IOException e){
 			e.printStackTrace();

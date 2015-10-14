@@ -11,27 +11,26 @@ import java.util.Properties;
 
 public class DatabaseCommunication {
 
-	private static String db_url = "";
+	
+	private final ConnectionPoolManager poolManager;
+	/*private static String db_url = "";
 	private static final String USERNAME = "asl_pg";
 	private static final String PASSWORD = "asl_asl";
 
-	private static DatabaseCommunication instance = null;
+	private static DatabaseCommunication instance = null;*/
 
-	protected DatabaseCommunication(String db_ip) {
-		this.db_url = "jdbc:postgresql://"+db_ip+"/asl";
+	public DatabaseCommunication(ConnectionPoolManager poolManager) {
+		this.poolManager = poolManager;
 	}
 
-	public static DatabaseCommunication getInstance(String db_ip) {
-		if (instance == null) {
-			instance = new DatabaseCommunication(db_ip);
-		}
-		return instance;
-	}
 
 	private Connection getConnection() {
 
 		Connection conn = null;
 		
+		while(conn == null){
+			conn = poolManager.getConnectionFromPool();
+		}
 		
 		
 		/*Properties connectionProps = new Properties();
@@ -44,6 +43,10 @@ public class DatabaseCommunication {
 			e.printStackTrace();
 		}*/
 		return conn;
+	}
+	
+	private void returnConnectionToPool(Connection connection){
+		poolManager.returnConnectionToPool(connection);
 	}
 
 	public String getClients(int clientID) {
@@ -66,10 +69,12 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				prepStmt.close();
-				conn.close();
+				//conn.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 
 		return result;
@@ -94,10 +99,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				prepStmt.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 
 		return result;
@@ -123,10 +129,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				prepStmt.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 
 		return result;
@@ -153,10 +160,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				prepStmt.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 
 		return result;
@@ -176,10 +184,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				createQueueProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 	}
 
@@ -201,10 +210,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				deleteQueueProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		return ok;
 	}
@@ -228,10 +238,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				popMsgProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		
 		return message;
@@ -256,10 +267,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				popMsgProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		
 		return message;
@@ -284,10 +296,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				peekMsgProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		
 		return message;
@@ -312,10 +325,11 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				peekMsgProc.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		
 		return message;
@@ -343,10 +357,12 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				sndMsgProc.close();
-				conn.close();
+				//conn.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		return ok;
 
@@ -369,10 +385,12 @@ public class DatabaseCommunication {
 		} finally {
 			try {
 				crtClient.close();
-				conn.close();
+				//conn.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			returnConnectionToPool(conn);
 		}
 		
 		return clientID;

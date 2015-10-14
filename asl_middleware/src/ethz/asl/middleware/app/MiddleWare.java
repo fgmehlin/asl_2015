@@ -34,7 +34,9 @@ public class MiddleWare {
 		String db_ip = args[0];
 		int portNumber = Integer.parseInt(args[1]);
 		
-		DatabaseCommunication dbComm = new DatabaseCommunication(db_ip);
+		//DatabaseCommunication dbComm = new DatabaseCommunication(db_ip);
+		
+		ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip);
 		
 		ExecutorService executor = Executors.newFixedThreadPool(10);
 		
@@ -44,7 +46,7 @@ public class MiddleWare {
 	    InboxProcessingThread inboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(in, out, dbComm, i);
+	    	inboxProcessor = new InboxProcessingThread(in, out, /*dbComm*/dbManager, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    

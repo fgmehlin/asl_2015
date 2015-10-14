@@ -9,15 +9,19 @@ public class InboxProcessingThread implements Runnable{
 	private final BlockingQueue<QueryObject> out;
 	private final BlockingQueue<QueryObject> in;
 	private final DatabaseCommunication dbComm;
+	private final ConnectionPoolManager poolManager;
 	private final int proc_id;
 	private static Logger logger = Logger.getLogger(InboxProcessingThread.class.getName());
 	
-	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, DatabaseCommunication dbComm, int proc_id){
+	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, ConnectionPoolManager poolManager, int proc_id){
 		this.in = in;
 		this.out = out;
-		this.dbComm = dbComm;
+		//this.dbComm = dbComm;
+		this.dbComm = new DatabaseCommunication(poolManager);
+		this.poolManager = poolManager;
 		this.proc_id = proc_id;
 		logger.info("InboxProcessingThread No"+proc_id+" created");
+		//System.out.println("InboxProcessingThread No"+proc_id+" created");
 		
 	}
 	
@@ -30,6 +34,7 @@ public class InboxProcessingThread implements Runnable{
 				QueryObject query = in.take();
 				String command = query.getCommand();
 				logger.info("IP["+proc_id+"] Query with command "+command+" removed from inbox, size: " + in.size());
+				//System.out.println("IP["+proc_id+"] Query with command "+command+" removed from inbox, size: " + in.size());
 				
 				
 				
@@ -92,6 +97,7 @@ public class InboxProcessingThread implements Runnable{
 					case "ECHO":
 						clientID = dbComm.createClient();
 						query.setReply(clientID+"");
+						System.out.println("CLIENT ID RETURNED : "+ clientID);
 						break;
 				}
 				

@@ -1,0 +1,6 @@
+2015-10-14 23:25:03 INFO  Client:71 - Client started
+2015-10-14 23:25:03 INFO  Client:211 - Client list returned for client=3
+2015-10-14 23:25:03 INFO  Client:239 - Queue list returned for client=3
+2015-10-14 23:25:03 INFO  Client:245 - Queue list empty for client=3
+2015-10-14 23:25:03 INFO  Client:110 - 3 sends a message to client=1 to queue=-1
+2015-10-14 23:25:03 INFO  Client:124 - No queue to send a message for client: 3
