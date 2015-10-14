@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 public class MiddleWare {
 
-	
+	private static final int NUMBER_OF_INBOX_PROCESSORS = 5;
 	
 	public static void main(String[] args) {
 
@@ -19,17 +19,16 @@ public class MiddleWare {
 			System.err.println("Usage: java MiddleWare <db_@> <port number>");
 			System.exit(1);
 		}
-		/*InetAddress localAdd = null;
-		try {
-			localAdd = InetAddress.getLocalHost();
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
 		
-		//System.out.println("host @:"+localAdd.getHostAddress()+" hostN:"+localAdd.getHostName());
 		
-		//PropertyConfigurator.configure("classpath:log4j.properties");
+		Runtime.getRuntime().addShutdownHook(new Thread()
+        {
+            @Override
+            public void run()
+            {
+                System.out.println("Server shutting down");
+            }
+        });
 
 		
 		String db_ip = args[0];
@@ -42,10 +41,16 @@ public class MiddleWare {
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
 	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
 	    
-	    InboxProcessingThread inboxProcessor = new InboxProcessingThread(in, out, dbComm);
+	    InboxProcessingThread inboxProcessor;
+	    
+	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
+	    	inboxProcessor = new InboxProcessingThread(in, out, dbComm, i);
+	    	(new Thread(inboxProcessor)).start();
+		}
+	    
 	    OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
 	    
-	    (new Thread(inboxProcessor)).start();
+	    
 	    (new Thread(outboxProcessor)).start();
 	    
 		

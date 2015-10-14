@@ -1,0 +1,1325 @@
+2015-10-14 22:40:00 INFO  Client:71 - Client started
+2015-10-14 22:40:00 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:00 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:00 INFO  Client:110 - 7 sends a message to client=5 to queue=61
+2015-10-14 22:40:00 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:00 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:00 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:00 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:00 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:00 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:00 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:00 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:01 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:01 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:01 INFO  Client:110 - 7 sends a message to client=6 to queue=40
+2015-10-14 22:40:01 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:01 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:01 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:01 INFO  Client:110 - 7 sends a message to client=3 to queue=22
+2015-10-14 22:40:01 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:01 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:01 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:01 INFO  Client:110 - 7 sends a message to client=4 to queue=47
+2015-10-14 22:40:01 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:01 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:01 INFO  Client:167 - 7 poped a message from queue=63: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:01 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:01 INFO  Client:167 - 7 poped a message from queue=26: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:01 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:01 INFO  Client:137 - 7 peeked a message from sender=41: NO MESSAGE AVAILABLE
+2015-10-14 22:40:01 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:01 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:01 INFO  Client:110 - 7 sends a message to client=5 to queue=48
+2015-10-14 22:40:01 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:01 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:01 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:01 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:02 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:02 INFO  Client:110 - 7 sends a message to client=4 to queue=46
+2015-10-14 22:40:02 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:02 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:02 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:02 INFO  Client:110 - 7 sends a message to client=6 to queue=62
+2015-10-14 22:40:02 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:02 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:02 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:02 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:02 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:02 INFO  Client:110 - 7 sends a message to client=4 to queue=53
+2015-10-14 22:40:02 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:02 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:02 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:02 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:02 INFO  Client:110 - 7 sends a message to client=5 to queue=47
+2015-10-14 22:40:02 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:02 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:02 INFO  Client:167 - 7 poped a message from queue=41: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:02 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:02 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:02 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:02 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:02 INFO  Client:167 - 7 poped a message from queue=54: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:02 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:02 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:02 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:03 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:03 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:03 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:03 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:03 INFO  Client:110 - 7 sends a message to client=5 to queue=77
+2015-10-14 22:40:03 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:03 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:03 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:03 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:03 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:03 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:03 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:03 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:03 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:03 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:03 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:03 INFO  Client:110 - 7 sends a message to client=3 to queue=46
+2015-10-14 22:40:03 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:03 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:03 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:03 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:03 INFO  Client:110 - 7 sends a message to client=1 to queue=30
+2015-10-14 22:40:03 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:03 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:03 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:03 INFO  Client:110 - 7 sends a message to client=6 to queue=26
+2015-10-14 22:40:03 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:04 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:04 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:04 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:04 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:04 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:04 INFO  Client:110 - 7 sends a message to client=5 to queue=70
+2015-10-14 22:40:04 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:04 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:04 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:04 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:04 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:04 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:04 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:04 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:04 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:04 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:04 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:04 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:04 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:04 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:04 INFO  Client:110 - 7 sends a message to client=4 to queue=72
+2015-10-14 22:40:04 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:04 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:04 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:04 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:04 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:05 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:05 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:05 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:05 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:05 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:05 INFO  Client:137 - 7 peeked a message from sender=45: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:05 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:05 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:05 INFO  Client:137 - 7 peeked a message from sender=45: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:05 INFO  Client:137 - 7 peeked a message from sender=45: NO MESSAGE AVAILABLE
+2015-10-14 22:40:05 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:05 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:05 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:05 INFO  Client:137 - 7 peeked a message from sender=70: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:06 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:06 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:06 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:06 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:06 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:06 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:06 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:06 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:06 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:06 INFO  Client:110 - 7 sends a message to client=2 to queue=54
+2015-10-14 22:40:06 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:06 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:06 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:06 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:06 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:06 INFO  Client:110 - 7 sends a message to client=2 to queue=49
+2015-10-14 22:40:06 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:07 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:07 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:07 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:07 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:07 INFO  Client:110 - 7 sends a message to client=3 to queue=51
+2015-10-14 22:40:07 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:07 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:07 INFO  Client:137 - 7 peeked a message from sender=30: NO MESSAGE AVAILABLE
+2015-10-14 22:40:07 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:07 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:07 INFO  Client:110 - 7 sends a message to client=6 to queue=78
+2015-10-14 22:40:07 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:07 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:07 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:07 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:07 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:07 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:07 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:07 INFO  Client:137 - 7 peeked a message from sender=30: NO MESSAGE AVAILABLE
+2015-10-14 22:40:07 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:07 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:07 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:07 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:07 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:08 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:08 INFO  Client:167 - 7 poped a message from queue=30: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:08 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:08 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:08 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:08 INFO  Client:110 - 7 sends a message to client=2 to queue=57
+2015-10-14 22:40:08 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:08 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:08 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:08 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:08 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:08 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:08 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:08 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:08 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:08 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:08 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:08 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:08 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:09 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:09 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:09 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:09 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:09 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:09 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:09 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:09 INFO  Client:110 - 7 sends a message to client=4 to queue=42
+2015-10-14 22:40:09 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:09 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:09 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:09 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:09 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:09 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:09 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:09 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:09 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:09 INFO  Client:110 - 7 sends a message to client=2 to queue=84
+2015-10-14 22:40:09 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:09 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:09 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:09 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:09 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:09 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:10 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:10 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:10 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:10 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:10 INFO  Client:110 - 7 sends a message to client=3 to queue=89
+2015-10-14 22:40:10 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:10 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:10 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:10 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:10 INFO  Client:137 - 7 peeked a message from sender=81: NO MESSAGE AVAILABLE
+2015-10-14 22:40:10 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:10 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:10 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:10 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:10 INFO  Client:110 - 7 sends a message to client=1 to queue=99
+2015-10-14 22:40:10 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:10 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:10 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:10 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:10 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:10 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:11 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:11 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:11 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:11 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:11 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:11 INFO  Client:110 - 7 sends a message to client=5 to queue=85
+2015-10-14 22:40:11 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:11 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:11 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:11 INFO  Client:110 - 7 sends a message to client=2 to queue=99
+2015-10-14 22:40:11 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:11 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:11 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:11 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:11 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:11 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:11 INFO  Client:167 - 7 poped a message from queue=44: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:12 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:12 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:12 INFO  Client:110 - 7 sends a message to client=5 to queue=21
+2015-10-14 22:40:12 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:12 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:12 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:12 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:12 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:12 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:12 INFO  Client:137 - 7 peeked a message from sender=31: NO MESSAGE AVAILABLE
+2015-10-14 22:40:12 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:12 INFO  Client:137 - 7 peeked a message from sender=31: NO MESSAGE AVAILABLE
+2015-10-14 22:40:12 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:12 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:12 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:12 INFO  Client:167 - 7 poped a message from queue=31: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:12 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:12 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:12 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:12 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:12 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:12 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:13 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:13 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:13 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:13 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:13 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:13 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:13 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:13 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:13 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:13 INFO  Client:110 - 7 sends a message to client=6 to queue=100
+2015-10-14 22:40:13 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:13 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:13 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:13 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:13 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:13 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:13 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:13 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:13 INFO  Client:110 - 7 sends a message to client=5 to queue=96
+2015-10-14 22:40:13 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:13 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:13 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:13 INFO  Client:110 - 7 sends a message to client=1 to queue=109
+2015-10-14 22:40:13 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:13 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:14 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:14 INFO  Client:110 - 7 sends a message to client=3 to queue=61
+2015-10-14 22:40:14 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:14 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:14 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:14 INFO  Client:110 - 7 sends a message to client=5 to queue=92
+2015-10-14 22:40:14 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:14 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:14 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:14 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:14 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:14 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:14 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:14 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:14 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:14 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:14 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:14 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:14 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:14 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:14 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:14 INFO  Client:110 - 7 sends a message to client=2 to queue=47
+2015-10-14 22:40:14 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:14 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:14 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:14 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:14 INFO  Client:167 - 7 poped a message from queue=49: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:15 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:15 INFO  Client:137 - 7 peeked a message from sender=13: NO MESSAGE AVAILABLE
+2015-10-14 22:40:15 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:15 INFO  Client:137 - 7 peeked a message from sender=13: NO MESSAGE AVAILABLE
+2015-10-14 22:40:15 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:15 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:15 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:15 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:15 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:15 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:15 INFO  Client:167 - 7 poped a message from queue=13: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:15 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:15 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:15 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:15 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:15 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:16 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:16 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:16 INFO  Client:110 - 7 sends a message to client=6 to queue=48
+2015-10-14 22:40:16 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:16 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:16 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:16 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:16 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:16 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:16 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:16 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:16 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:16 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:16 INFO  Client:110 - 7 sends a message to client=4 to queue=42
+2015-10-14 22:40:16 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:16 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:16 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:16 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:16 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:16 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:16 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:16 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:17 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:17 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:17 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:17 INFO  Client:137 - 7 peeked a message from sender=22: NO MESSAGE AVAILABLE
+2015-10-14 22:40:17 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:17 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:17 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:17 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:17 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:17 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:17 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:17 INFO  Client:110 - 7 sends a message to client=4 to queue=39
+2015-10-14 22:40:17 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:17 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:17 INFO  Client:167 - 7 poped a message from queue=82: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:17 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:18 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:18 INFO  Client:110 - 7 sends a message to client=1 to queue=105
+2015-10-14 22:40:18 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:18 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:18 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:18 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:18 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:18 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:18 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:18 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:18 INFO  Client:137 - 7 peeked a message from sender=41: NO MESSAGE AVAILABLE
+2015-10-14 22:40:18 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:18 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:18 INFO  Client:110 - 7 sends a message to client=1 to queue=68
+2015-10-14 22:40:18 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:18 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:18 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:18 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:18 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:18 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:18 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:18 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:18 INFO  Client:110 - 7 sends a message to client=4 to queue=118
+2015-10-14 22:40:18 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:18 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:19 INFO  Client:137 - 7 peeked a message from sender=18: NO MESSAGE AVAILABLE
+2015-10-14 22:40:19 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:19 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:19 INFO  Client:110 - 7 sends a message to client=4 to queue=87
+2015-10-14 22:40:19 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:19 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:19 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:19 INFO  Client:110 - 7 sends a message to client=4 to queue=11
+2015-10-14 22:40:19 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:19 INFO  Client:255 - Queues with messages returned for client7, queue size:5
+2015-10-14 22:40:19 INFO  Client:137 - 7 peeked a message from sender=109: NO MESSAGE AVAILABLE
+2015-10-14 22:40:19 INFO  Client:255 - Queues with messages returned for client7, queue size:5
+2015-10-14 22:40:19 INFO  Client:167 - 7 poped a message from queue=109: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:19 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:19 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:19 INFO  Client:110 - 7 sends a message to client=6 to queue=122
+2015-10-14 22:40:19 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:19 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:19 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:19 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:20 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:20 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:20 INFO  Client:137 - 7 peeked a message from sender=18: NO MESSAGE AVAILABLE
+2015-10-14 22:40:20 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:20 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:20 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:20 INFO  Client:110 - 7 sends a message to client=6 to queue=70
+2015-10-14 22:40:20 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:20 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:20 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:20 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:20 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:21 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:21 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:21 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:21 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:21 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:21 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:21 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:21 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:21 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:21 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:21 INFO  Client:110 - 7 sends a message to client=3 to queue=75
+2015-10-14 22:40:21 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:21 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:22 INFO  Client:137 - 7 peeked a message from sender=22: NO MESSAGE AVAILABLE
+2015-10-14 22:40:22 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:22 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:22 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:22 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:22 INFO  Client:110 - 7 sends a message to client=6 to queue=105
+2015-10-14 22:40:22 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:22 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:22 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:22 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:22 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:22 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:22 INFO  Client:110 - 7 sends a message to client=6 to queue=122
+2015-10-14 22:40:22 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:22 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:22 INFO  Client:137 - 7 peeked a message from sender=49: NO MESSAGE AVAILABLE
+2015-10-14 22:40:22 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:22 INFO  Client:167 - 7 poped a message from queue=22: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:23 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:23 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:23 INFO  Client:110 - 7 sends a message to client=3 to queue=87
+2015-10-14 22:40:23 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:23 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:23 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:23 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:23 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:23 INFO  Client:110 - 7 sends a message to client=1 to queue=75
+2015-10-14 22:40:23 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:23 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:23 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:23 INFO  Client:110 - 7 sends a message to client=3 to queue=50
+2015-10-14 22:40:23 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:23 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:23 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:23 INFO  Client:255 - Queues with messages returned for client7, queue size:5
+2015-10-14 22:40:24 INFO  Client:137 - 7 peeked a message from sender=119: NO MESSAGE AVAILABLE
+2015-10-14 22:40:24 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:24 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:24 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:24 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:24 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:24 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:24 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:24 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:24 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:24 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:24 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:24 INFO  Client:110 - 7 sends a message to client=6 to queue=76
+2015-10-14 22:40:24 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:25 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:25 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:25 INFO  Client:255 - Queues with messages returned for client7, queue size:5
+2015-10-14 22:40:25 INFO  Client:167 - 7 poped a message from queue=132: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:25 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:25 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:25 INFO  Client:110 - 7 sends a message to client=2 to queue=43
+2015-10-14 22:40:25 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:25 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:25 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:25 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:25 INFO  Client:167 - 7 poped a message from queue=49: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:25 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:25 INFO  Client:137 - 7 peeked a message from sender=49: NO MESSAGE AVAILABLE
+2015-10-14 22:40:25 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:26 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:26 INFO  Client:110 - 7 sends a message to client=3 to queue=129
+2015-10-14 22:40:26 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:26 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:26 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:26 INFO  Client:110 - 7 sends a message to client=3 to queue=52
+2015-10-14 22:40:26 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:26 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:26 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:26 INFO  Client:110 - 7 sends a message to client=1 to queue=94
+2015-10-14 22:40:26 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:26 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:26 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:26 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:26 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:26 INFO  Client:110 - 7 sends a message to client=4 to queue=125
+2015-10-14 22:40:26 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:27 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:27 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:27 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:27 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:27 INFO  Client:110 - 7 sends a message to client=6 to queue=45
+2015-10-14 22:40:27 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:27 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:27 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:27 INFO  Client:110 - 7 sends a message to client=4 to queue=11
+2015-10-14 22:40:27 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:27 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:27 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:27 INFO  Client:255 - Queues with messages returned for client7, queue size:5
+2015-10-14 22:40:27 INFO  Client:137 - 7 peeked a message from sender=86: NO MESSAGE AVAILABLE
+2015-10-14 22:40:27 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:27 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:27 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:27 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:28 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:28 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:28 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:28 INFO  Client:110 - 7 sends a message to client=2 to queue=59
+2015-10-14 22:40:28 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:28 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:28 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:28 INFO  Client:110 - 7 sends a message to client=6 to queue=45
+2015-10-14 22:40:28 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:28 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:28 INFO  Client:153 - 7 peeked a message from sender=6: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:28 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:28 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:28 INFO  Client:110 - 7 sends a message to client=2 to queue=31
+2015-10-14 22:40:28 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:28 INFO  Client:255 - Queues with messages returned for client7, queue size:7
+2015-10-14 22:40:28 INFO  Client:137 - 7 peeked a message from sender=119: NO MESSAGE AVAILABLE
+2015-10-14 22:40:28 INFO  Client:255 - Queues with messages returned for client7, queue size:8
+2015-10-14 22:40:28 INFO  Client:167 - 7 poped a message from queue=49: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:28 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:29 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:29 INFO  Client:110 - 7 sends a message to client=2 to queue=50
+2015-10-14 22:40:29 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:29 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:29 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:29 INFO  Client:255 - Queues with messages returned for client7, queue size:8
+2015-10-14 22:40:29 INFO  Client:167 - 7 poped a message from queue=86: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:29 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:29 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:29 INFO  Client:110 - 7 sends a message to client=5 to queue=72
+2015-10-14 22:40:29 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:29 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:29 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:30 INFO  Client:255 - Queues with messages returned for client7, queue size:7
+2015-10-14 22:40:30 INFO  Client:137 - 7 peeked a message from sender=119: NO MESSAGE AVAILABLE
+2015-10-14 22:40:30 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:30 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:30 INFO  Client:110 - 7 sends a message to client=6 to queue=91
+2015-10-14 22:40:30 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:30 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:30 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:30 INFO  Client:110 - 7 sends a message to client=2 to queue=42
+2015-10-14 22:40:30 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:30 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:30 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:30 INFO  Client:110 - 7 sends a message to client=6 to queue=134
+2015-10-14 22:40:30 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:30 INFO  Client:255 - Queues with messages returned for client7, queue size:7
+2015-10-14 22:40:30 INFO  Client:137 - 7 peeked a message from sender=89: NO MESSAGE AVAILABLE
+2015-10-14 22:40:31 INFO  Client:255 - Queues with messages returned for client7, queue size:7
+2015-10-14 22:40:31 INFO  Client:167 - 7 poped a message from queue=119: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:31 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:31 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:31 INFO  Client:110 - 7 sends a message to client=3 to queue=85
+2015-10-14 22:40:31 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:31 INFO  Client:255 - Queues with messages returned for client7, queue size:6
+2015-10-14 22:40:31 INFO  Client:167 - 7 poped a message from queue=89: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:31 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:31 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:31 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:31 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:31 INFO  Client:110 - 7 sends a message to client=4 to queue=18
+2015-10-14 22:40:31 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:31 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:31 INFO  Client:137 - 7 peeked a message from sender=130: NO MESSAGE AVAILABLE
+2015-10-14 22:40:32 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:32 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:32 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:32 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:32 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:32 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:32 INFO  Client:110 - 7 sends a message to client=5 to queue=39
+2015-10-14 22:40:32 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:32 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:32 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:32 INFO  Client:110 - 7 sends a message to client=3 to queue=130
+2015-10-14 22:40:32 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:32 INFO  Client:255 - Queues with messages returned for client7, queue size:4
+2015-10-14 22:40:32 INFO  Client:167 - 7 poped a message from queue=130: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:32 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:32 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:32 INFO  Client:167 - 7 poped a message from queue=124: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:32 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:32 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:32 INFO  Client:110 - 7 sends a message to client=4 to queue=50
+2015-10-14 22:40:32 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:33 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:33 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:33 INFO  Client:110 - 7 sends a message to client=1 to queue=120
+2015-10-14 22:40:33 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:33 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:33 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:33 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:33 INFO  Client:137 - 7 peeked a message from sender=59: NO MESSAGE AVAILABLE
+2015-10-14 22:40:33 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:33 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:33 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:33 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:33 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:34 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:34 INFO  Client:110 - 7 sends a message to client=6 to queue=132
+2015-10-14 22:40:34 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:34 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:34 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:34 INFO  Client:110 - 7 sends a message to client=2 to queue=45
+2015-10-14 22:40:34 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:34 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:34 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:34 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:34 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:34 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:34 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:34 INFO  Client:110 - 7 sends a message to client=5 to queue=63
+2015-10-14 22:40:34 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:34 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:34 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:35 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:35 INFO  Client:137 - 7 peeked a message from sender=59: NO MESSAGE AVAILABLE
+2015-10-14 22:40:35 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:35 INFO  Client:153 - 7 peeked a message from sender=5: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:35 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:35 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:35 INFO  Client:167 - 7 poped a message from queue=59: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:35 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:35 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:35 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:35 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:36 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:36 INFO  Client:137 - 7 peeked a message from sender=45: NO MESSAGE AVAILABLE
+2015-10-14 22:40:36 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:36 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:36 INFO  Client:110 - 7 sends a message to client=3 to queue=109
+2015-10-14 22:40:36 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:36 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:36 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:36 INFO  Client:110 - 7 sends a message to client=2 to queue=147
+2015-10-14 22:40:36 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:36 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:36 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:36 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:37 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:37 INFO  Client:137 - 7 peeked a message from sender=45: NO MESSAGE AVAILABLE
+2015-10-14 22:40:37 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:37 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:37 INFO  Client:110 - 7 sends a message to client=6 to queue=106
+2015-10-14 22:40:37 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:37 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:37 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:37 INFO  Client:167 - 7 poped a message from queue=45: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:37 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:38 INFO  Client:167 - 7 poped a message from queue=38: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:38 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:38 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:38 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:38 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:38 INFO  Client:110 - 7 sends a message to client=3 to queue=44
+2015-10-14 22:40:38 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:38 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:38 INFO  Client:137 - 7 peeked a message from sender=39: NO MESSAGE AVAILABLE
+2015-10-14 22:40:38 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:38 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:38 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:38 INFO  Client:137 - 7 peeked a message from sender=39: NO MESSAGE AVAILABLE
+2015-10-14 22:40:39 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:39 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:39 INFO  Client:110 - 7 sends a message to client=5 to queue=155
+2015-10-14 22:40:39 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:39 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:39 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:39 INFO  Client:110 - 7 sends a message to client=1 to queue=155
+2015-10-14 22:40:39 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:39 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:39 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:39 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:39 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:39 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:39 INFO  Client:137 - 7 peeked a message from sender=39: NO MESSAGE AVAILABLE
+2015-10-14 22:40:40 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:40 INFO  Client:137 - 7 peeked a message from sender=39: NO MESSAGE AVAILABLE
+2015-10-14 22:40:40 INFO  Client:255 - Queues with messages returned for client7, queue size:3
+2015-10-14 22:40:40 INFO  Client:167 - 7 poped a message from queue=136: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:40 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:40 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:40 INFO  Client:110 - 7 sends a message to client=2 to queue=155
+2015-10-14 22:40:40 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:40 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:40 INFO  Client:181 - 7 peeked a message from sender=5 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:40 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:40 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:40 INFO  Client:110 - 7 sends a message to client=2 to queue=155
+2015-10-14 22:40:40 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:40 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:40 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:40 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:40 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:40 INFO  Client:110 - 7 sends a message to client=2 to queue=128
+2015-10-14 22:40:40 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:40 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:41 INFO  Client:137 - 7 peeked a message from sender=165: NO MESSAGE AVAILABLE
+2015-10-14 22:40:41 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:41 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:41 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:41 INFO  Client:110 - 7 sends a message to client=6 to queue=100
+2015-10-14 22:40:41 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:41 INFO  Client:255 - Queues with messages returned for client7, queue size:2
+2015-10-14 22:40:41 INFO  Client:167 - 7 poped a message from queue=118: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:41 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:41 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:41 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:41 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:41 INFO  Client:110 - 7 sends a message to client=2 to queue=31
+2015-10-14 22:40:41 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:41 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:41 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:41 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:41 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:41 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:42 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:110 - 7 sends a message to client=2 to queue=119
+2015-10-14 22:40:42 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:42 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:110 - 7 sends a message to client=4 to queue=103
+2015-10-14 22:40:42 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:42 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:42 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:110 - 7 sends a message to client=1 to queue=165
+2015-10-14 22:40:42 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:42 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:110 - 7 sends a message to client=6 to queue=94
+2015-10-14 22:40:42 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:42 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:42 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:42 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:42 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:42 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:42 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:42 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:43 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:43 INFO  Client:110 - 7 sends a message to client=2 to queue=84
+2015-10-14 22:40:43 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:43 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:43 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:43 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:43 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:43 INFO  Client:110 - 7 sends a message to client=3 to queue=172
+2015-10-14 22:40:43 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:43 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:43 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:43 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:43 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:43 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:43 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:43 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:43 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:43 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:43 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:43 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:43 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:43 INFO  Client:110 - 7 sends a message to client=1 to queue=154
+2015-10-14 22:40:43 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:43 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:43 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:43 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:43 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:44 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:44 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:44 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:44 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:44 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:44 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:44 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:44 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:44 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:44 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:44 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:44 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:44 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:44 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:45 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:45 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:45 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:45 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:45 INFO  Client:110 - 7 sends a message to client=1 to queue=170
+2015-10-14 22:40:45 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:45 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:45 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:45 INFO  Client:110 - 7 sends a message to client=5 to queue=168
+2015-10-14 22:40:45 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:45 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:45 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:45 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:45 INFO  Client:153 - 7 peeked a message from sender=6: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:45 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:45 INFO  Client:137 - 7 peeked a message from sender=174: NO MESSAGE AVAILABLE
+2015-10-14 22:40:45 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:46 INFO  Client:181 - 7 peeked a message from sender=6 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:46 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:46 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:46 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:46 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:46 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:46 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:46 INFO  Client:110 - 7 sends a message to client=4 to queue=26
+2015-10-14 22:40:46 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:46 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:46 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:46 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:46 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:46 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:46 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:47 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:47 INFO  Client:181 - 7 peeked a message from sender=4 :NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:47 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:47 INFO  Client:137 - 7 peeked a message from sender=54: NO MESSAGE AVAILABLE
+2015-10-14 22:40:47 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:47 INFO  Client:137 - 7 peeked a message from sender=54: NO MESSAGE AVAILABLE
+2015-10-14 22:40:47 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:47 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:47 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:47 INFO  Client:153 - 7 peeked a message from sender=4: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:47 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:47 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:48 INFO  Client:137 - 7 peeked a message from sender=54: NO MESSAGE AVAILABLE
+2015-10-14 22:40:48 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:48 INFO  Client:137 - 7 peeked a message from sender=54: NO MESSAGE AVAILABLE
+2015-10-14 22:40:48 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:48 INFO  Client:167 - 7 poped a message from queue=54: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:48 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:48 INFO  Client:137 - 7 peeked a message from sender=160: NO MESSAGE AVAILABLE
+2015-10-14 22:40:48 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:48 INFO  Client:153 - 7 peeked a message from sender=6: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:48 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:48 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:48 INFO  Client:110 - 7 sends a message to client=1 to queue=38
+2015-10-14 22:40:48 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:48 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:48 INFO  Client:167 - 7 poped a message from queue=160: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:49 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:49 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:49 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:49 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:49 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:49 INFO  Client:137 - 7 peeked a message from sender=53: NO MESSAGE AVAILABLE
+2015-10-14 22:40:49 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:49 INFO  Client:137 - 7 peeked a message from sender=53: NO MESSAGE AVAILABLE
+2015-10-14 22:40:49 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:49 INFO  Client:167 - 7 poped a message from queue=53: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:49 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:49 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:49 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:50 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:50 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:50 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:50 INFO  Client:110 - 7 sends a message to client=1 to queue=160
+2015-10-14 22:40:50 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:50 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:50 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:50 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:50 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:50 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:50 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:50 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:50 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:50 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:50 INFO  Client:110 - 7 sends a message to client=4 to queue=52
+2015-10-14 22:40:50 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:51 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:51 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:51 INFO  Client:110 - 7 sends a message to client=3 to queue=89
+2015-10-14 22:40:51 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:51 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:51 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:51 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:51 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:51 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:51 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:51 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:51 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:51 INFO  Client:110 - 7 sends a message to client=6 to queue=154
+2015-10-14 22:40:51 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:51 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:51 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:51 INFO  Client:110 - 7 sends a message to client=6 to queue=130
+2015-10-14 22:40:51 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:51 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:51 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:51 INFO  Client:110 - 7 sends a message to client=5 to queue=171
+2015-10-14 22:40:51 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:52 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:52 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:52 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:52 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:52 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:52 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:52 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:52 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:52 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:52 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:52 INFO  Client:110 - 7 sends a message to client=4 to queue=159
+2015-10-14 22:40:52 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:52 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:52 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:52 INFO  Client:110 - 7 sends a message to client=6 to queue=190
+2015-10-14 22:40:52 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:52 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:52 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:52 INFO  Client:110 - 7 sends a message to client=4 to queue=168
+2015-10-14 22:40:52 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:52 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:52 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:52 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:52 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:53 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:53 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:53 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:53 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:53 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:53 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:53 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:53 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:53 INFO  Client:110 - 7 sends a message to client=3 to queue=190
+2015-10-14 22:40:53 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:53 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:53 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:53 INFO  Client:110 - 7 sends a message to client=3 to queue=108
+2015-10-14 22:40:53 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:53 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:53 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:53 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:53 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:53 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:53 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:53 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:53 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:54 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:54 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:54 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:54 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:54 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:54 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:54 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:54 INFO  Client:110 - 7 sends a message to client=4 to queue=72
+2015-10-14 22:40:54 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:54 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:54 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:54 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:54 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:54 INFO  Client:110 - 7 sends a message to client=1 to queue=74
+2015-10-14 22:40:54 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:54 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:54 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:54 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:55 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:55 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:55 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:55 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:55 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:55 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:55 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:55 INFO  Client:110 - 7 sends a message to client=4 to queue=149
+2015-10-14 22:40:55 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:55 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:55 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:55 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:55 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:55 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:55 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:55 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:56 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:56 INFO  Client:110 - 7 sends a message to client=5 to queue=170
+2015-10-14 22:40:56 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:56 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:56 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:56 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:56 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:56 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:56 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:56 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:56 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:56 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:56 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:56 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:56 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:57 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:57 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:57 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:57 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:57 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:57 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:57 INFO  Client:110 - 7 sends a message to client=3 to queue=40
+2015-10-14 22:40:57 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:57 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:57 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:57 INFO  Client:110 - 7 sends a message to client=5 to queue=13
+2015-10-14 22:40:57 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:57 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:57 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:57 INFO  Client:110 - 7 sends a message to client=2 to queue=21
+2015-10-14 22:40:57 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:57 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:57 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:57 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=5 to queue=193
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:153 - 7 peeked a message from sender=6: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:58 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:58 INFO  Client:137 - 7 peeked a message from sender=68: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:255 - Queues with messages returned for client7, queue size:1
+2015-10-14 22:40:58 INFO  Client:167 - 7 poped a message from queue=68: NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIofDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nBCk0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=1 to queue=198
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=1 to queue=21
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=2 to queue=176
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:58 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=1 to queue=132
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=1 to queue=157
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:58 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=2 to queue=180
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=3 to queue=148
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:58 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:110 - 7 sends a message to client=4 to queue=31
+2015-10-14 22:40:58 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:191 - 7 created a queue
+2015-10-14 22:40:58 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:58 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:58 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:58 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:58 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:58 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:58 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:58 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=3 to queue=178
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=4 to queue=130
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=5 to queue=155
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=2 to queue=204
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=6 to queue=144
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=5 to queue=86
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=2 to queue=40
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=2 to queue=128
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:179 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:201 - 7 deleted a queue
+2015-10-14 22:40:59 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:40:59 INFO  Client:137 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=1 to queue=192
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:40:59 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:40:59 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:40:59 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:40:59 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:40:59 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:40:59 INFO  Client:110 - 7 sends a message to client=4 to queue=193
+2015-10-14 22:40:59 INFO  Client:118 - Message sent by client: 7
+2015-10-14 22:41:00 INFO  Client:225 - Client list with messages returned for client=7
+2015-10-14 22:41:00 INFO  Client:231 - Client list empty for client=7
+2015-10-14 22:41:00 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:41:00 INFO  Client:259 - Queue list with messages empty for client=7
+2015-10-14 22:41:00 INFO  Client:165 - 7 poped a message from queue=-1: NO MESSAGE AVAILABLE
+2015-10-14 22:41:00 INFO  Client:211 - Client list returned for client=7
+2015-10-14 22:41:00 INFO  Client:239 - Queue list returned for client=7
+2015-10-14 22:41:00 INFO  Client:110 - 7 sends a message to client=6 to queue=190
+2015-10-14 22:41:00 INFO  Client:118 - Message sent by client: 7

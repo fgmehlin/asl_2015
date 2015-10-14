@@ -1,13 +1,13 @@
 #!/bin/bash
 
-PG_DB='postgresql-9.4.4'
-PG_FOLDER='postgres'
-username='fgmehlin'
-PORTNUMBER=4445
+PG_DB='postgresql-9.4.4' # your version of PG
+PG_FOLDER='postgres'	
+username='fgmehlin'		 # your name
+PORTNUMBER=4445			 # your port number
 lcshit='en_US.UTF-8'
-DB_DUMP='asl_db.pgsql'
-socketPath="/mnt/local/${username}"
-pathToPostgres="${socketPath}/postgres"
+DB_DUMP='asl_db.pgsql'   # name of your DB dump
+clusterHome="/mnt/local/${username}"
+pathToPostgres="${clusterHome}/postgres"
 
 
 if [ -d "/mnt/local/${fusername}" ]; then
@@ -34,25 +34,27 @@ export LC_CTYPE
 
 $pathToPostgres/bin/initdb -D $pathToPostgres/db 
 
-$pathToPostgres/bin/postgres -D $pathToPostgres/db/ -p $PORTNUMBER -i -k $socketPath >/mnt/local/$username/db.out 2>&1 &
+$pathToPostgres/bin/postgres -D $pathToPostgres/db/ -p $PORTNUMBER -i -k $clusterHome >/mnt/local/$username/db.out 2>&1 &
 
-while [ `cat db.out | grep 'database system is ready to accept connections' | wc -l` != 1 ]
+while [ `cat /mnt/local/$username/db.out | grep 'database system is ready to accept connections' | wc -l` != 1 ]
 do
 	sleep 1
 done 
 
-$pathToPostgres/bin/createdb -p 4445 -h $socketPath
+$pathToPostgres/bin/createdb -p $PORTNUMBER -h $clusterHome
 
 echo "Database created"
 
-$pathToPostgres/postgres/bin/psql -p 4445 -h $socketPath << EOF
+
+# Adapt this shit to your shit
+$pathToPostgres/bin/psql -p $PORTNUMBER -h $clusterHome << EOF
 create role asl_pg;
 create database asl;
 alter role asl_pg login;
 alter database asl owner to asl_pg;
 EOF
 
-$pathToPostgres/postgres/bin/psql -p 4445 -h $socketPath -U asl_pg asl < $DB_DUMP
+$pathToPostgres/bin/psql -p $PORTNUMBER -h $clusterHome -U asl_pg asl < $clusterHome/$DB_DUMP
 
 
 

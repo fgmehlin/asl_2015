@@ -133,17 +133,26 @@ public class Client {
 
 		out.println("PMQ#"+clientID+"#" + queue);
 		String messagePeeked = in.readLine();
-		logger.info(clientID+" peeked a message from queue="+queue+": " + messagePeeked);	
+		if(messagePeeked==null || messagePeeked.equals("null")){
+			logger.info(clientID + " peeked a message from sender="+queue+": NO MESSAGE AVAILABLE");
+		}else{
+			logger.info(clientID+" peeked a message from queue="+queue+": " + messagePeeked);
+		}
 		//System.out.println("Message peeked from Queue "+queue+" :" + messagePeeked);
 	}
 
 	// Proba : 0.16
 	public static void peekMessageBySender(PrintWriter out, BufferedReader in) throws IOException {
-		int client = getClient(out, in);
+		int sender = getClientWithMSG(out, in);
 
-		out.println("PMS#"+clientID+"#" + client);
+		out.println("PMS#"+clientID+"#" + sender);
 		String messagePeeked = in.readLine();
-		logger.info(clientID + " peeked a message from sender="+client+": " + messagePeeked);
+		if(messagePeeked==null || messagePeeked.equals("null")){
+			logger.info(clientID + " peeked a message from sender="+sender+": NO MESSAGE AVAILABLE");
+		}else{
+			logger.info(clientID + " peeked a message from sender="+sender+": " + messagePeeked);
+		}
+		
 		//System.out.println("Message peeked from Sender "+client+" :" + messagePeeked);
 	}
 
@@ -152,16 +161,26 @@ public class Client {
 		int queue = getQueueWithMSG(out, in);
 		out.println("GMQ#"+clientID+"#" + queue);
 		String messageFromQueue = in.readLine();
-		logger.info(clientID+" poped a message from queue="+queue+": " + messageFromQueue);
+		if(messageFromQueue==null || messageFromQueue.equals("null")){
+			logger.info(clientID+" poped a message from queue="+queue+": NO MESSAGE AVAILABLE");
+		}else{
+			logger.info(clientID+" poped a message from queue="+queue+": " + messageFromQueue);
+		}
+		
 		//System.out.println("Message poped from Queue "+queue+" :" + messageFromQueue);
 	}
 
 	// Proba : 0.10 ==> 0.13
 	public static void popMessageBySender(PrintWriter out, BufferedReader in) throws IOException {
-		int sender = getClient(out, in);
+		int sender = getClientWithMSG(out, in);
 		out.println("GMS#"+clientID+"#" + sender);
 		String messageFromSender = in.readLine();
-		logger.info(clientID+" peeked a message from sender="+sender+" :" + messageFromSender);
+		if(messageFromSender==null || messageFromSender.equals("null")){
+			logger.info(clientID + " peeked a message from sender="+sender+": NO MESSAGE AVAILABLE");
+		}else{
+			logger.info(clientID+" peeked a message from sender="+sender+" :" + messageFromSender);
+		}
+		
 		//System.out.println("Message peeked from Sender "+sender+" :" + messageFromSender);
 
 	}
@@ -190,6 +209,20 @@ public class Client {
 		out.println("LC#"+clientID+"");
 		String clients = in.readLine();
 		logger.info("Client list returned for client="+clientID);
+		String[] clientList = clients.split("#");
+		if (!clients.isEmpty()) {
+			int receiver_index = rand.nextInt(clientList.length);
+			return Integer.parseInt(clientList[receiver_index]);
+		} else {
+			logger.info("Client list empty for client="+clientID);
+			return -1;
+		}
+	}
+	
+	private static int getClientWithMSG(PrintWriter out, BufferedReader in) throws IOException {
+		out.println("LCWM#"+clientID+"");
+		String clients = in.readLine();
+		logger.info("Client list with messages returned for client="+clientID);
 		String[] clientList = clients.split("#");
 		if (!clients.isEmpty()) {
 			int receiver_index = rand.nextInt(clientList.length);

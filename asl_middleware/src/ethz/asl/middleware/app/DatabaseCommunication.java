@@ -31,7 +31,10 @@ public class DatabaseCommunication {
 	private Connection getConnection() {
 
 		Connection conn = null;
-		Properties connectionProps = new Properties();
+		
+		
+		
+		/*Properties connectionProps = new Properties();
 		connectionProps.put("user", USERNAME);
 		connectionProps.put("password", PASSWORD);
 
@@ -39,7 +42,7 @@ public class DatabaseCommunication {
 			conn = DriverManager.getConnection(db_url, connectionProps);
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return conn;
 	}
 
@@ -98,6 +101,36 @@ public class DatabaseCommunication {
 		}
 
 		return result;
+	}
+	
+	public String getClientsWithMessages(int clientID){
+		Connection conn = null;
+		PreparedStatement prepStmt = null;
+		conn = getConnection();
+		String result = "";
+		String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id in (-1, ?)";
+		try {
+			prepStmt = conn.prepareStatement(getQueuesSQL);
+			prepStmt.setInt(1, clientID);
+			ResultSet rs = prepStmt.executeQuery();
+
+			while (rs.next()) {
+				result = result + rs.getString("sender_id") + "#";
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				prepStmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+		
 	}
 	
 	public String getQueuesWithMessages(int clientID) {

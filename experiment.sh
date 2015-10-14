@@ -85,12 +85,17 @@ then
 fi
 echo "OK"
 
+
+ssh $remoteUserName@$serverMachine "mkdir /tmp/fgmehlin/"
+ssh $remoteUserName@$clientMachine "mkdir /tmp/fgmehlin/"
+
+
 echo "  Copying server.jar to server machine: $serverMachine ... "
 # Copy jar to server machine
-scp asl_middleware.jar $remoteUserName@$serverMachine:/tmp
+scp asl_middleware.jar $remoteUserName@$serverMachine:/tmp/
 echo "  Copying client.jar to client machine: $serverMachine ... "
 # Copy jar to client machine
-scp asl_client.jar $remoteUserName@$clientMachine:/tmp
+scp asl_client.jar $remoteUserName@$clientMachine:/tmp/
 
 ######################################
 #
@@ -100,12 +105,12 @@ scp asl_client.jar $remoteUserName@$clientMachine:/tmp
 
 # Run server
 echo "  Starting the server"
-ssh $remoteUserName@$serverMachine "java -jar /tmp/asl_middleware.jar dryad07.ethz.ch:4445 8787 2>&1 > /tmp/server.out " &
+ssh $remoteUserName@$serverMachine "java -jar /tmp/asl_middleware.jar dryad07.ethz.ch:4445 4444 2>&1 > /tmp/${remoteUserName}/server.out " &
 
 # Wait for the server to start up
 echo -ne "  Waiting for the server to start up..."
 sleep 1
-while [ `ssh $remoteUserName@$serverMachine "cat /tmp/server.out | grep 'Server listening' | wc -l"` != 1 ]
+while [ `ssh $remoteUserName@$serverMachine "cat /tmp/${remoteUserName}/server.out | grep 'Server listening' | wc -l"` != 1 ]
 do
 	sleep 1
 done 
@@ -118,7 +123,7 @@ pids=""
 for clientId in $clientIds
 do
 	echo "    Start client: $clientId"
-	ssh $remoteUserName@$clientMachine "cd /tmp; java -jar /tmp/asl_client.jar $serverMachine 8787 $clientRunTime > /tmp/out.client${clientId}" &
+	ssh $remoteUserName@$clientMachine "cd /tmp; java -jar /tmp/asl_client.jar $serverMachine 4444 $clientRunTime" &
 	pids="$pids $!"
 done
 
@@ -137,7 +142,7 @@ ssh $remoteUserName@$serverMachine "killall java"
 
 echo -ne "  Waiting for the server to shut down... "
 # Wait for the server to gracefully shut down
-while [ `ssh $remoteUserName@$serverMachine "cat /tmp/server.out | grep 'Server shutting down' | wc -l"` != 1 ]
+while [ `ssh $remoteUserName@$serverMachine "cat /tmp/${remoteUserName}/server.out | grep 'Server shutting down' | wc -l"` != 1 ]
 do
 	sleep 1
 done 
@@ -149,23 +154,27 @@ echo "OK"
 #
 ########################################
 
+ssh $remoteUserName@$clientMachine "cd /tmp; mv *_executionLog.log /tmp/fgmehlin/"
+ssh $remoteUserName@$serverMachine "cd /tmp; mv *_executionLog.log /tmp/fgmehlin/MWlog.log"
+
+scp $remoteUserName@$serverMachine:/tmp/$remoteUserName/*_executionLog.log ./$experimentId/
+
 # Copy log files from the clients
 mkdir -p $experimentId
 echo "  Copying log files from client machine... "
-for clientId in $clientIds
-do
-	scp $remoteUserName@$clientMachine:/tmp/client$clientId ./$experimentId/
-done
+
+scp $remoteUserName@$clientMachine:/tmp/$remoteUserName/*_executionLog.log ./$experimentId/
+
 
 # Cleanup
 echo -ne "  Cleaning up files on client and server machines... "
-ssh $remoteUserName@$clientMachine "rm /tmp/client*; rm /tmp/out.client*"
-ssh $remoteUserName@$serverMachine "rm /tmp/server.out"
+ssh $remoteUserName@$clientMachine "rm /tmp/${remoteUserName}/*"
+ssh $remoteUserName@$serverMachine "rm /tmp/${remoteUserName}/*"
 echo "OK"
 
 # Process the log files from the clients
 echo "  Processing log files"
-cat $experimentId/client* | sort -n > $experimentId/allclients
+cat $experimentId/*_executionLog.log | sort -n > $experimentId/allclients
 
 echo "  Generating trace.jpg with gnuplot"
 gnuplot << EOF

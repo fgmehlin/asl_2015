@@ -9,13 +9,15 @@ public class InboxProcessingThread implements Runnable{
 	private final BlockingQueue<QueryObject> out;
 	private final BlockingQueue<QueryObject> in;
 	private final DatabaseCommunication dbComm;
+	private final int proc_id;
 	private static Logger logger = Logger.getLogger(InboxProcessingThread.class.getName());
 	
-	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, DatabaseCommunication dbComm){
+	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, DatabaseCommunication dbComm, int proc_id){
 		this.in = in;
 		this.out = out;
 		this.dbComm = dbComm;
-		logger.info("InboxProcessingThread created");
+		this.proc_id = proc_id;
+		logger.info("InboxProcessingThread No"+proc_id+" created");
 		
 	}
 	
@@ -26,8 +28,9 @@ public class InboxProcessingThread implements Runnable{
 			
 			try {
 				QueryObject query = in.take();
-				logger.info("Query removed from inbox, size: " + in.size());
 				String command = query.getCommand();
+				logger.info("IP["+proc_id+"] Query with command "+command+" removed from inbox, size: " + in.size());
+				
 				
 				
 				String[] splittedCommand = command.split("#");
@@ -53,6 +56,9 @@ public class InboxProcessingThread implements Runnable{
 						break;
 					case "LC":
 						query.setReply(dbComm.getClients(clientID));
+						break;
+					case "LCWM":
+						query.setReply(dbComm.getClientsWithMessages(clientID));
 						break;
 					case "LQ":
 						query.setReply(dbComm.getQueues());
@@ -91,7 +97,7 @@ public class InboxProcessingThread implements Runnable{
 				
 				
 				out.put(query);
-				logger.info("Reply added to outbox, size: " + out.size());
+				logger.info("IP["+proc_id+"] Reply "+query.getReply()+" added to outbox, size: " + out.size());
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
