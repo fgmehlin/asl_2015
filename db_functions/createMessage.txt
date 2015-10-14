@@ -1,16 +1,27 @@
-CREATE OR REPLACE FUNCTION createMessage(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(2000)) RETURNS VOID AS
+CREATE OR REPLACE FUNCTION createMessage(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(2000)) RETURNS boolean AS
 $$
 DECLARE
  messid integer;
+ countQ integer;
+ ok boolean;
 BEGIN
+	
+	SELECT count(*) INTO countQ FROM queues WHERE queue_id = queue;
 
-    INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
-    (default, sender, receiver, now(), message);
+	IF countQ <> 0 THEN
+
+    	INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
+    	(default, sender, receiver, now(), message);
     
-    SELECT max(message_id) INTO messid FROM messages WHERE sender_id=sender;
+    	SELECT max(message_id) INTO messid FROM messages WHERE sender_id=sender;
 
-    INSERT INTO message_queue (queue_id, message_id) VALUES(
-        queue, messid);
+    	INSERT INTO message_queue (queue_id, message_id) VALUES(queue, messid);
+
+    	ok = True;
+    ELSE
+    	ok = False;
+    END IF;
+    RETURN ok;
 END
 $$
     LANGUAGE 'plpgsql';

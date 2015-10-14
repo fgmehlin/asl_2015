@@ -6,10 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Random;
-import java.util.Scanner;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 
 public class Client {
@@ -24,27 +22,32 @@ public class Client {
 
 	private static Random rand;
 	
-	private static Logger logger = Logger.getLogger(Client.class.getName());
+	private static Logger logger;
 	
 
 	public static void main(String[] args) {
-		if (args.length != 2) {
-			System.err.println("Usage: java Client <host name> <port number>");
+		if (args.length != 3) {
+			System.err.println("Usage: java Client <host name> <port number> <duration>");
 			System.exit(1);
 		}
 		
 		//PropertyConfigurator.configure("log4j.properties");
 
-		logger.info(System.currentTimeMillis() +" Client started");		
+		
+		
+			
 		int initClientID = -99;
 
 		rand = new Random();
 
-		long start = System.currentTimeMillis();
-		long end = start + 60 * 1000;
+		
 
 		String hostName = args[0];
 		int portNumber = Integer.parseInt(args[1]);
+		int duration = Integer.parseInt(args[2]);
+		
+		long start = System.currentTimeMillis();
+		long end = start + duration * 1000;
 
 		//System.out.println("hostname : " + hostName + ", port : " + portNumber);
 		
@@ -63,6 +66,9 @@ public class Client {
 		}
 		
 		clientID = initClientID;
+		System.setProperty("clientid", clientID+"");
+		logger = Logger.getLogger(Client.class.getName());
+		logger.info("Client started");	
 		
 
 		while (System.currentTimeMillis() < end) {
@@ -225,7 +231,7 @@ public class Client {
 	private static int getClientID(PrintWriter out, BufferedReader in) throws IOException{
 		out.println("ECHO");
 		String clientID = in.readLine();
-		logger.info("Client id returned : " + clientID);
+		//logger.info("Client id returned : " + clientID);
 		return Integer.parseInt(clientID);
 	}
 

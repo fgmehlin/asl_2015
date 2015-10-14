@@ -1,0 +1,5 @@
+2015-10-09 12:13:58 INFO  InboxProcessingThread:18 - InboxProcessingThread created
+2015-10-09 12:13:58 INFO  OutboxProcessingThread:16 - OutboxProcessingThread created
+2015-10-09 12:14:54 INFO  InboxProcessingThread:18 - InboxProcessingThread created
+2015-10-09 12:14:54 INFO  OutboxProcessingThread:16 - OutboxProcessingThread created
+2015-10-09 12:14:57 INFO  InboxProcessingThread:29 - Query removed from inbox, size: 0

@@ -11,18 +11,19 @@ import java.util.Properties;
 
 public class DatabaseCommunication {
 
-	private static final String URL = "jdbc:postgresql://localhost/asl";
+	private static String db_url = "";
 	private static final String USERNAME = "asl_pg";
-	private static final String PASSWORD = "asl_asl_asl";
+	private static final String PASSWORD = "asl_asl";
 
 	private static DatabaseCommunication instance = null;
 
-	protected DatabaseCommunication() {
+	protected DatabaseCommunication(String db_ip) {
+		this.db_url = "jdbc:postgresql://"+db_ip+"/asl";
 	}
 
-	public static DatabaseCommunication getInstance() {
+	public static DatabaseCommunication getInstance(String db_ip) {
 		if (instance == null) {
-			instance = new DatabaseCommunication();
+			instance = new DatabaseCommunication(db_ip);
 		}
 		return instance;
 	}
@@ -35,7 +36,7 @@ public class DatabaseCommunication {
 		connectionProps.put("password", PASSWORD);
 
 		try {
-			conn = DriverManager.getConnection(URL, connectionProps);
+			conn = DriverManager.getConnection(db_url, connectionProps);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
