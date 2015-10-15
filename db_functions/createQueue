@@ -2,7 +2,7 @@ CREATE or REPLACE FUNCTION createqueue() RETURNS VOID AS
 $$
 BEGIN
 	
-	INSERT INTO queues (queue_id) VALUES (default);
+	INSERT INTO queues (queue_id) VALUES (default) RETURNING ;
 
 END;
 $$

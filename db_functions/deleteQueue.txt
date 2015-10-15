@@ -17,4 +17,4 @@ END IF;
 RETURN deleteOK;
 END;
 $deleteOK$
-	LANGUAGE ‘plpgsql’;
+	LANGUAGE 'plpgsql';

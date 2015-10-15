@@ -59,8 +59,6 @@ public class Client {
 				
 			initClientID = getClientID(out, in);
 				
-				System.out.println("Client id given :"  + clientID);
-				
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -79,19 +77,19 @@ public class Client {
 					PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 					BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));) {
 
-				if (r >= 0 && r < 25) {
+				if (r >= 0 && r < 30) {				// p(SM) = 0.30
 					sendMessage(out, in);
-				} else if (r >= 25 && r < 41) {
+				} else if (r >= 30 && r < 45) {		// p(PMBS) = 0.15 
 					peekMessageBySender(out, in);
-				} else if (r >= 41 && r < 57) {
+				} else if (r >= 45 && r < 60) {		// P(PMBQ) = 0.15
 					peekMessageByQueue(out, in);
-				} else if (r >= 57 && r < 70) {
+				} else if (r >= 60 && r < 78) {		// P(GMQ) = 0.18
 					popMessageByQueue(out, in);
-				} else if (r >= 70 && r < 83) {
+				} else if (r >= 78 && r < 96) {		// P(GMS) = 0.18
 					popMessageBySender(out, in);
-				} else if (r >= 83 && r < 92) {
+				} else if (r >= 96 && r < 97) {		// P(CQ) = 0.01
 					createQueue(out, in);
-				} else {
+				} else {							// P(DQ) = 0.03
 					deleteQueue(out, in);
 				}
 
@@ -103,19 +101,16 @@ public class Client {
 
 	}
 
-	// Proba : 0.25
 	public static void sendMessage(PrintWriter out, BufferedReader in) throws IOException {
 		int receiver = getClient(out, in);
 		int queue = getQueue(out, in);
-		logger.info(clientID + " sends a message to client=" + receiver + " to queue="+queue);
-		//System.out.println("SEND MESSAGE : R: " + receiver + " | Q: " + queue);
-
 		if (queue > 0) {
 			if (receiver > 0) {
+				logger.info("Client "+ clientID + " Q send message to client(" + receiver + ") to queue("+queue+")");
 				out.println("SM#"+clientID+"#" + receiver + "#" + queue
 						+ "#"+MESSAGE);
-				// TODO get reply
-				logger.info("Message sent by client: " + clientID);
+				String sendStatus = in.readLine();
+				logger.info("Client "+ clientID + " R send message to client(" + receiver + ") to queue("+queue+"). Status : " +sendStatus);
 			} else {
 				logger.info("No client to send a message for client: " + clientID);
 				//System.out.println("No client available");
@@ -127,78 +122,76 @@ public class Client {
 
 	}
 
-	// Proba : 0.16
 	public static void peekMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
-
+		logger.info("Client "+ clientID + " Q peek message by queue("+queue+")");
 		out.println("PMQ#"+clientID+"#" + queue);
 		String messagePeeked = in.readLine();
 		if(messagePeeked==null || messagePeeked.equals("null")){
-			logger.info(clientID + " peeked a message from sender="+queue+": NO MESSAGE AVAILABLE");
+			logger.info("Client "+ clientID + " R peek message by queue("+queue+"). NO MSG AVAILABLE");
 		}else{
-			logger.info(clientID+" peeked a message from queue="+queue+": " + messagePeeked);
+			logger.info("Client "+ clientID + " R peek message by queue("+queue+"). Message="+messagePeeked);
 		}
 		//System.out.println("Message peeked from Queue "+queue+" :" + messagePeeked);
 	}
 
-	// Proba : 0.16
 	public static void peekMessageBySender(PrintWriter out, BufferedReader in) throws IOException {
 		int sender = getClientWithMSG(out, in);
-
+		logger.info("Client "+ clientID + " Q peek message by sender("+sender+")");
 		out.println("PMS#"+clientID+"#" + sender);
 		String messagePeeked = in.readLine();
 		if(messagePeeked==null || messagePeeked.equals("null")){
-			logger.info(clientID + " peeked a message from sender="+sender+": NO MESSAGE AVAILABLE");
+			logger.info("Client "+ clientID + " R peek message by sender("+sender+"). NO MSG AVAILABLE");
 		}else{
-			logger.info(clientID + " peeked a message from sender="+sender+": " + messagePeeked);
+			logger.info("Client "+ clientID + " R peek message by sender("+sender+"). Message="+messagePeeked);
 		}
 		
 		//System.out.println("Message peeked from Sender "+client+" :" + messagePeeked);
 	}
 
-	// Proba : 0.10 ==> 0.13
 	public static void popMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
+		logger.info("Client "+ clientID + " Q pop message by queue("+queue+")");
 		out.println("GMQ#"+clientID+"#" + queue);
 		String messageFromQueue = in.readLine();
 		if(messageFromQueue==null || messageFromQueue.equals("null")){
-			logger.info(clientID+" poped a message from queue="+queue+": NO MESSAGE AVAILABLE");
+			logger.info("Client "+ clientID + " R pop message by sender("+queue+"). NO MSG AVAILABLE");
 		}else{
-			logger.info(clientID+" poped a message from queue="+queue+": " + messageFromQueue);
+			logger.info("Client "+ clientID + " R pop message by sender("+queue+"). Message="+messageFromQueue);
 		}
 		
 		//System.out.println("Message poped from Queue "+queue+" :" + messageFromQueue);
 	}
 
-	// Proba : 0.10 ==> 0.13
 	public static void popMessageBySender(PrintWriter out, BufferedReader in) throws IOException {
 		int sender = getClientWithMSG(out, in);
+		logger.info("Client "+ clientID + " Q pop message by sender("+sender+")");
 		out.println("GMS#"+clientID+"#" + sender);
 		String messageFromSender = in.readLine();
 		if(messageFromSender==null || messageFromSender.equals("null")){
-			logger.info(clientID + " peeked a message from sender="+sender+": NO MESSAGE AVAILABLE");
+			logger.info("Client "+ clientID + " R pop message by sender("+sender+"). NO MSG AVAILABLE");
 		}else{
-			logger.info(clientID+" peeked a message from sender="+sender+" :" + messageFromSender);
+			logger.info("Client "+ clientID + " R pop message by sender("+sender+"). Message="+messageFromSender);
 		}
 		
 		//System.out.println("Message peeked from Sender "+sender+" :" + messageFromSender);
 
 	}
 
-	// Proba : 0.15 ==> 0.09
 	public static void createQueue(PrintWriter out, BufferedReader in) throws IOException {
+		logger.info("Client "+ clientID + " Q create a queue");
 		out.println("CQ#"+clientID+"");
-		logger.info(clientID + " created a queue");
-		// TODO get reply
+		String queueid = in.readLine();
+		logger.info("Client "+ clientID + " R create a queue. Queue ID : " + queueid);
 	}
 
-	// Proba : 0.08
 	public static void deleteQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueue(out, in);
 		if (queue >= 0) {
+			logger.info("Client "+ clientID +" Q delete queue No"+queue);
 			out.println("DQ#" + queue);
-			// TODO get reply
-			logger.info(clientID +" deleted a queue");
+			String response = in.readLine();
+			logger.info("Client "+ clientID +" R delete queue No"+queue+" status="+response);
 		} else {
 			//System.out.println("No queue available for client ID=CLIENT_ID");
 			logger.info("No queues to delete for client="+clientID);
@@ -206,57 +199,62 @@ public class Client {
 	}
 
 	private static int getClient(PrintWriter out, BufferedReader in) throws IOException {
+		logger.info("Client " + clientID + " Q list of clients.");
 		out.println("LC#"+clientID+"");
 		String clients = in.readLine();
-		logger.info("Client list returned for client="+clientID);
 		String[] clientList = clients.split("#");
 		if (!clients.isEmpty()) {
+			logger.info("Client " + clientID + " R list of clients. List size : " + clientList.length);
 			int receiver_index = rand.nextInt(clientList.length);
 			return Integer.parseInt(clientList[receiver_index]);
 		} else {
-			logger.info("Client list empty for client="+clientID);
+			logger.info("Client " + clientID + " R list of clients. List size : 0");
 			return -1;
 		}
 	}
 	
 	private static int getClientWithMSG(PrintWriter out, BufferedReader in) throws IOException {
+		logger.info("Client " + clientID + " Q list of clients with messages.");
 		out.println("LCWM#"+clientID+"");
 		String clients = in.readLine();
-		logger.info("Client list with messages returned for client="+clientID);
 		String[] clientList = clients.split("#");
 		if (!clients.isEmpty()) {
+			logger.info("Client " + clientID + " R list of clients with messages. List size : " + clientList.length);
 			int receiver_index = rand.nextInt(clientList.length);
 			return Integer.parseInt(clientList[receiver_index]);
 		} else {
-			logger.info("Client list empty for client="+clientID);
+			logger.info("Client " + clientID + " R list of clients with messages. List size : 0");
 			return -1;
 		}
 	}
 
 	private static int getQueue(PrintWriter out, BufferedReader in) throws IOException {
+		logger.info("Client " + clientID + " Q list of queues");
 		out.println("LQ#"+clientID);
 		String queues = in.readLine();
-		logger.info("Queue list returned for client="+clientID);
+		
 		String[] queueList = queues.split("#");
 		if (!queues.isEmpty()) {
+			logger.info("Client " + clientID + " R list of queues. List size : " + queueList.length);
 			int queue_index = rand.nextInt(queueList.length);
 			return Integer.parseInt(queueList[queue_index]);
 		} else {
-			logger.info("Queue list empty for client="+clientID);
+			logger.info("Client " + clientID + " R list of queues. List size : 0");
 			return -1;
 		}
 	}
 
 	private static int getQueueWithMSG(PrintWriter out, BufferedReader in) throws IOException {
+		logger.info("Client " + clientID + " R list of queues with messages ");
 		out.println("LQWM#"+clientID);
 		String queues = in.readLine();
 		String[] queueList = queues.split("#");
 		if (!queues.isEmpty()) {
-			logger.info("Queues with messages returned for client"+clientID+", queue size:" + queueList.length);
+			logger.info("Client " + clientID + " Q list of queues with messages. List size : " + queueList.length);
 			int queue_index = rand.nextInt(queueList.length);
 			return Integer.parseInt(queueList[queue_index]);
 		} else {
-			logger.info("Queue list with messages empty for client="+clientID);
+			logger.info("Client " + clientID + " R list of queues with messages. List size : 0");
 			return -1;
 		}
 	}

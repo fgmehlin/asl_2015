@@ -52,12 +52,13 @@ public class InboxProcessingThread implements Runnable{
 				
 				switch(cmd){
 					case "CQ":
-						dbComm.createQueue();
+						int queue = dbComm.createQueue();
+						query.setReply(queue+"");
 						break;
 					case "DQ":
 						queueID = Integer.parseInt(splittedCommand[1]);
 						ok = dbComm.deleteQueue(queueID);
-						query.setReply("Queue="+queueID+" deletion status :"+ok);
+						query.setReply(ok+"");
 						break;
 					case "LC":
 						query.setReply(dbComm.getClients(clientID));
@@ -92,7 +93,7 @@ public class InboxProcessingThread implements Runnable{
 						queueID = Integer.parseInt(splittedCommand[3]);
 						String message = splittedCommand[4];
 						ok = dbComm.sendMessage(clientID, receiverID, queueID, message);
-						query.setReply("Message(receiver="+receiverID+", queue="+queueID+") send status="+ok);
+						query.setReply(""+ok);
 						break;
 					case "ECHO":
 						clientID = dbComm.createClient();

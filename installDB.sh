@@ -8,6 +8,8 @@ lcshit='en_US.UTF-8'
 DB_DUMP='asl_db.pgsql'   # name of your DB dump
 clusterHome="/mnt/local/${username}"
 pathToPostgres="${clusterHome}/postgres"
+PG_HBA="pg_hba.conf"
+PSQL_CONF="postgresql.conf"
 
 
 if [ -d "/mnt/local/${fusername}" ]; then
@@ -33,6 +35,10 @@ LC_CTYPE=$lcshit
 export LC_CTYPE
 
 $pathToPostgres/bin/initdb -D $pathToPostgres/db 
+
+
+cp -rf ~/asl/$PG_HBA $pathToPostgres/db/
+cp -rf ~/asl/$PSQL_CONF $pathToPostgres/db/
 
 $pathToPostgres/bin/postgres -D $pathToPostgres/db/ -p $PORTNUMBER -i -k $clusterHome >/mnt/local/$username/db.out 2>&1 &
 

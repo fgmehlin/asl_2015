@@ -1,5 +1,0 @@
-2015-10-14 23:37:47 INFO  Client:71 - Client started
-2015-10-14 23:37:47 INFO  Client:225 - Client list with messages returned for client=7
-2015-10-14 23:37:47 INFO  Client:231 - Client list empty for client=7
-2015-10-14 23:37:47 INFO  Client:151 - 7 peeked a message from sender=-1: NO MESSAGE AVAILABLE
-2015-10-14 23:37:51 INFO  Client:225 - Client list with messages returned for client=7

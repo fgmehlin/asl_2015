@@ -1,4 +1,0 @@
-2015-10-14 23:35:25 INFO  Client:71 - Client started
-2015-10-14 23:35:25 INFO  Client:259 - Queue list with messages empty for client=5
-2015-10-14 23:35:25 INFO  Client:137 - 5 peeked a message from sender=-1: NO MESSAGE AVAILABLE
-2015-10-14 23:35:34 INFO  Client:225 - Client list with messages returned for client=5

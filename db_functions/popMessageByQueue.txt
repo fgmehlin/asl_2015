@@ -13,4 +13,4 @@ DELETE FROM messages WHERE message_id = messid;
 RETURN popMessage;
 END;
 $popMessage$
-	LANGUAGE ‘plpgsql’;
+	LANGUAGE 'plpgsql';

@@ -9,9 +9,11 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Properties;
 
+import org.postgresql.util.PSQLException;
+
 public class DatabaseCommunication {
 
-	
+	String errorMessage = "";
 	private final ConnectionPoolManager poolManager;
 	/*private static String db_url = "";
 	private static final String USERNAME = "asl_pg";
@@ -64,7 +66,12 @@ public class DatabaseCommunication {
 				result = result + rs.getString("client_id") + "#";
 			}
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Could not get client list");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -94,7 +101,12 @@ public class DatabaseCommunication {
 				result = result + rs.getString("queue_id") + "#";
 			}
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Could not get queue list");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -114,7 +126,7 @@ public class DatabaseCommunication {
 		PreparedStatement prepStmt = null;
 		conn = getConnection();
 		String result = "";
-		String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id in (-1, ?)";
+		String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id = ?";
 		try {
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			prepStmt.setInt(1, clientID);
@@ -124,7 +136,12 @@ public class DatabaseCommunication {
 				result = result + rs.getString("sender_id") + "#";
 			}
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Could not get Clients with messages");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+			//e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -155,7 +172,12 @@ public class DatabaseCommunication {
 				result = result + rs.getString("queue_id") + "#";
 			}
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Could not get queues with messages");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -170,16 +192,23 @@ public class DatabaseCommunication {
 		return result;
 	}
 
-	public void createQueue() {
+	public int createQueue() {
 		Connection conn = null;
 		CallableStatement createQueueProc = null;
 		conn = getConnection();
-
+		int queueid = 0;
 		try {
-			createQueueProc = conn.prepareCall("{ call createqueue()}");
+			createQueueProc = conn.prepareCall("{ ? = call createqueue()}");
+			createQueueProc.registerOutParameter(1, Types.INTEGER);
 			createQueueProc.execute();
+			queueid = createQueueProc.getInt(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Creation of queue failed");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -190,6 +219,8 @@ public class DatabaseCommunication {
 			}
 			returnConnectionToPool(conn);
 		}
+		
+		return queueid;
 	}
 
 	public boolean deleteQueue(int queueID) {
@@ -205,7 +236,12 @@ public class DatabaseCommunication {
 			deleteQueueProc.execute();
 			ok = deleteQueueProc.getBoolean(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Queue could ne be deleted");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -233,7 +269,12 @@ public class DatabaseCommunication {
 			popMsgProc.execute();
 			message = popMsgProc.getString(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Message could not be poped");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -262,7 +303,12 @@ public class DatabaseCommunication {
 			popMsgProc.execute();
 			message = popMsgProc.getString(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Message could not be poped");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -291,7 +337,12 @@ public class DatabaseCommunication {
 			peekMsgProc.execute();
 			message = peekMsgProc.getString(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Message could not be peeked");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -320,6 +371,11 @@ public class DatabaseCommunication {
 			peekMsgProc.execute();
 			message = peekMsgProc.getString(1);
 
+		} catch (PSQLException e) {
+			System.out.println("Message could not be peeked");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+			//e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -351,10 +407,15 @@ public class DatabaseCommunication {
 			sndMsgProc.execute();
 			ok = sndMsgProc.getBoolean(1);
 
-		} catch (SQLException e) {
+		} catch (PSQLException e) {
+			System.out.println("Message insertion failed");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+			//e.printStackTrace();
+		}catch (SQLException e) {
 			System.out.println("Message could not be sent");
 			e.printStackTrace();
-		} finally {
+		}  finally {
 			try {
 				sndMsgProc.close();
 				//conn.close();
@@ -380,6 +441,11 @@ public class DatabaseCommunication {
 			crtClient.execute();
 			clientID = crtClient.getInt(1);
 
+		} catch (PSQLException e) {
+			System.out.println("Client could not be created");
+			errorMessage = e.getMessage();
+			System.out.println(errorMessage);
+		//	e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

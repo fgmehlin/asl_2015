@@ -1,0 +1,11 @@
+CREATE or REPLACE FUNCTION createqueue() RETURNS INTEGER AS
+$queueid$
+DECLARE
+	queueid integer;
+BEGIN
+	
+	INSERT INTO queues (queue_id) VALUES (default) RETURNING queue_id INTO queueid;
+RETURN queueid;
+END;
+$queueid$
+	LANGUAGE 'plpgsql';

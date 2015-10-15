@@ -10,6 +10,8 @@ DB_CLEAN_DUMP="asl_db_clean.pgsql"
 PG_DB="postgresql-9.4.4.tar.bz2"
 SCRIPT_DB="installDB.sh"
 EXP_SC="experiment.sh"
+PG_HBA="pg_hba.conf"
+PSQL_CONF="postgresql.conf"
 
 cd "/Documents/ETHZ/Advanced Systems Lab_2015/project_repo"
 
@@ -79,10 +81,14 @@ echo 'Copying client on remote home'
 scp "$CLI_JAR" fgmehlin@dryad04.ethz.ch:~/asl
 echo 'Copying experiment.sh on remote home'
 scp "$EXP_SC" fgmehlin@dryad04.ethz.ch:~/asl
-#echo 'Copying database on dryad07:/mnt/local/fgmehlin/'
-#scp "$DB_DUMP" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
-#scp "$PG_DB" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
-#scp "$SCRIPT_DB" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
+echo 'Copying pg_hba.conf on remote home'
+scp "$PG_HBA" fgmehlin@dryad04.ethz.ch:~/asl
+echo 'Copying postgresql.conf on remote home'
+scp "$PSQL_CONF" fgmehlin@dryad04.ethz.ch:~/asl
+echo 'Copying database on dryad07:/mnt/local/fgmehlin/'
+scp "$DB_DUMP" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
+scp "$PG_DB" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
+scp "$SCRIPT_DB" fgmehlin@dryad07.ethz.ch:/mnt/local/fgmehlin/
 
 
 

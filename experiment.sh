@@ -162,7 +162,8 @@ scp $remoteUserName@$serverMachine:/tmp/$remoteUserName/*_executionLog.log ./$ex
 # Copy log files from the clients
 mkdir -p $experimentId
 echo "  Copying log files from client machine... "
-
+scp $remoteUserName@$serverMachine:/tmp/$remoteUserName/*_executionLog.log ./$experimentId/
+scp $remoteUserName@$serverMachine:/tmp/$remoteUserName/server.out ./$experimentId
 scp $remoteUserName@$clientMachine:/tmp/$remoteUserName/*_executionLog.log ./$experimentId/
 
 
