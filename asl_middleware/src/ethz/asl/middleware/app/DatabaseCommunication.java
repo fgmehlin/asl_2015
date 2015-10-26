@@ -69,6 +69,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Could not get client list");
 			errorMessage = e.getMessage();
+			result = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -104,6 +105,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Could not get queue list");
 			errorMessage = e.getMessage();
+			result = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -139,6 +141,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Could not get Clients with messages");
 			errorMessage = e.getMessage();
+			result = "ERROR";
 			System.out.println(errorMessage);
 			//e.printStackTrace();
 		}catch (SQLException e) {
@@ -175,6 +178,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Could not get queues with messages");
 			errorMessage = e.getMessage();
+			result = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -206,6 +210,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Creation of queue failed");
 			errorMessage = e.getMessage();
+			queueid = -99;
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -239,6 +244,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Queue could ne be deleted");
 			errorMessage = e.getMessage();
+			ok = false;
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -272,6 +278,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Message could not be poped");
 			errorMessage = e.getMessage();
+			message = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -306,6 +313,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Message could not be poped");
 			errorMessage = e.getMessage();
+			message = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -340,6 +348,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Message could not be peeked");
 			errorMessage = e.getMessage();
+			message = "ERROR";
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
@@ -374,6 +383,7 @@ public class DatabaseCommunication {
 		} catch (PSQLException e) {
 			System.out.println("Message could not be peeked");
 			errorMessage = e.getMessage();
+			message = "ERROR";
 			System.out.println(errorMessage);
 			//e.printStackTrace();
 		} catch (SQLException e) {
@@ -411,6 +421,7 @@ public class DatabaseCommunication {
 			System.out.println("Message insertion failed");
 			errorMessage = e.getMessage();
 			System.out.println(errorMessage);
+			ok = false;
 			//e.printStackTrace();
 		}catch (SQLException e) {
 			System.out.println("Message could not be sent");

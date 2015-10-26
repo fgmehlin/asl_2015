@@ -12,6 +12,8 @@ public class InboxProcessingThread implements Runnable{
 	private final ConnectionPoolManager poolManager;
 	private final int proc_id;
 	private static Logger logger = Logger.getLogger(InboxProcessingThread.class.getName());
+	private long startProcess;
+	private long stopProcess;
 	
 	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, ConnectionPoolManager poolManager, int proc_id){
 		this.in = in;
@@ -20,7 +22,7 @@ public class InboxProcessingThread implements Runnable{
 		this.dbComm = new DatabaseCommunication(poolManager);
 		this.poolManager = poolManager;
 		this.proc_id = proc_id;
-		logger.info("InboxProcessingThread No"+proc_id+" created");
+		//logger.info("InboxProcessingThread No"+proc_id+" created");
 		//System.out.println("InboxProcessingThread No"+proc_id+" created");
 		
 	}
@@ -33,7 +35,8 @@ public class InboxProcessingThread implements Runnable{
 			try {
 				QueryObject query = in.take();
 				String command = query.getCommand();
-				logger.info("IP["+proc_id+"] Query with command "+command+" removed from inbox, size: " + in.size());
+				startProcess = System.currentTimeMillis();
+				logger.info("[POPING_QUERY] "+command+" size(" + in.size()+")");
 				//System.out.println("IP["+proc_id+"] Query with command "+command+" removed from inbox, size: " + in.size());
 				
 				
@@ -96,6 +99,7 @@ public class InboxProcessingThread implements Runnable{
 						query.setReply(""+ok);
 						break;
 					case "ECHO":
+						System.out.println("Creation clientID");
 						clientID = dbComm.createClient();
 						query.setReply(clientID+"");
 						System.out.println("CLIENT ID RETURNED : "+ clientID);
@@ -104,7 +108,9 @@ public class InboxProcessingThread implements Runnable{
 				
 				
 				out.put(query);
-				logger.info("IP["+proc_id+"] Reply "+query.getReply()+" added to outbox, size: " + out.size());
+				stopProcess = System.currentTimeMillis() - startProcess;
+				logger.info("[PUTTING_REPLY] "+ query.getReply());
+				//logger.info("IP["+proc_id+"] Reply "+query.getReply()+" added to outbox, size: " + out.size());
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

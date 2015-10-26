@@ -11,8 +11,8 @@ class ConnectionPoolManager
 	private String db_url = "";
 	
 	private final String USERNAME = "asl_pg";
-	private final String PASSWORD = "asl_asl";
-	private final int MAX_POOL_SIZE = 3;
+	private final String PASSWORD = "asl_asl_asl";
+	private final int MAX_POOL_SIZE = 5;
 
 	Vector<Connection> connectionPool = new Vector<Connection>();
 

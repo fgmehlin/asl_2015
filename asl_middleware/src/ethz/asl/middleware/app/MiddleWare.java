@@ -11,12 +11,13 @@ import java.util.concurrent.Executors;
 
 public class MiddleWare {
 
-	private static final int NUMBER_OF_INBOX_PROCESSORS = 5;
+	private static int NUMBER_OF_INBOX_PROCESSORS = 5;
+	private static int NUMBER_OF_OUTBOX_PROCESSORS = 5;
 	
 	public static void main(String[] args) {
 
-		if(args.length != 2){
-			System.err.println("Usage: java MiddleWare <db_@> <port number>");
+		if(args.length != 5){
+			System.err.println("Usage: java MiddleWare <id> <db_@> <port number> <#IN> <#OUT>");
 			System.exit(1);
 		}
 		
@@ -30,30 +31,38 @@ public class MiddleWare {
             }
         });
 
+		String mwID = args[0];
+		String db_ip = args[1];
+		int portNumber = Integer.parseInt(args[2]);
+		NUMBER_OF_INBOX_PROCESSORS = Integer.parseInt(args[3]);
+		NUMBER_OF_OUTBOX_PROCESSORS = Integer.parseInt(args[4]);
 		
-		String db_ip = args[0];
-		int portNumber = Integer.parseInt(args[1]);
-		
-		//DatabaseCommunication dbComm = new DatabaseCommunication(db_ip);
+		System.setProperty("mwID", mwID);
 		
 		ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip);
 		
-		ExecutorService executor = Executors.newFixedThreadPool(10);
+		ExecutorService executor = Executors.newFixedThreadPool(30);
 		
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
 	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
 	    
 	    InboxProcessingThread inboxProcessor;
+	    OutboxProcessingThread outboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
 	    	inboxProcessor = new InboxProcessingThread(in, out, /*dbComm*/dbManager, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    
-	    OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
+	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
+	    	outboxProcessor = new OutboxProcessingThread(out, i);
+	    	(new Thread(outboxProcessor)).start();
+		}
+	    
+	   // OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
 	    
 	    
-	    (new Thread(outboxProcessor)).start();
+	  //  (new Thread(outboxProcessor)).start();
 	    
 		
 			

@@ -135,7 +135,7 @@ DECLARE
 peekedmessage VARCHAR(2000);
 BEGIN
 
-SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa DESC LIMIT 1;
+SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa LIMIT 1;
 RETURN peekedmessage;
 END;
 $$;
@@ -154,7 +154,7 @@ DECLARE
 peekedmessage VARCHAR(2000);
 BEGIN
 
-SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa DESC LIMIT 1;
+SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
 RETURN peekedmessage;
 END;
 $$;
@@ -174,7 +174,7 @@ popMessage VARCHAR(2000);
 messid integer;
 BEGIN
 
-SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa DESC LIMIT 1;
+SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa LIMIT 1;
 
 DELETE FROM message_queue WHERE message_id = messid;
 DELETE FROM messages WHERE message_id = messid;
@@ -198,7 +198,7 @@ popMessage VARCHAR(2000);
 messid integer;
 BEGIN
 
-SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa DESC LIMIT 1;
+SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
 
 DELETE FROM message_queue WHERE message_id = messid;
 DELETE FROM messages WHERE message_id = messid;
@@ -407,6 +407,13 @@ ALTER TABLE ONLY messages
 
 ALTER TABLE ONLY queues
     ADD CONSTRAINT queues_pkey PRIMARY KEY (queue_id);
+
+
+--
+-- Name: mq_idx; Type: INDEX; Schema: public; Owner: asl_pg; Tablespace: 
+--
+
+CREATE INDEX mq_idx ON message_queue USING btree (queue_id, message_id);
 
 
 --

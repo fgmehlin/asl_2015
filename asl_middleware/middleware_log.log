@@ -1,0 +1,6 @@
+18/10/2015 19:42:32,016 INFO  InboxProcessingThread:23 - InboxProcessingThread No1 created
+18/10/2015 19:42:32,020 INFO  InboxProcessingThread:23 - InboxProcessingThread No2 created
+18/10/2015 19:42:32,020 INFO  InboxProcessingThread:23 - InboxProcessingThread No3 created
+18/10/2015 19:42:32,021 INFO  InboxProcessingThread:23 - InboxProcessingThread No4 created
+18/10/2015 19:42:32,022 INFO  InboxProcessingThread:23 - InboxProcessingThread No5 created
+18/10/2015 19:42:32,024 INFO  OutboxProcessingThread:16 - OutboxProcessingThread created

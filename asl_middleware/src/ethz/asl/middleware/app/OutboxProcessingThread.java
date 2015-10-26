@@ -11,9 +11,9 @@ public class OutboxProcessingThread implements Runnable{
 	private final BlockingQueue<QueryObject> out;
 	private static Logger logger = Logger.getLogger(OutboxProcessingThread.class.getName());
 	
-	OutboxProcessingThread(BlockingQueue<QueryObject> out){
+	OutboxProcessingThread(BlockingQueue<QueryObject> out, int proc_id){
 		this.out = out;
-		logger.info("OutboxProcessingThread created");
+		//logger.info("OutboxProcessingThread No"+proc_id+" created");
 	}
 	
 	@Override
@@ -22,7 +22,7 @@ public class OutboxProcessingThread implements Runnable{
 			
 			try {
 				QueryObject query = out.take();
-				logger.info("Reply removed from outbox, size: " + out.size());
+				logger.info("[POPING_REPLY] " + out.size());
 				
 				PrintWriter clientChannel = query.getClientChannel();
 				// forward to client
