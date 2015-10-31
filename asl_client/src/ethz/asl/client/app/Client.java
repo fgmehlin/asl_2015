@@ -103,14 +103,17 @@ public class Client {
 				pi[6] = 100;
 			} else if (workLoad == 4) { // 1-to-1 mapping, no probabilities
 				if (clientID > noOfClients / 2) {
-					peer = (noOfClients / 2) - (clientID % 2);
+					peer = (noOfClients / 2) - (noOfClients % clientID);
 				} else {
 					peer = clientID + (noOfClients / 2);
 				}
+				System.out.println("My clientID = " + clientID+" and my peer = " +peer);
+				Thread.sleep(10000);
 			} else {
 				System.err.println("Work load not defined");
 				System.exit(-1);
 			}
+			
 
 			while (System.currentTimeMillis() < end) {
 
@@ -150,6 +153,9 @@ public class Client {
 		} catch (IOException e) {
 			System.err.println("Couldn't get I/O for the connection to " + hostName);
 			System.exit(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
@@ -325,13 +331,14 @@ public class Client {
 
 		responseTime = System.currentTimeMillis() - startQuery;
 
-		String[] clientList = clients.split("#");
-		logger.info("[RESPONSE][LCWM] " + responseTime + " [" + clientList.length + "]");
-
-		if (!clients.isEmpty()) {
+		if (!clients.equals("NONE") ) {
+			String[] clientList = clients.split("#");
+			logger.info("[RESPONSE][LCWM] " + responseTime + " [" + clientList.length + "]");
+			
 			int receiver_index = rand.nextInt(clientList.length);
 			return Integer.parseInt(clientList[receiver_index]);
 		} else {
+			logger.info("[RESPONSE][LCWM] " + responseTime + " [" + clients + "]");
 			return -1;
 		}
 	}
@@ -345,13 +352,14 @@ public class Client {
 
 		responseTime = System.currentTimeMillis() - startQuery;
 
-		String[] queueList = queues.split("#");
-		logger.info("[RESPONSE][LQ] " + responseTime + " [" + queueList.length + "]");
-
-		if (!queues.isEmpty()) {
+		if (!queues.equals("NONE")) {
+			String[] queueList = queues.split("#");
+			logger.info("[RESPONSE][LQ] " + responseTime + " [" + queueList.length + "]");
+			
 			int queue_index = rand.nextInt(queueList.length);
 			return Integer.parseInt(queueList[queue_index]);
 		} else {
+			logger.info("[RESPONSE][LQ] " + responseTime + " [" + queues + "]");
 			return -1;
 		}
 	}
@@ -365,13 +373,15 @@ public class Client {
 
 		responseTime = System.currentTimeMillis() - startQuery;
 
-		String[] queueList = queues.split("#");
-		logger.info("[RESPONSE][LQWM] " + responseTime + " [" + queueList.length + "]");
+		
 
-		if (!queues.isEmpty()) {
+		if (!queues.equals("NONE")) {
+			String[] queueList = queues.split("#");
+			logger.info("[RESPONSE][LQWM] " + responseTime + " [" + queueList.length + "]");
 			int queue_index = rand.nextInt(queueList.length);
 			return Integer.parseInt(queueList[queue_index]);
 		} else {
+			logger.info("[RESPONSE][LQWM] " + responseTime + " [" + queues + "]");
 			return -1;
 		}
 	}

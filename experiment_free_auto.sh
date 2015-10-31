@@ -25,17 +25,17 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.28.144.232"
-serverMachine2="52.29.28.45"
+serverMachine1="52.29.58.107"
+serverMachine2="52.29.94.12"
 serverMachine3=""
 serverMachine4=""
 
-clientMachine1="52.29.87.146"
-clientMachine2="52.29.39.5"
+clientMachine1="52.29.76.143"
+clientMachine2="52.29.53.194"
 clientMachine3=""
 clientMachine4=""
 
-databaseMachine="52.28.62.223"
+databaseMachine="52.29.97.166"
 databasePort="4445"
 
 if [ "$#" != "8" ] 

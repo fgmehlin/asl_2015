@@ -46,6 +46,7 @@ public class InboxProcessingThread implements Runnable {
 				int queueID = 0;
 				int senderID = 0;
 				boolean ok = false;
+				String result = "";
 
 				switch (cmd) {
 				case "CQ":
@@ -61,17 +62,25 @@ public class InboxProcessingThread implements Runnable {
 					query.setReply(dbComm.getClients(clientID));
 					break;
 				case "LCWM":
-					String result = dbComm.getClientsWithMessages(clientID);
+					result = dbComm.getClientsWithMessages(clientID);
 					if (result.isEmpty())
 						query.setReply("NONE");
 					else
 						query.setReply(result);
 					break;
 				case "LQ":
-					query.setReply(dbComm.getQueues());
+					result = dbComm.getQueues();
+					if (result.isEmpty())
+						query.setReply("NONE");
+					else
+						query.setReply(result);
 					break;
 				case "LQWM":
-					query.setReply(dbComm.getQueuesWithMessages(clientID));
+					result  = dbComm.getQueuesWithMessages(clientID);
+					if (result.isEmpty())
+						query.setReply("NONE");
+					else
+						query.setReply(result);
 					break;
 				case "PMQ":
 					queueID = Integer.parseInt(splittedCommand[2]);
