@@ -12,13 +12,14 @@ class ConnectionPoolManager
 	
 	private final String USERNAME = "asl_pg";
 	private final String PASSWORD = "asl_asl_asl";
-	private final int MAX_POOL_SIZE = 5;
+	private int MAX_POOL_SIZE = 0;
 
 	Vector<Connection> connectionPool = new Vector<Connection>();
 
-	public ConnectionPoolManager(String databaseUrl)
+	public ConnectionPoolManager(String databaseUrl, int poolSize)
 	{
 		this.db_url = "jdbc:postgresql://"+databaseUrl+"/asl";
+		this.MAX_POOL_SIZE = poolSize;
 		initialize();
 	}
 

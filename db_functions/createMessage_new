@@ -1,0 +1,27 @@
+CREATE OR REPLACE FUNCTION createMessage(sender INTEGER, receiver INTEGER, queue INTEGER, message VARCHAR(2000)) RETURNS boolean AS
+$$
+DECLARE
+ messid integer;
+ ok boolean;
+ existqueue integer;
+BEGIN
+	
+	SELECT queue_id into existqueue FROM queues WHERE queue_id = queue;
+
+    IF FOUND THEN
+
+    	INSERT INTO messages (message_id, sender_id, receiver_id, toa, message, queue_id) VALUES 
+    	(default, sender, receiver, now(), message, queue);
+
+        IF FOUND THEN
+    	   ok = True;
+        ELSE
+            ok = False;
+        END IF;
+    ELSE
+    	ok = False;
+    END IF;
+    RETURN ok;
+END
+$$
+    LANGUAGE 'plpgsql';

@@ -13,7 +13,7 @@ import numpy as np
 experimentID = sys.argv[1]
 noOfClients = sys.argv[2]
 noOfMW = sys.argv[3]
-pathMiddleware='/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/project_repo/'+experimentID+'/MW'
+pathMiddleware='/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/experiments/'+experimentID+'/MW'
 
 def writeEachMW(mw, mu, sigma):
     with open(pathMiddleware+'/stats/eachMW.stat', 'a') as f:

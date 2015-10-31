@@ -97,9 +97,10 @@ public class DatabaseCommunication {
 		try {
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			ResultSet rs = prepStmt.executeQuery();
-
-			while (rs.next()) {
+			int i = 0;
+			while (rs.next() && i < 100) {
 				result = result + rs.getString("queue_id") + "#";
+				i++;
 			}
 
 		} catch (PSQLException e) {
@@ -128,7 +129,8 @@ public class DatabaseCommunication {
 		PreparedStatement prepStmt = null;
 		conn = getConnection();
 		String result = "";
-		String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id = ?";
+		//String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id = ?";
+		String getQueuesSQL = "SELECT m.sender_id FROM messages as m WHERE m.receiver_id = ?";
 		try {
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			prepStmt.setInt(1, clientID);
@@ -165,14 +167,15 @@ public class DatabaseCommunication {
 		PreparedStatement prepStmt = null;
 		conn = getConnection();
 		String result = "";
-		String getQueuesSQL = "SELECT queue_id FROM messages as m, message_queue as mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, ?)";
+		String getQueuesSQL = "SELECT queue_id FROM messages as m WHERE m.receiver_id in (-1, ?)";
 		try {
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			prepStmt.setInt(1, clientID);
 			ResultSet rs = prepStmt.executeQuery();
-
-			while (rs.next()) {
+			int i = 0;
+			while (rs.next() && i < 100) {
 				result = result + rs.getString("queue_id") + "#";
+				i++;
 			}
 
 		} catch (PSQLException e) {

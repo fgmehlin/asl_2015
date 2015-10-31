@@ -21,30 +21,49 @@
 ###############################
 
 function usage() {
-	echo "Usage: --serverMachine=<address> --clientMachine=<address> --noOfClients=<int> --remoteUserName=<username> --experimentId=<id> --clientRunTime=<seconds>"
+	echo "Usage: <exp_id(int)> <clientRunTime(seconds)> <workLoad={1,2,3,4}> <#InThread> <#OutThread> <#MW> <connexionPoolSize(int)>"
 	exit -1
 }
 
-serverMachine1="52.29.66.180"
-serverMachine2="52.29.81.175"
+serverMachine1="52.29.91.37"
+serverMachine2="52.29.90.169"
 
-clientMachine1="52.29.81.6"
-clientMachine2="52.29.17.186"
-clientMachine3="52.29.82.206"
-clientMachine4="52.29.80.64"
-clientMachine5="52.29.81.22"
-clientMachine6="52.29.61.134"
+clientMachine1="52.29.90.219"
+clientMachine2="52.29.90.228"
+clientMachine3="52.29.90.183"
+clientMachine4="52.29.90.181"
+clientMachine5="52.28.234.141"
+clientMachine6="52.29.90.233"
 
-databaseMachine="52.29.83.27"
+databaseMachine="52.29.90.229"
 databasePort="4445"
 
-noOfClients="10" # per clientMachine
-let totalClients=$noOfClients*6
+if [ "$#" != "7" ] 
+then
+	usage
+fi
+
 remoteUserName="ec2-user"
-experimentId="30"
-clientRunTime=120
+experimentId="$1"
+clientRunTime="$2"
+workLoad="$3"
+inThread="$4"
+outThread="$5"
+noOfMW="$6"
+poolSize="$7"
 
 experimentFolder='../experiments'
+
+mkdir -p $experimentFolder/$experimentId
+
+echo "Configuration : " >> $experimentFolder/$experimentId/config.txt
+echo "   Workload design : $workLoad" >> $experimentFolder/$experimentId/config.txt
+echo "   Client run time : $clientRunTime" >> $experimentFolder/$experimentId/config.txt
+echo "   Number of InboxProcessingThreads : $inThread" >> $experimentFolder/$experimentId/config.txt
+echo "   Number of OutboxProcessingThreads : $outThread" >> $experimentFolder/$experimentId/config.txt
+echo "   Number of Middlewares : $noOfMW" >> $experimentFolder/$experimentId/config.txt
+echo "   Database pool size : $poolSize" >> $experimentFolder/$experimentId/config.txt
+
 
 # # Extract command line arguments
 # TEMP=`getopt --long serverMachine:,clientMachine:,noOfClients:,remoteUserName:,experimentId:,clientRunTime: \
@@ -85,8 +104,15 @@ experimentFolder='../experiments'
 #
 #####################################
 
+for i in 2 4 6 8 10
+do
 
-pathToRepo="/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/project_repo"
+noOfClients="$i" # per clientMachine
+let totalClients=$noOfClients*6
+
+echo "Proceeding with number of Clients : $totalClients"
+
+pathToRepo="."
 rsa_key="/Users/florangmehlin/.ssh/ASL_Frankfurt.pem"
 ec2Home="/home/ec2-user"
 
@@ -148,6 +174,8 @@ scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientM
 ######################################
 #echo "  Starting the database"
 
+#ssh -i $rsa_key $remoteUserName@$databaseMachine "$ec2Home/postgres/bin/pg_ctl -D $ec2Home/postgres/db -o \"-F -p $databasePort\" start > $ec2Home/db.out 2>&1" &
+
 echo " Installing database"
 ssh -i $rsa_key $remoteUserName@$databaseMachine "./partInstallDBEC2.sh"
 while [ `ssh -i $rsa_key $remoteUserName@$databaseMachine "cat db.out | grep 'database system is ready to accept connections' | wc -l"` != 1 ]
@@ -155,6 +183,7 @@ do
 	sleep 1
 done 
 echo "OK"
+
 #echo " Resetting the database"
 #ssh -i $rsa_key $remoteUserName@$databaseMachine "$ec2Home/postgres/bin/psql -p $databasePort -U asl_pg asl --command='select resetDB();'"
 
@@ -167,7 +196,7 @@ echo "OK"
 
 # Run server1
 echo "  Starting the server"
-ssh -i $rsa_key $remoteUserName@$serverMachine1 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 5 2 2>&1 > server.out " &
+ssh -i $rsa_key $remoteUserName@$serverMachine1 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize 2>&1 > server.out " &
 
 # Wait for the server to start up
 echo -ne "  Waiting for the server1 to start up..."
@@ -180,7 +209,7 @@ echo "OK"
 
 # Run server2
 echo "  Starting the server"
-ssh -i $rsa_key $remoteUserName@$serverMachine2 "java -jar asl_middleware.jar 2 $databaseMachine:$databasePort 4444 5 2 2>&1 > server.out " &
+ssh -i $rsa_key $remoteUserName@$serverMachine2 "java -jar asl_middleware.jar 2 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize 2>&1 > server.out " &
 
 # Wait for the server to start up
 echo -ne "  Waiting for the server2 to start up..."
@@ -200,17 +229,17 @@ pids=""
 for clientId in $clientIds
 do
 	echo "    Start client: $clientId"
-	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine5 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine5 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine6 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 1 $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine6 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime $workLoad $totalClients" &
 	pids="$pids $!"
 done
 
@@ -260,7 +289,7 @@ echo "OK"
 ########################################
 
 # Copy log files from the clients
-mkdir -p $experimentFolder/$experimentId
+
 mkdir -p $experimentFolder/$experimentId/$totalClients
 # mkdir -p $experimentId/MW1
 # mkdir -p $experimentId/MW2
@@ -288,11 +317,11 @@ scp -i $rsa_key $remoteUserName@$clientMachine6:./*.log $experimentFolder/$exper
 
 echo "  Copying log files from middleware machine1... "
 scp -i $rsa_key $remoteUserName@$serverMachine1:./*.log* $experimentFolder/$experimentId/$totalClients/MW
-# scp -i $rsa_key $remoteUserName@$serverMachine1:./server.out ./$experimentId/$totalClients/MW2
+# scp -i $rsa_key $remoteUserName@$serverMachine1:./server.out ./$experimentId/MW2
 
 echo "  Copying log files from middleware machine2... "
 scp -i $rsa_key $remoteUserName@$serverMachine2:./*.log* $experimentFolder/$experimentId/$totalClients/MW
-# scp -i $rsa_key $remoteUserName@$serverMachine2:./server.out ./$experimentId/$totalClients/MW2
+# scp -i $rsa_key $remoteUserName@$serverMachine2:./server.out ./$experimentId/MW2
 
 echo "  Copying log files from database machine... "
 scp -i $rsa_key $remoteUserName@$databaseMachine:./db.out $experimentFolder/$experimentId/$totalClients/DB
@@ -314,13 +343,35 @@ ssh -i $rsa_key $remoteUserName@$serverMachine2 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine2 "rm ./*.out*"
 
 ssh -i $rsa_key $remoteUserName@$databaseMachine "rm ./db.out"
-#ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
+ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
 ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
 echo "OK"
 
 # Process the log files from the clients
 echo "  Processing client log files"
 cat $experimentFolder/$experimentId/$totalClients/C/*.log* | sort -n > $experimentFolder/$experimentId/$totalClients/C/allclients
+
+done
+
+
+if [ $workLoad == "1" ]
+then
+	python parseResponseTime_chain.py $experimentId $workLoad $inThread $outThread $noOfMW $poolSize
+
+	python parseThroughput_chain.py $experimentId $workLoad $inThread $outThread $noOfMW $poolSize
+
+	python parseDB_TPS.py $experimentId $workLoad $inThread $outThread $noOfMW $poolSize
+elif [ $workLoad == "2" ]
+then
+	echo "2"
+elif [ $workLoad == "3" ]
+then
+	echo "3"
+elif [ $workLoad == "4" ]
+then
+	echo "4"
+fi
+
 
 
 # echo "  Generating trace.jpg with gnuplot"

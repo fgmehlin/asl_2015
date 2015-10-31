@@ -53,20 +53,22 @@ CREATE FUNCTION createmessage(sender integer, receiver integer, queue integer, m
     AS $$
 DECLARE
  messid integer;
- countQ integer;
  ok boolean;
+ existqueue integer;
 BEGIN
 
-SELECT count(*) INTO countQ FROM queues WHERE queue_id = queue;
+SELECT queue_id into existqueue FROM queues WHERE queue_id = queue;
 
-    IF countQ <> 0 THEN
+    IF FOUND THEN
 
-    INSERT INTO messages (message_id, sender_id, receiver_id, toa, message) VALUES 
-    (default, sender, receiver, now(), message) RETURNING message_id INTO messid;
+    INSERT INTO messages (message_id, sender_id, receiver_id, toa, message, queue_id) VALUES 
+    (default, sender, receiver, now(), message, queue);
 
-    INSERT INTO message_queue (queue_id, message_id) VALUES(queue, messid);
-
-    ok = True;
+        IF FOUND THEN
+       ok = True;
+        ELSE
+            ok = False;
+        END IF;
     ELSE
     ok = False;
     END IF;
@@ -104,14 +106,12 @@ CREATE FUNCTION deletequeue(queueid integer) RETURNS boolean
     LANGUAGE plpgsql
     AS $$
 DECLARE
-count integer;
 deleteOK boolean;
 BEGIN
 
-SELECT count(mq.message_id) INTO count FROM queues AS q, message_queue AS mq WHERE q.queue_id = mq.queue_id AND q.queue_id = queueid;
-
-IF count = 0 THEN
 DELETE FROM queues WHERE queue_id = queueid;
+
+IF FOUND THEN
 deleteOK := TRUE;
 ELSE
 deleteOK := FALSE;
@@ -135,7 +135,7 @@ DECLARE
 peekedmessage VARCHAR(2000);
 BEGIN
 
-SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa LIMIT 1;
+SELECT message INTO peekedmessage FROM messages AS m WHERE m.receiver_id in (-1, clientid) AND m.queue_id = queueid ORDER BY m.toa LIMIT 1;
 RETURN peekedmessage;
 END;
 $$;
@@ -154,7 +154,7 @@ DECLARE
 peekedmessage VARCHAR(2000);
 BEGIN
 
-SELECT message INTO peekedmessage FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
+SELECT message INTO peekedmessage FROM messages AS m WHERE m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
 RETURN peekedmessage;
 END;
 $$;
@@ -174,9 +174,8 @@ popMessage VARCHAR(2000);
 messid integer;
 BEGIN
 
-SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND mq.queue_id = queueid ORDER BY m.toa LIMIT 1;
+SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m WHERE m.receiver_id in (-1, clientid) AND m.queue_id = queueid ORDER BY m.toa LIMIT 1;
 
-DELETE FROM message_queue WHERE message_id = messid;
 DELETE FROM messages WHERE message_id = messid;
 
 RETURN popMessage;
@@ -198,9 +197,8 @@ popMessage VARCHAR(2000);
 messid integer;
 BEGIN
 
-SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m, message_queue AS mq WHERE m.message_id = mq.message_id AND m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
+SELECT m.message, m.message_id INTO popMessage, messid FROM messages AS m WHERE m.receiver_id in (-1, clientid) AND m.sender_id = senderid ORDER BY m.toa LIMIT 1;
 
-DELETE FROM message_queue WHERE message_id = messid;
 DELETE FROM messages WHERE message_id = messid;
 
 RETURN popMessage;
@@ -219,7 +217,6 @@ CREATE FUNCTION resetdb() RETURNS void
     AS $$
 BEGIN
 
-DELETE FROM message_queue;
 DELETE FROM queues;
 DELETE FROM messages;
 DELETE FROM clients;
@@ -280,18 +277,6 @@ CREATE SEQUENCE message_id_seq
 ALTER TABLE message_id_seq OWNER TO asl_pg;
 
 --
--- Name: message_queue; Type: TABLE; Schema: public; Owner: asl_pg; Tablespace: 
---
-
-CREATE TABLE message_queue (
-    queue_id integer NOT NULL,
-    message_id integer NOT NULL
-);
-
-
-ALTER TABLE message_queue OWNER TO asl_pg;
-
---
 -- Name: messages; Type: TABLE; Schema: public; Owner: asl_pg; Tablespace: 
 --
 
@@ -300,7 +285,8 @@ CREATE TABLE messages (
     sender_id integer NOT NULL,
     receiver_id integer,
     toa timestamp without time zone,
-    message character varying(2000)
+    message character varying(2000),
+    queue_id integer
 );
 
 
@@ -351,22 +337,14 @@ COPY clients (client_id) FROM stdin;
 -- Name: message_id_seq; Type: SEQUENCE SET; Schema: public; Owner: asl_pg
 --
 
-SELECT pg_catalog.setval('message_id_seq', 1, false);
-
-
---
--- Data for Name: message_queue; Type: TABLE DATA; Schema: public; Owner: asl_pg
---
-
-COPY message_queue (queue_id, message_id) FROM stdin;
-\.
+SELECT pg_catalog.setval('message_id_seq', 1, true);
 
 
 --
 -- Data for Name: messages; Type: TABLE DATA; Schema: public; Owner: asl_pg
 --
 
-COPY messages (message_id, sender_id, receiver_id, toa, message) FROM stdin;
+COPY messages (message_id, sender_id, receiver_id, toa, message, queue_id) FROM stdin;
 \.
 
 
@@ -374,7 +352,7 @@ COPY messages (message_id, sender_id, receiver_id, toa, message) FROM stdin;
 -- Name: queue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: asl_pg
 --
 
-SELECT pg_catalog.setval('queue_id_seq', 1, false);
+SELECT pg_catalog.setval('queue_id_seq', 1, true);
 
 
 --
@@ -410,26 +388,18 @@ ALTER TABLE ONLY queues
 
 
 --
--- Name: mq_idx; Type: INDEX; Schema: public; Owner: asl_pg; Tablespace: 
+-- Name: mess_send_recei_idx; Type: INDEX; Schema: public; Owner: asl_pg; Tablespace: 
 --
 
-CREATE INDEX mq_idx ON message_queue USING btree (queue_id, message_id);
-
-
---
--- Name: message_queue_message_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: asl_pg
---
-
-ALTER TABLE ONLY message_queue
-    ADD CONSTRAINT message_queue_message_id_fkey FOREIGN KEY (message_id) REFERENCES messages(message_id);
+CREATE INDEX mess_send_recei_idx ON messages USING btree (message_id, sender_id, receiver_id);
 
 
 --
--- Name: message_queue_queue_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: asl_pg
+-- Name: messages_queue_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: asl_pg
 --
 
-ALTER TABLE ONLY message_queue
-    ADD CONSTRAINT message_queue_queue_id_fkey FOREIGN KEY (queue_id) REFERENCES queues(queue_id);
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_queue_id_fkey FOREIGN KEY (queue_id) REFERENCES queues(queue_id) ON DELETE CASCADE;
 
 
 --
@@ -483,15 +453,6 @@ GRANT ALL ON TABLE clients TO asl_pg;
 REVOKE ALL ON SEQUENCE message_id_seq FROM PUBLIC;
 REVOKE ALL ON SEQUENCE message_id_seq FROM asl_pg;
 GRANT ALL ON SEQUENCE message_id_seq TO asl_pg;
-
-
---
--- Name: message_queue; Type: ACL; Schema: public; Owner: asl_pg
---
-
-REVOKE ALL ON TABLE message_queue FROM PUBLIC;
-REVOKE ALL ON TABLE message_queue FROM asl_pg;
-GRANT ALL ON TABLE message_queue TO asl_pg;
 
 
 --

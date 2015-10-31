@@ -1,0 +1,18 @@
+CREATE or REPLACE FUNCTION deleteQueue(queueid INTEGER) RETURNS BOOLEAN AS
+$deleteOK$
+DECLARE
+	deleteOK boolean;
+BEGIN
+
+DELETE FROM queues WHERE queue_id = queueid;
+
+IF FOUND THEN
+	deleteOK := TRUE;
+ELSE
+	deleteOK := FALSE;
+END IF;
+
+RETURN deleteOK;
+END;
+$deleteOK$
+	LANGUAGE 'plpgsql';

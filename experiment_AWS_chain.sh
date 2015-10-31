@@ -25,23 +25,23 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.71.80"
-serverMachine2="52.29.24.225"
+serverMachine1="52.29.66.180"
+serverMachine2="52.29.81.175"
 
-clientMachine1="52.29.97.128"
-clientMachine2="52.29.92.203"
-clientMachine3="52.29.84.158"
-clientMachine4="52.29.50.149"
-clientMachine5="52.29.64.8"
-clientMachine6="52.29.90.10"
+clientMachine1="52.29.81.6"
+clientMachine2="52.29.17.186"
+clientMachine3="52.29.82.206"
+clientMachine4="52.29.80.64"
+clientMachine5="52.29.81.22"
+clientMachine6="52.29.61.134"
 
-databaseMachine="52.29.71.101"
+databaseMachine="52.29.83.27"
 databasePort="4445"
 
 
 remoteUserName="ec2-user"
-experimentId="21"
-clientRunTime=360
+experimentId="32"
+clientRunTime=300
 
 experimentFolder='../experiments'
 
@@ -176,7 +176,7 @@ echo "OK"
 
 # Run server1
 echo "  Starting the server"
-ssh -i $rsa_key $remoteUserName@$serverMachine1 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 5 2 2>&1 > server.out " &
+ssh -i $rsa_key $remoteUserName@$serverMachine1 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 5 5 2>&1 > server.out " &
 
 # Wait for the server to start up
 echo -ne "  Waiting for the server1 to start up..."
@@ -189,7 +189,7 @@ echo "OK"
 
 # Run server2
 echo "  Starting the server"
-ssh -i $rsa_key $remoteUserName@$serverMachine2 "java -jar asl_middleware.jar 2 $databaseMachine:$databasePort 4444 5 2 2>&1 > server.out " &
+ssh -i $rsa_key $remoteUserName@$serverMachine2 "java -jar asl_middleware.jar 2 $databaseMachine:$databasePort 4444 5 5 2>&1 > server.out " &
 
 # Wait for the server to start up
 echo -ne "  Waiting for the server2 to start up..."
@@ -209,17 +209,17 @@ pids=""
 for clientId in $clientIds
 do
 	echo "    Start client: $clientId"
-	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine5 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine5 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine6 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine6 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime 2 $totalClients" &
 	pids="$pids $!"
 done
 
@@ -324,6 +324,7 @@ ssh -i $rsa_key $remoteUserName@$serverMachine2 "rm ./*.out*"
 
 ssh -i $rsa_key $remoteUserName@$databaseMachine "rm ./db.out"
 ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
+ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
 echo "OK"
 
 # Process the log files from the clients

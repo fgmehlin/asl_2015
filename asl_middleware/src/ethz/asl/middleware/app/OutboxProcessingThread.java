@@ -22,11 +22,12 @@ public class OutboxProcessingThread implements Runnable{
 			
 			try {
 				QueryObject query = out.take();
-				logger.info("[POPING_REPLY] " + out.size());
+				//logger.info("[POPING_REPLY] " + out.size());
 				
 				PrintWriter clientChannel = query.getClientChannel();
 				// forward to client
 				clientChannel.println(query.getReply());
+				clientChannel.flush();
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

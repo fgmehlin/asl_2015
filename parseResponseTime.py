@@ -15,7 +15,7 @@ def writeEachClient(client):
 experimentID = sys.argv[1]
 noOfClients = sys.argv[2]
 
-pathClient='/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/project_repo/'+experimentID+'/C'
+pathClient='/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/experiments/'+experimentID+'/'+noOfClients+'/C'
 
 sumResponseTime = 0.0
 totalSumResponseTime = 0.0
