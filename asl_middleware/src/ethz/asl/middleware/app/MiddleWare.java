@@ -13,7 +13,6 @@ public class MiddleWare {
 
 	private static int NUMBER_OF_INBOX_PROCESSORS = 5;
 	private static int NUMBER_OF_OUTBOX_PROCESSORS = 5;
-	public static int clientIndex = 0;
 	
 	public static void main(String[] args) {
 
@@ -40,13 +39,10 @@ public class MiddleWare {
 		int poolSize = Integer.parseInt(args[5]);
 		int nbC = Integer.parseInt(args[6]);
 		
-		clientIndex = ((Integer.parseInt(mwID)-1)*nbC)+1;
 		
 		System.setProperty("mwID", mwID);
 		
 		ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip, poolSize);
-		
-		//ExecutorService executor = Executors.newFixedThreadPool(30);
 		
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
 	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
@@ -55,7 +51,7 @@ public class MiddleWare {
 	    OutboxProcessingThread outboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(Integer.parseInt(mwID), nbC, in, out, /*dbComm*/dbManager, i);
+	    	inboxProcessor = new InboxProcessingThread(in, out, dbManager, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    
@@ -64,12 +60,6 @@ public class MiddleWare {
 	    	(new Thread(outboxProcessor)).start();
 		}
 	    
-	   // OutboxProcessingThread outboxProcessor = new OutboxProcessingThread(out);
-	    
-	    
-	  //  (new Thread(outboxProcessor)).start();
-	    
-		
 			
 			boolean listening = true;
 			
@@ -77,8 +67,6 @@ public class MiddleWare {
 				System.out.println("Server listening");
 				while(listening){
 					//start one thread for each new client
-					//new ClientWorker(serverSocket.accept(), in , out).start();
-					//executor.execute(new ClientWorker(serverSocket.accept(), in));
 					(new Thread(new ClientWorker(serverSocket.accept(), in))).start();
 				}
 				
