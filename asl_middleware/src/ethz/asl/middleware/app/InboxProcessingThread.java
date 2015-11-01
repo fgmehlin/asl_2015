@@ -115,7 +115,7 @@ public class InboxProcessingThread implements Runnable {
 
 				out.put(query);
 				stopProcess = System.currentTimeMillis() - startProcess;
-				if (!query.getReply().isEmpty())
+				if (query.getReply() != null)
 					logger.info("[PUTTING_REPLY] " + stopProcess + " " + cmd + " " + query.getReply());
 				else
 					logger.info("[PUTTING_REPLY] " + stopProcess + " " + cmd + " EMPTY");

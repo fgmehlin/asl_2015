@@ -27,6 +27,7 @@ public class Client {
 	private static int workLoad;
 	private static int peer;
 	private static int noOfClients;
+	private static int personalQueueId;
 
 	public static void main(String[] args) {
 		if (args.length != 5) {
@@ -39,7 +40,7 @@ public class Client {
 
 		System.out.println("Client started");
 		int initClientID = -99;
-
+		
 		rand = new Random();
 
 		String hostName = args[0];
@@ -83,16 +84,14 @@ public class Client {
 			logger = Logger.getLogger(Client.class.getName());
 
 			
-			createQueue(out, in); // Each client creates a queue in the beginning
-			
 			if (workLoad == 1) { // Standard "random" workload
 				pi[0] = 0;
 				pi[1] = 30;
-				pi[2] = 45;
-				pi[3] = 60;
-				pi[4] = 78;
-				pi[5] = 96;
-				pi[6] = 97;
+				pi[2] = 46;
+				pi[3] = 62;
+				pi[4] = 80;
+				pi[5] = 98;
+				pi[6] = 99;
 			} else if (workLoad == 2 || workLoad == 3) { // Write & Read workload
 				pi[0] = 0;
 				pi[1] = 100;
@@ -101,8 +100,10 @@ public class Client {
 				pi[4] = 100;
 				pi[5] = 100;
 				pi[6] = 100;
+				personalQueueId = createQueue(out, in); // Each client creates a queue in the beginning
 			} else if (workLoad == 4) { // 1-to-1 mapping, no probabilities
-				if (clientID > noOfClients / 2) {
+				personalQueueId = createQueue(out, in); // Each client creates a queue in the beginning
+				if (clientID > (noOfClients / 2)) {
 					peer = (noOfClients / 2) - (noOfClients % clientID);
 				} else {
 					peer = clientID + (noOfClients / 2);
@@ -138,7 +139,7 @@ public class Client {
 						popMessageBySender(out, in);
 					} else if (r >= pi[5] && r < pi[6]) { // P(CQ) = 0.01
 						createQueue(out, in);
-					} else { // P(DQ) = 0.03
+					} else { // P(DQ) = 0.01
 						deleteQueue(out, in);
 					}
 
@@ -162,14 +163,17 @@ public class Client {
 
 	public static void sendMessage(PrintWriter out, BufferedReader in) throws IOException {
 		int receiver = -1;
+		int queue = -1;
 		if(workLoad != 4)
 		{
 			receiver = getClient(out, in);
+			queue = getQueue(out, in);
 		}else{
 			receiver = peer;
+			queue = personalQueueId;
 		}
 		
-		int queue = getQueue(out, in);
+		
 		if (queue > 0) {
 			if (receiver > 0) {
 				logger.info("[QUERY][SM] client(" + receiver + ") queue(" + queue + ")");
@@ -189,15 +193,18 @@ public class Client {
 
 	public static void peekMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
-		logger.info("[QUERY][PMQ] queue(" + queue + ")");
-		startQuery = System.currentTimeMillis();
-		out.println("PMQ#" + clientID + "#" + queue);
-		String messagePeeked = in.readLine();
-		responseTime = System.currentTimeMillis() - startQuery;
-		if (messagePeeked == null || messagePeeked.equals("null")) {
-			logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
-		} else {
-			logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked + "]");
+		
+		if(queue != -1){ 
+			logger.info("[QUERY][PMQ] queue(" + queue + ")");
+			startQuery = System.currentTimeMillis();
+			out.println("PMQ#" + clientID + "#" + queue);
+			String messagePeeked = in.readLine();
+			responseTime = System.currentTimeMillis() - startQuery;
+			if (messagePeeked == null || messagePeeked.equals("null")) {
+				logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
+			} else {
+				logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked + "]");
+			}
 		}
 	}
 
@@ -229,18 +236,19 @@ public class Client {
 
 	public static void popMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
-
-		logger.info("[QUERY][GMQ] queue(" + queue + ")");
-		startQuery = System.currentTimeMillis();
-
-		out.println("GMQ#" + clientID + "#" + queue);
-		String messageFromQueue = in.readLine();
-
-		responseTime = System.currentTimeMillis() - startQuery;
-		if (messageFromQueue == null || messageFromQueue.equals("null")) {
-			logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
-		} else {
-			logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue + "]");
+		if(queue != -1){
+			logger.info("[QUERY][GMQ] queue(" + queue + ")");
+			startQuery = System.currentTimeMillis();
+	
+			out.println("GMQ#" + clientID + "#" + queue);
+			String messageFromQueue = in.readLine();
+	
+			responseTime = System.currentTimeMillis() - startQuery;
+			if (messageFromQueue == null || messageFromQueue.equals("null")) {
+				logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
+			} else {
+				logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue + "]");
+			}
 		}
 
 	}
@@ -273,7 +281,7 @@ public class Client {
 
 	}
 
-	public static void createQueue(PrintWriter out, BufferedReader in) throws IOException {
+	public static int createQueue(PrintWriter out, BufferedReader in) throws IOException {
 		logger.info("[QUERY][CQ]");
 		startQuery = System.currentTimeMillis();
 
@@ -282,6 +290,8 @@ public class Client {
 
 		responseTime = System.currentTimeMillis() - startQuery;
 		logger.info("[RESPONSE][CQ] " + responseTime + " [" + queueid + "]");
+		
+		return Integer.parseInt(queueid);
 	}
 
 	public static void deleteQueue(PrintWriter out, BufferedReader in) throws IOException {

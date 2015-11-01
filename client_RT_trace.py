@@ -14,6 +14,7 @@ def main():
     outThread = sys.argv[4]
     noOfMW = sys.argv[5]
     poolSize = sys.argv[6]
+    workload = sys.argv[7]
 
     pathClients='../experiments/'+experimentID+'/'+noOfClients+'/C'
 
@@ -26,22 +27,28 @@ def main():
     with open(pathClients+'/allclients', 'r') as client_file:
         sumRTSec = 0.0
         rtCnt = 0
+        nbSecs = 0
         delta = float(1.0)
         curT = float(0.0)
 
         for line in client_file:
             line = line.strip()
             lineArray = line.split(' ')
-            if "RESPONSE" in line:
+            if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
                 rt = int(lineArray[7])
                 sumRTSec += rt
                 rtCnt += 1
                 t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
+                if rt > 1000:
+                    print line
                 delta = t - curT
                 if delta >= 1.0:
                     if rtCnt > 1:
+                        nbSecs+=1
+                        #print nbSecs
                         rtSec.append(sumRTSec/rtCnt)
+                        print sumRTSec/rtCnt
                         rtCnt = 0
                         sumRTSec = 0.0
                     curT = t
@@ -50,10 +57,13 @@ def main():
         
         client_file.close()
 
-    xaxis = list(xrange(len(rtSec)))
+    # Truncate database warmup (60s) and cooldown (30s)
+    rtSec_trunc = rtSec[180:len(rtSec)-30]
 
-    plt.plot(xaxis, rtSec, linestyle='-', marker='None')
-    plt.title('Client ResponseTime Trace : #Clients='+noOfClients+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
+    xaxis = list(xrange(len(rtSec_trunc)))
+
+    plt.plot(xaxis, rtSec_trunc, linestyle='-', marker='None')
+    plt.title('Client ResponseTime Trace : #Clients='+noOfClients+', WL='+workload+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
     plt.ylabel('ResponseTime [ms]')
     plt.xlabel('Time [s]')
     plt.margins(0.1)

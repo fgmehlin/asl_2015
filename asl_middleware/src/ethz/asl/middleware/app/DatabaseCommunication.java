@@ -252,12 +252,14 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			ok = false;
 		} finally {
 			try {
 				deleteQueueProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				ok = false;
 			}
 			returnConnectionToPool(conn);
 		}
@@ -286,12 +288,14 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				popMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
@@ -321,12 +325,14 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				popMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
@@ -356,12 +362,14 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				peekMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
@@ -391,12 +399,14 @@ public class DatabaseCommunication {
 			//e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				peekMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
@@ -428,6 +438,7 @@ public class DatabaseCommunication {
 			//e.printStackTrace();
 		}catch (SQLException e) {
 			System.out.println("Message could not be sent");
+			ok = false;
 			e.printStackTrace();
 		}  finally {
 			try {
@@ -436,6 +447,7 @@ public class DatabaseCommunication {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+				ok = false;
 			}
 			returnConnectionToPool(conn);
 		}

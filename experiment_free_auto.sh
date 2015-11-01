@@ -25,17 +25,17 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.58.107"
-serverMachine2="52.29.94.12"
+serverMachine1="52.29.114.141"
+serverMachine2="52.28.123.74"
 serverMachine3=""
 serverMachine4=""
 
-clientMachine1="52.29.76.143"
-clientMachine2="52.29.53.194"
+clientMachine1="52.29.114.145"
+clientMachine2="52.29.114.139"
 clientMachine3=""
 clientMachine4=""
 
-databaseMachine="52.29.97.166"
+databaseMachine="52.28.204.231"
 databasePort="4445"
 
 if [ "$#" != "8" ] 
@@ -415,7 +415,7 @@ then
 fi
 
 
-echo "  Copying log files from database machine... "
+# echo "  Copying log files from database machine... "
 scp -i $rsa_key $remoteUserName@$databaseMachine:./db.out $experimentFolder/$experimentId/$totalClients/DB
 
 
