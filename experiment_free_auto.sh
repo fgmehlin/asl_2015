@@ -25,18 +25,20 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.114.141"
-serverMachine2="52.28.123.74"
+serverMachine1="52.29.92.171"
+serverMachine2="52.29.89.232"
 serverMachine3=""
 serverMachine4=""
 
-clientMachine1="52.29.114.145"
-clientMachine2="52.29.114.139"
+clientMachine1="52.29.116.73"
+clientMachine2="52.28.226.121"
 clientMachine3=""
 clientMachine4=""
 
-databaseMachine="52.28.204.231"
-databasePort="4445"
+#databaseMachine="52.28.204.231"
+#databasePort="4445"
+databaseMachine="asl-db.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
+databasePort="5432"
 
 if [ "$#" != "8" ] 
 then
@@ -157,13 +159,13 @@ fi
 ######################################
 #echo "  Starting the database"
 
-echo " Installing database"
-ssh -i $rsa_key $remoteUserName@$databaseMachine "./partInstallDBEC2.sh"
-while [ `ssh -i $rsa_key $remoteUserName@$databaseMachine "cat db.out | grep 'database system is ready to accept connections' | wc -l"` != 1 ]
-do
-	sleep 1
-done 
-echo "OK"
+# echo " Installing database"
+# ssh -i $rsa_key $remoteUserName@$databaseMachine "./partInstallDBEC2.sh"
+# while [ `ssh -i $rsa_key $remoteUserName@$databaseMachine "cat db.out | grep 'database system is ready to accept connections' | wc -l"` != 1 ]
+# do
+# 	sleep 1
+# done 
+# echo "OK"
 #echo " Resetting the database"
 #ssh -i $rsa_key $remoteUserName@$databaseMachine "$ec2Home/postgres/bin/psql -p $databasePort -U asl_pg asl --command='select resetDB();'"
 
@@ -416,7 +418,7 @@ fi
 
 
 echo "  Copying log files from database machine... "
-scp -i $rsa_key $remoteUserName@$databaseMachine:./db.out $experimentFolder/$experimentId/$totalClients/DB
+# scp -i $rsa_key $remoteUserName@$databaseMachine:./db.out $experimentFolder/$experimentId/$totalClients/DB
 
 
 
@@ -451,12 +453,12 @@ fi
 
 
 
-ssh -i $rsa_key $remoteUserName@$databaseMachine "rm ./db.out"
-ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
-ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
+# ssh -i $rsa_key $remoteUserName@$databaseMachine "rm ./db.out"
+# ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
+# ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
 echo "OK"
 
-# Process the log files from the clients
+Process the log files from the clients
 echo "  Processing client log files"
 cat $experimentFolder/$experimentId/$totalClients/C/*.log* | sort -n > $experimentFolder/$experimentId/$totalClients/C/allclients
 

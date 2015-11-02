@@ -2,19 +2,24 @@ package ethz.asl.middleware.app;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.Properties;
+import org.apache.log4j.Logger;
 
 import org.postgresql.util.PSQLException;
 
+
+
 public class DatabaseCommunication {
+	
+//	private static Logger logger = Logger.getLogger(DatabaseCommunication.class.getName());
 
 	String errorMessage = "";
 	private final ConnectionPoolManager poolManager;
+	private long startProcess;
+	private long stopProcess;
 	/*private static String db_url = "";
 	private static final String USERNAME = "asl_pg";
 	private static final String PASSWORD = "asl_asl";
@@ -74,6 +79,7 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			result = "ERROR";
 		} finally {
 			try {
 				prepStmt.close();
@@ -81,6 +87,7 @@ public class DatabaseCommunication {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+				result = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
@@ -95,8 +102,10 @@ public class DatabaseCommunication {
 		String result = "";
 		String getQueuesSQL = "SELECT queue_id FROM queues";
 		try {
+//			startProcess = System.currentTimeMillis();
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			ResultSet rs = prepStmt.executeQuery();
+
 			int i = 0;
 			while (rs.next() && i < 100) {
 				result = result + rs.getString("queue_id") + "#";
@@ -111,16 +120,21 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			result = "ERROR";
 		} finally {
 			try {
 				prepStmt.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				result = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
 
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][CQ] " + stopProcess);
+		
 		return result;
 	}
 	
@@ -132,6 +146,7 @@ public class DatabaseCommunication {
 		//String getQueuesSQL = "SELECT m.sender_id FROM clients as c, messages as m WHERE c.client_id = m.sender_id AND m.receiver_id = ?";
 		String getQueuesSQL = "SELECT m.sender_id FROM messages as m WHERE m.receiver_id = ?";
 		try {
+//			startProcess = System.currentTimeMillis();
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			prepStmt.setInt(1, clientID);
 			ResultSet rs = prepStmt.executeQuery();
@@ -148,16 +163,21 @@ public class DatabaseCommunication {
 			//e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			result = "ERROR";
 		} finally {
 			try {
 				prepStmt.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				result = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
 
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][LCWM] " + stopProcess);
+		
 		return result;
 		
 	}
@@ -169,6 +189,7 @@ public class DatabaseCommunication {
 		String result = "";
 		String getQueuesSQL = "SELECT queue_id FROM messages as m WHERE m.receiver_id in (-1, ?)";
 		try {
+//			startProcess = System.currentTimeMillis();
 			prepStmt = conn.prepareStatement(getQueuesSQL);
 			prepStmt.setInt(1, clientID);
 			ResultSet rs = prepStmt.executeQuery();
@@ -186,16 +207,19 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			result = "ERROR";
 		} finally {
 			try {
 				prepStmt.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				result = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
-
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][LQWM] " + stopProcess);
 		return result;
 	}
 
@@ -205,6 +229,7 @@ public class DatabaseCommunication {
 		conn = getConnection();
 		int queueid = 0;
 		try {
+//			startProcess = System.currentTimeMillis();
 			createQueueProc = conn.prepareCall("{ ? = call createqueue()}");
 			createQueueProc.registerOutParameter(1, Types.INTEGER);
 			createQueueProc.execute();
@@ -218,16 +243,19 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			queueid = -99;
 		} finally {
 			try {
 				createQueueProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				queueid = -99;
 			}
 			returnConnectionToPool(conn);
 		}
-		
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][CQ] " + stopProcess);
 		return queueid;
 	}
 
@@ -236,7 +264,7 @@ public class DatabaseCommunication {
 		CallableStatement deleteQueueProc = null;
 		conn = getConnection();
 		boolean ok = false;
-
+//		startProcess = System.currentTimeMillis();
 		try {
 			deleteQueueProc = conn.prepareCall("{ ? = call deleteQueue(?)}");
 			deleteQueueProc.setInt(2, queueID);
@@ -245,22 +273,26 @@ public class DatabaseCommunication {
 			ok = deleteQueueProc.getBoolean(1);
 
 		} catch (PSQLException e) {
-			System.out.println("Queue could ne be deleted");
+			System.out.println("Queue could not be deleted");
 			errorMessage = e.getMessage();
 			ok = false;
 			System.out.println(errorMessage);
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			ok = false;
 		} finally {
 			try {
 				deleteQueueProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				ok = false;
 			}
 			returnConnectionToPool(conn);
 		}
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][DQ] " + stopProcess+ " queue="+queueID);
 		return ok;
 	}
 
@@ -271,6 +303,7 @@ public class DatabaseCommunication {
 		String message = "";
 
 		try {
+//			startProcess = System.currentTimeMillis();
 			popMsgProc = conn.prepareCall("{ ? = call popMessageBySender(?,?)}");
 			popMsgProc.setInt(2, clientid);
 			popMsgProc.setInt(3, senderid);
@@ -286,16 +319,19 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				popMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
-		
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][GMS] " + stopProcess + " clientid="+clientid+" senderid="+senderid);
 		return message;
 	}
 	
@@ -306,6 +342,7 @@ public class DatabaseCommunication {
 		String message = "";
 
 		try {
+//			startProcess = System.currentTimeMillis();
 			popMsgProc = conn.prepareCall("{ ? = call popMessageByQueue(?,?)}");
 			popMsgProc.setInt(2, clientid);
 			popMsgProc.setInt(3, queueid);
@@ -321,16 +358,19 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				popMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
-		
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][GMQ] " + stopProcess + " clientid="+clientid+" queueid="+queueid);
 		return message;
 	}
 
@@ -341,6 +381,7 @@ public class DatabaseCommunication {
 		String message = "";
 
 		try {
+//			startProcess = System.currentTimeMillis();
 			peekMsgProc = conn.prepareCall("{ ? = call peekMessageBySender(?,?)}");
 			peekMsgProc.setInt(2, clientid);
 			peekMsgProc.setInt(3, senderid);
@@ -356,16 +397,19 @@ public class DatabaseCommunication {
 		//	e.printStackTrace();
 		}catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				peekMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
-		
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][PMS] " + stopProcess + " clientid="+clientid+" senderid="+senderid);
 		return message;
 	}
 	
@@ -376,6 +420,7 @@ public class DatabaseCommunication {
 		String message = "";
 
 		try {
+//			startProcess = System.currentTimeMillis();
 			peekMsgProc = conn.prepareCall("{ ? = call peekMessageBySender(?,?)}");
 			peekMsgProc.setInt(2, clientid);
 			peekMsgProc.setInt(3, queueid);
@@ -391,16 +436,19 @@ public class DatabaseCommunication {
 			//e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			message = "ERROR";
 		} finally {
 			try {
 				peekMsgProc.close();
 				//conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				message = "ERROR";
 			}
 			returnConnectionToPool(conn);
 		}
-		
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][PMQ] " + stopProcess + " clientid="+clientid+" senderid="+queueid);
 		return message;
 	}
 
@@ -411,6 +459,7 @@ public class DatabaseCommunication {
 		boolean ok = false;
 
 		try {
+//			startProcess = System.currentTimeMillis();
 			sndMsgProc = conn.prepareCall("{? = call createmessage(?,?,?,?)}");
 			sndMsgProc.setInt(2, sender);
 			sndMsgProc.setInt(3, receiver);
@@ -429,6 +478,7 @@ public class DatabaseCommunication {
 		}catch (SQLException e) {
 			System.out.println("Message could not be sent");
 			e.printStackTrace();
+			ok = false;
 		}  finally {
 			try {
 				sndMsgProc.close();
@@ -436,9 +486,12 @@ public class DatabaseCommunication {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+				ok = false;
 			}
 			returnConnectionToPool(conn);
 		}
+//		stopProcess = System.currentTimeMillis() - startProcess;
+//		logger.info("[DBCOMM][PMQ] " + stopProcess + " senderid="+sender+" receiverid="+receiver);
 		return ok;
 
 	}

@@ -189,15 +189,19 @@ public class Client {
 
 	public static void peekMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
-		logger.info("[QUERY][PMQ] queue(" + queue + ")");
-		startQuery = System.currentTimeMillis();
-		out.println("PMQ#" + clientID + "#" + queue);
-		String messagePeeked = in.readLine();
-		responseTime = System.currentTimeMillis() - startQuery;
-		if (messagePeeked == null || messagePeeked.equals("null")) {
-			logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
-		} else {
-			logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked + "]");
+		
+		if(queue != -1){
+		
+			logger.info("[QUERY][PMQ] queue(" + queue + ")");
+			startQuery = System.currentTimeMillis();
+			out.println("PMQ#" + clientID + "#" + queue);
+			String messagePeeked = in.readLine();
+			responseTime = System.currentTimeMillis() - startQuery;
+			if (messagePeeked == null || messagePeeked.equals("null")) {
+				logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
+			} else {
+				logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked + "]");
+			}
 		}
 	}
 
@@ -229,18 +233,21 @@ public class Client {
 
 	public static void popMessageByQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queue = getQueueWithMSG(out, in);
-
-		logger.info("[QUERY][GMQ] queue(" + queue + ")");
-		startQuery = System.currentTimeMillis();
-
-		out.println("GMQ#" + clientID + "#" + queue);
-		String messageFromQueue = in.readLine();
-
-		responseTime = System.currentTimeMillis() - startQuery;
-		if (messageFromQueue == null || messageFromQueue.equals("null")) {
-			logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
-		} else {
-			logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue + "]");
+		
+		if(queue != -1){
+		
+			logger.info("[QUERY][GMQ] queue(" + queue + ")");
+			startQuery = System.currentTimeMillis();
+	
+			out.println("GMQ#" + clientID + "#" + queue);
+			String messageFromQueue = in.readLine();
+	
+			responseTime = System.currentTimeMillis() - startQuery;
+			if (messageFromQueue == null || messageFromQueue.equals("null")) {
+				logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
+			} else {
+				logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue + "]");
+			}
 		}
 
 	}
