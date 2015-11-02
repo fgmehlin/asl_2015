@@ -15,6 +15,7 @@ def main():
     outThread = sys.argv[4]
     noOfMW = sys.argv[5]
     poolSize = sys.argv[6]
+    workload = sys.argv[7]
 
 
     requestsCnt = 0
@@ -53,7 +54,7 @@ def main():
                 for line in mw_file:
                     line = line.strip()
                     lineArray = line.split(' ')
-                    if "PUTTING_REPLY" in line and 'ERROR' not in line and '-99' not in line:
+                    if "PUTTING_REPLY" in line and 'ERROR' not in line and '-99' not in line and 'False' not in line and 'FALSE' not in line and 'false' not in line:
                         timestamp = lineArray[0]+" "+lineArray[1]
                         t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
                         delta = t - curT
@@ -75,13 +76,16 @@ def main():
         if(minlen > xaxis_len):
             minlen = xaxis_len
 
-
+    throughputSec_trunc = []
 
     for i in range(0, int(noOfMW)):
+        # Equalize sizes of MW traces
         throughputSec[i] = throughputSec[i][0:minlen]
-        xaxis = list(xrange(len(throughputSec[i])))
-        plt.plot(xaxis, throughputSec[i], linestyle='-', marker='None')
-        plt.title('Middleware #'+`(i+1)`+' Throughput Trace : #Clients='+noOfClients+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
+        # Truncate database warmup (60s) and cooldown (30s)
+        throughputSec_trunc[i] = throughputSec[i][60:len(throughputSec[i])-30]
+        xaxis = list(xrange(len(throughputSec_trunc[i])))
+        plt.plot(xaxis, throughputSec_trunc[i], linestyle='-', marker='None')
+        plt.title('Middleware #'+`(i+1)`+' Throughput Trace : #Clients='+noOfClients+', WL='+workload+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
         plt.ylabel('Throughput')
         plt.xlabel('Time [s]')
         plt.margins(0.1)
@@ -89,19 +93,19 @@ def main():
         plt.clf()
 
 
-    plt.title('All Middlewares Throughput Trace : #Clients='+noOfClients+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
+    plt.title('All Middlewares Throughput Trace : #Clients='+noOfClients+', WL='+workload+', IN='+inThread+', OUT='+outThread+', MW='+noOfMW+', POOL='+poolSize)
     plt.ylabel('Throughput')
     plt.xlabel('Time [s]')
     plt.margins(0.1)
-    xaxis = list(xrange(len(throughputSec[i])))
+    xaxis = list(xrange(len(throughputSec_trunc[i])))
 
     mwIDs = list(xrange(int(noOfMW)+1))
     mwIDs[len(mwIDs)-1] = 'Mean'
 
     for i in range(0, int(noOfMW)):
-        plt.plot(xaxis, throughputSec[i], linestyle='-', marker='None')
+        plt.plot(xaxis, throughputSec_trunc[i], linestyle='-', marker='None')
 
-    mu_TP= np.mean(throughputSec,axis=0)
+    mu_TP= np.mean(throughputSec_trunc,axis=0)
     plt.plot(xaxis, mu_TP, linestyle='-', marker='None')
     plt.legend(mwIDs, loc='lower right')
     plt.savefig(pathMiddleware+'/all_middlwares_tp_trace.png', bbox_inches='tight')
