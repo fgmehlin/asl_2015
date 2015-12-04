@@ -13,7 +13,7 @@ public class MiddleWare {
 
 	private static int NUMBER_OF_INBOX_PROCESSORS = 5;
 	private static int NUMBER_OF_OUTBOX_PROCESSORS = 5;
-	
+	public static int clientIndex = 0;
 	public static void main(String[] args) {
 
 		if(args.length != 7){

@@ -13,6 +13,7 @@ public class InboxProcessingThread implements Runnable {
 	private static Logger logger = Logger.getLogger(InboxProcessingThread.class.getName());
 	private long startProcess;
 	private long stopProcess;
+	private MiddleWare middleware;
 
 	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out,
 			ConnectionPoolManager poolManager, int proc_id) {
@@ -42,14 +43,26 @@ public class InboxProcessingThread implements Runnable {
 				String cmd = splittedCommand[0];
 				int clientID = 0;
 
+				
+				if(cmd.equals("ECHO")){
+					MiddleWare.clientIndex += 1;
+					clientID = MiddleWare.clientIndex;
+				}
+				
+				/*
 				if (!cmd.equals("ECHO")) {
 					clientID = Integer.parseInt(splittedCommand[1]);
 				}
+				
+				
 
 				int queueID = 0;
 				int senderID = 0;
 				boolean ok = false;
 				String result = "";
+				
+				
+				
 
 				switch (cmd) {
 				case "CQ":
@@ -115,7 +128,7 @@ public class InboxProcessingThread implements Runnable {
 					System.out.println("CLIENT ID RETURNED : " + clientID);
 					break;
 				}
-
+*/
 				out.put(query);
 				stopProcess = System.currentTimeMillis() - startProcess;
 				if (query.getReply() != null)
