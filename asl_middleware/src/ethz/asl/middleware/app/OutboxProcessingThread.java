@@ -22,7 +22,8 @@ public class OutboxProcessingThread implements Runnable{
 			
 			try {
 				QueryObject query = out.take();
-//				logger.info("[POPING_REPLY] " + out.size());
+				
+				//logger.info("[POPING_REPLY] " + out.size());
 				
 				PrintWriter clientChannel = query.getClientChannel();
 				// forward to client

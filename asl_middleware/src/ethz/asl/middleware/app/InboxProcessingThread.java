@@ -33,7 +33,10 @@ public class InboxProcessingThread implements Runnable {
 				QueryObject query = in.take();
 				String command = query.getCommand();
 				startProcess = System.currentTimeMillis();
-				logger.info("[POPING_QUERY] " + command + " size(" + in.size() + ")");
+				if(!command.contains("SM"))
+					logger.info("[POPING_QUERY] " + command + " size(" + in.size() + ")");
+				else 
+					logger.info("[POPING_QUERY] " + "SM" + " size(" + in.size() + ")");
 
 				String[] splittedCommand = command.split("#");
 				String cmd = splittedCommand[0];

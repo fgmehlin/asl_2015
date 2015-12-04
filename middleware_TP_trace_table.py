@@ -57,8 +57,7 @@ def main():
                 for line in mw_file:
                     line = line.strip()
                     lineArray = line.split(' ')
-                    #if "PUTTING_REPLY" in line and 'ERROR' not in line and '-99' not in line and 'False' not in line and 'FALSE' not in line and 'false' not in line:
-                    if "PUTTING_REPLY" in line and 'ERROR' not in line:
+                    if "PUTTING_REPLY" in line and 'ERROR' not in line and '-99' not in line and 'False' not in line and 'FALSE' not in line and 'false' not in line:
                         timestamp = lineArray[0]+" "+lineArray[1]
                         t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
                         delta = t - curT

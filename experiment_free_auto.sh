@@ -25,22 +25,29 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.92.171"
-serverMachine2="52.29.89.232"
-serverMachine3=""
-serverMachine4=""
+serverMachine1="52.29.113.59"
+serverMachine2="52.29.112.227"
+serverMachine3="52.28.232.14"
+serverMachine4="52.28.57.68"
+serverMachine5=""
+serverMachine6=""
 
-clientMachine1="52.29.116.73"
-clientMachine2="52.28.226.121"
-clientMachine3=""
-clientMachine4=""
+clientMachine1="52.28.251.91"
+clientMachine2="52.28.132.249"
+clientMachine3="52.29.116.215"
+clientMachine4="52.29.116.9"
+clientMachine5=""
+clientMachine6=""
 
 #databaseMachine="52.28.204.231"
 #databasePort="4445"
-databaseMachine="asl-db.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
+# xlarge DB
+databaseMachine="asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
+# large DB
+#databaseMachine="asl-db.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
 databasePort="5432"
 
-if [ "$#" != "8" ] 
+if [ "$#" != "10" ] 
 then
 	usage
 fi
@@ -58,12 +65,24 @@ inThread="$5"
 outThread="$6"
 noOfMW="$7"
 poolSize="$8"
+messType="$9"
+repeatN="${10}"
+
+echo $repeatN
 
 let totalClients=$noOfClients*$noOfMW
 
 experimentFolder='../experiments'
 
+
 mkdir -p $experimentFolder/$experimentId
+mkdir -p $experimentFolder/$experimentId/$totalClients
+mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN
+# mkdir -p $experimentId/MW1
+# mkdir -p $experimentId/MW2
+mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/MW
+mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/DB
+mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/C
 
 echo "Configuration : " >> $experimentFolder/$experimentId/config.txt
 echo "   Workload design : $workLoad" >> $experimentFolder/$experimentId/config.txt
@@ -88,24 +107,27 @@ pathToRepo="/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/projec
 rsa_key="/Users/florangmehlin/.ssh/ASL_Frankfurt.pem"
 ec2Home="/home/ec2-user"
 
-echo -ne "  Testing passwordless connection to the server machine and client machine... "
-# Check if command can be run on server and client
-success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$serverMachine1 echo ok 2>&1 )
-if [ $success != "ok" ]
-then
-	echo "Passwordless login not successful for $remoteUserName on $serverMachine1. Exiting..."
-	exit -1
-fi
+# echo -ne "  Testing passwordless connection to the server machine and client machine... "
+# # Check if command can be run on server and client
+# success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$serverMachine1 echo ok 2>&1 )
+# if [ $success != "ok" ]
+# then
+# 	echo "Passwordless login not successful for $remoteUserName on $serverMachine1. Exiting..."
+# 	exit -1
+# fi
 
-success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$clientMachine1 echo ok 2>&1 )
-if [ $success != "ok" ]
-then
-	echo "Passwordless login not successful for $remoteUserName on $clientMachine1. Exiting..."
-	exit -1
-fi
-echo "OK"
+# success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$clientMachine1 echo ok 2>&1 )
+# if [ $success != "ok" ]
+# then
+# 	echo "Passwordless login not successful for $remoteUserName on $clientMachine1. Exiting..."
+# 	exit -1
+# fi
+# echo "OK"
 
 
+'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+select resetDB();
+EOF
 
 echo "  Copying server.jar to server machine: $serverMachine1 ... "
 # Copy jar to server machine
@@ -148,6 +170,36 @@ then
 	echo "  Copying client.jar to client machine: $clientMachine4 ... "
 	# Copy jar to client machine
 	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine4:.	
+fi
+if [ $noOfMW == "6" ]
+then
+	echo "  Copying server.jar to server machine: $serverMachine3 ... "
+	# Copy jar to server machine
+	scp -i $rsa_key "$pathToRepo"/asl_middleware/asl_middleware.jar $remoteUserName@$serverMachine3:.
+	echo "  Copying server.jar to server machine: $serverMachine4 ... "
+	# Copy jar to server machine
+	scp -i $rsa_key "$pathToRepo"/asl_middleware/asl_middleware.jar $remoteUserName@$serverMachine4:.
+
+	echo "  Copying client.jar to client machine: $clientMachine3 ... "
+	# Copy jar to client machine
+	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine3:.
+	echo "  Copying client.jar to client machine: $clientMachine4 ... "
+	# Copy jar to client machine
+	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine4:.
+
+	echo "  Copying server.jar to server machine: $serverMachine5 ... "
+	# Copy jar to server machine
+	scp -i $rsa_key "$pathToRepo"/asl_middleware/asl_middleware.jar $remoteUserName@$serverMachine5:.
+	echo "  Copying server.jar to server machine: $serverMachine6 ... "
+	# Copy jar to server machine
+	scp -i $rsa_key "$pathToRepo"/asl_middleware/asl_middleware.jar $remoteUserName@$serverMachine6:.
+
+	echo "  Copying client.jar to client machine: $clientMachine5 ... "
+	# Copy jar to client machine
+	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine5:.
+	echo "  Copying client.jar to client machine: $clientMachine6 ... "
+	# Copy jar to client machine
+	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine6:.	
 fi
 
 
@@ -207,7 +259,7 @@ if [ $noOfMW == "3" ]
 then
 	# Run server1
 	echo "  Starting the server"
-	ssh -i $rsa_key $remoteUserName@$serverMachine3 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "java -jar asl_middleware.jar 3 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
 
 	# Wait for the server to start up
 	echo -ne "  Waiting for the server1 to start up..."
@@ -222,10 +274,10 @@ if [ $noOfMW == "4" ]
 then
 	# Run server1
 	echo "  Starting the server"
-	ssh -i $rsa_key $remoteUserName@$serverMachine3 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "java -jar asl_middleware.jar 3 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
 
 	# Wait for the server to start up
-	echo -ne "  Waiting for the server1 to start up..."
+	echo -ne "  Waiting for the server3 to start up..."
 	sleep 1
 	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine3 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
 	do
@@ -235,12 +287,66 @@ then
 
 	# Run server1
 	echo "  Starting the server"
-	ssh -i $rsa_key $remoteUserName@$serverMachine4 "java -jar asl_middleware.jar 1 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+	ssh -i $rsa_key $remoteUserName@$serverMachine4 "java -jar asl_middleware.jar 4 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
 
 	# Wait for the server to start up
-	echo -ne "  Waiting for the server1 to start up..."
+	echo -ne "  Waiting for the server4 to start up..."
 	sleep 1
 	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine4 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+fi
+if [ $noOfMW == "6" ]
+then
+	# Run server1
+	echo "  Starting the server"
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "java -jar asl_middleware.jar 3 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+
+	# Wait for the server to start up
+	echo -ne "  Waiting for the server3 to start up..."
+	sleep 1
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine3 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	# Run server1
+	echo "  Starting the server"
+	ssh -i $rsa_key $remoteUserName@$serverMachine4 "java -jar asl_middleware.jar 4 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+
+	# Wait for the server to start up
+	echo -ne "  Waiting for the server4 to start up..."
+	sleep 1
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine4 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	# Run server1
+	echo "  Starting the server"
+	ssh -i $rsa_key $remoteUserName@$serverMachine5 "java -jar asl_middleware.jar 5 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+
+	# Wait for the server to start up
+	echo -ne "  Waiting for the server5 to start up..."
+	sleep 1
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine5 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	# Run server1
+	echo "  Starting the server"
+	ssh -i $rsa_key $remoteUserName@$serverMachine6 "java -jar asl_middleware.jar 6 $databaseMachine:$databasePort 4444 $inThread $outThread $poolSize $noOfClients 2>&1 > server.out " &
+
+	# Wait for the server to start up
+	echo -ne "  Waiting for the server6 to start up..."
+	sleep 1
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine6 "cat server.out | grep 'Server listening' | wc -l"` != 1 ]
 	do
 		sleep 1
 	done 
@@ -255,29 +361,42 @@ pids=""
 for clientId in $clientIds
 do
 	echo "    Start client: $clientId"
-	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime $workLoad $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine1 "java -jar asl_client.jar $serverMachine1 4444 $clientRunTime $workLoad $totalClients $messType" &
 	pids="$pids $!"
-	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime $workLoad $totalClients" &
+	ssh -i $rsa_key $remoteUserName@$clientMachine2 "java -jar asl_client.jar $serverMachine2 4444 $clientRunTime $workLoad $totalClients $messType" &
 	pids="$pids $!"
 
 
 
 	if [ $noOfMW == "3" ]
 	then
-		ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine3 4444 $clientRunTime $workLoad $totalClients" &
+		ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine3 4444 $clientRunTime $workLoad $totalClients $messType" &
 		pids="$pids $!"
 	fi
 
 	if [ $noOfMW == "4" ]
 	then
-		ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine3 4444 $clientRunTime $workLoad $totalClients" &
+		ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine3 4444 $clientRunTime $workLoad $totalClients $messType" &
 		pids="$pids $!"	
-		ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine4 4444 $clientRunTime $workLoad $totalClients" &
+		ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine4 4444 $clientRunTime $workLoad $totalClients $messType" &
+		pids="$pids $!"
+	fi
+
+	if [ $noOfMW == "6" ]
+	then
+		ssh -i $rsa_key $remoteUserName@$clientMachine3 "java -jar asl_client.jar $serverMachine3 4444 $clientRunTime $workLoad $totalClients $messType" &
+		pids="$pids $!"	
+		ssh -i $rsa_key $remoteUserName@$clientMachine4 "java -jar asl_client.jar $serverMachine4 4444 $clientRunTime $workLoad $totalClients $messType" &
+		pids="$pids $!"
+		ssh -i $rsa_key $remoteUserName@$clientMachine5 "java -jar asl_client.jar $serverMachine5 4444 $clientRunTime $workLoad $totalClients $messType" &
+		pids="$pids $!"	
+		ssh -i $rsa_key $remoteUserName@$clientMachine6 "java -jar asl_client.jar $serverMachine6 4444 $clientRunTime $workLoad $totalClients $messType" &
 		pids="$pids $!"
 	fi
 
 	sleep 0.3
 done
+
 
 # Wait for the clients to finish
 echo -ne "  Waiting for the clients to finish ... "
@@ -358,7 +477,60 @@ then
 	done 
 	echo "OK"
 fi
+if [ $noOfMW == "6" ]
+then
+	echo "  Sending shut down signal to server3"
+	# Send a shut down signal to the server
+	# Note: server.jar catches SIGHUP signals and terminates gracefully
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "killall java"
 
+	echo -ne "  Waiting for the server to shut down... "
+	# Wait for the server to gracefully shut down
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine3 "cat server.out | grep 'Server shutting down' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	echo "  Sending shut down signal to server4"
+	# Send a shut down signal to the server
+	# Note: server.jar catches SIGHUP signals and terminates gracefully
+	ssh -i $rsa_key $remoteUserName@$serverMachine4 "killall java"
+
+	echo -ne "  Waiting for the server to shut down... "
+	# Wait for the server to gracefully shut down
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine4 "cat server.out | grep 'Server shutting down' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	echo "  Sending shut down signal to server5"
+	# Send a shut down signal to the server
+	# Note: server.jar catches SIGHUP signals and terminates gracefully
+	ssh -i $rsa_key $remoteUserName@$serverMachine5 "killall java"
+
+	echo -ne "  Waiting for the server to shut down... "
+	# Wait for the server to gracefully shut down
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine5 "cat server.out | grep 'Server shutting down' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+
+	echo "  Sending shut down signal to server6"
+	# Send a shut down signal to the server
+	# Note: server.jar catches SIGHUP signals and terminates gracefully
+	ssh -i $rsa_key $remoteUserName@$serverMachine6 "killall java"
+
+	echo -ne "  Waiting for the server to shut down... "
+	# Wait for the server to gracefully shut down
+	while [ `ssh -i $rsa_key $remoteUserName@$serverMachine6 "cat server.out | grep 'Server shutting down' | wc -l"` != 1 ]
+	do
+		sleep 1
+	done 
+	echo "OK"
+fi
 
 #echo "  Sending shut down signal to database"
 # Send a shut down signal to the server
@@ -372,50 +544,76 @@ fi
 ########################################
 
 # Copy log files from the clients
-mkdir -p $experimentFolder/$experimentId
-mkdir -p $experimentFolder/$experimentId/$totalClients
-# mkdir -p $experimentId/MW1
-# mkdir -p $experimentId/MW2
-mkdir -p $experimentFolder/$experimentId/$totalClients/MW
-mkdir -p $experimentFolder/$experimentId/$totalClients/DB
-mkdir -p $experimentFolder/$experimentId/$totalClients/C
+# mkdir -p $experimentFolder/$experimentId
+# mkdir -p $experimentFolder/$experimentId/$totalClients
+# mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN
+# # mkdir -p $experimentId/MW1
+# # mkdir -p $experimentId/MW2
+# mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/MW
+# mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/DB
+# mkdir -p $experimentFolder/$experimentId/$totalClients/$repeatN/C
 
 echo "  Copying log files from client machine1... "
-scp -i $rsa_key $remoteUserName@$clientMachine1:./*.log $experimentFolder/$experimentId/$totalClients/C
+scp -i $rsa_key $remoteUserName@$clientMachine1:./*.log $experimentFolder/$experimentId/$totalClients/$repeatN/C
 
 echo "  Copying log files from client machine2... "
-scp -i $rsa_key $remoteUserName@$clientMachine2:./*.log $experimentFolder/$experimentId/$totalClients/C
+scp -i $rsa_key $remoteUserName@$clientMachine2:./*.log $experimentFolder/$experimentId/$totalClients/$repeatN/C
 
 echo "  Copying log files from server machine2... "
-scp -i $rsa_key $remoteUserName@$serverMachine1:./*.log* $experimentFolder/$experimentId/$totalClients/MW
+scp -i $rsa_key $remoteUserName@$serverMachine1:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
 echo "  Copying log files from server machine2... "
-scp -i $rsa_key $remoteUserName@$serverMachine2:./*.log* $experimentFolder/$experimentId/$totalClients/MW
+scp -i $rsa_key $remoteUserName@$serverMachine2:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
 
 if [ $noOfMW == "3" ]
 then
 	echo "  Copying log files from middleware machine3... "
-	scp -i $rsa_key $remoteUserName@$serverMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/MW
+	scp -i $rsa_key $remoteUserName@$serverMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
 	echo "  Copying log files from client machine3... "
-	scp -i $rsa_key $remoteUserName@$clientMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/C
+	scp -i $rsa_key $remoteUserName@$clientMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
 fi
 if [ $noOfMW == "4" ]
 then
 	echo "  Copying log files from middleware machine3... "
-	scp -i $rsa_key $remoteUserName@$serverMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/MW
+	scp -i $rsa_key $remoteUserName@$serverMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
 	echo "  Copying log files from client machine3... "
-	scp -i $rsa_key $remoteUserName@$clientMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/C
+	scp -i $rsa_key $remoteUserName@$clientMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
 
 	echo "  Copying log files from middleware machine4... "
-	scp -i $rsa_key $remoteUserName@$serverMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/MW
+	scp -i $rsa_key $remoteUserName@$serverMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
 	echo "  Copying log files from client machine4... "
-	scp -i $rsa_key $remoteUserName@$clientMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/C
+	scp -i $rsa_key $remoteUserName@$clientMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
 fi
+if [ $noOfMW == "6" ]
+then
+	echo "  Copying log files from middleware machine3... "
+	scp -i $rsa_key $remoteUserName@$serverMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
 
+	echo "  Copying log files from client machine3... "
+	scp -i $rsa_key $remoteUserName@$clientMachine3:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
+
+	echo "  Copying log files from middleware machine4... "
+	scp -i $rsa_key $remoteUserName@$serverMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
+
+	echo "  Copying log files from client machine4... "
+	scp -i $rsa_key $remoteUserName@$clientMachine4:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
+
+	echo "  Copying log files from middleware machine5... "
+	scp -i $rsa_key $remoteUserName@$serverMachine5:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
+
+	echo "  Copying log files from client machine5... "
+	scp -i $rsa_key $remoteUserName@$clientMachine5:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
+
+	echo "  Copying log files from middleware machine6... "
+	scp -i $rsa_key $remoteUserName@$serverMachine6:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/MW
+
+	echo "  Copying log files from client machine6... "
+	scp -i $rsa_key $remoteUserName@$clientMachine6:./*.log* $experimentFolder/$experimentId/$totalClients/$repeatN/C
+fi
 
 echo "  Copying log files from database machine... "
 # scp -i $rsa_key $remoteUserName@$databaseMachine:./db.out $experimentFolder/$experimentId/$totalClients/DB
@@ -449,7 +647,24 @@ then
 	ssh -i $rsa_key $remoteUserName@$serverMachine4 "rm ./*.log*"
 	ssh -i $rsa_key $remoteUserName@$serverMachine4 "rm ./*.out*"
 fi
+if [ $noOfMW == "6" ]
+then
+	ssh -i $rsa_key $remoteUserName@$clientMachine3 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$clientMachine4 "rm ./*.log*"
 
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine3 "rm ./*.out*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine4 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine4 "rm ./*.out*"
+
+	ssh -i $rsa_key $remoteUserName@$clientMachine5 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$clientMachine6 "rm ./*.log*"
+
+	ssh -i $rsa_key $remoteUserName@$serverMachine5 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine5 "rm ./*.out*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine6 "rm ./*.log*"
+	ssh -i $rsa_key $remoteUserName@$serverMachine6 "rm ./*.out*"
+fi
 
 
 
@@ -458,28 +673,50 @@ fi
 # ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
 echo "OK"
 
-Process the log files from the clients
+#Process the log files from the clients
 echo "  Processing client log files"
-cat $experimentFolder/$experimentId/$totalClients/C/*.log* | sort -n > $experimentFolder/$experimentId/$totalClients/C/allclients
+cat $experimentFolder/$experimentId/$totalClients/$repeatN/C/*.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/C/allclients
+
+
 
 
 echo "  Processing middleware log files"
-cat $experimentFolder/$experimentId/$totalClients/MW/*1.log* | sort -n > $experimentFolder/$experimentId/$totalClients/MW/middleware_log_1_full.log
-rm $experimentFolder/$experimentId/$totalClients/MW/*1.log*
-cat $experimentFolder/$experimentId/$totalClients/MW/*2.log* | sort -n > $experimentFolder/$experimentId/$totalClients/MW/middleware_log_2_full.log
-rm $experimentFolder/$experimentId/$totalClients/MW/*2.log*
+cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*1.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_1_full.log
+rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*1.log*
+cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*2.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_2_full.log
+rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*2.log*
+
+
 
 if [ $noOfMW == "3" ]
 then
-	cat $experimentFolder/$experimentId/$totalClients/MW/*3.log* | sort -n > $experimentFolder/$experimentId/$totalClients/MW/middleware_log_3_full.log
-	rm $experimentFolder/$experimentId/$totalClients/MW/*3.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_3_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log*
 fi
 if [ $noOfMW == "4" ]
 then
-	cat $experimentFolder/$experimentId/$totalClients/MW/*3.log* | sort -n > $experimentFolder/$experimentId/$totalClients/MW/middleware_log_3_full.log
-	rm $experimentFolder/$experimentId/$totalClients/MW/*3.log*
-	cat $experimentFolder/$experimentId/$totalClients/MW/*4.log* | sort -n > $experimentFolder/$experimentId/$totalClients/MW/middleware_log_4_full.log
-	rm $experimentFolder/$experimentId/$totalClients/MW/*4.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_3_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*4.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_4_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*4.log*
 fi
+if [ $noOfMW == "6" ]
+then
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_3_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*3.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*4.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_4_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*4.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*5.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_5_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*5.log*
+	cat $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*6.log* | sort -n > $experimentFolder/$experimentId/$totalClients/$repeatN/MW/middleware_log_6_full.log
+	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*6.log*
+fi
+
+'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+select resetDB();
+EOF
+
+python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
 
 

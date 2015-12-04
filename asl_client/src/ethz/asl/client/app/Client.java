@@ -16,6 +16,28 @@ public class Client {
 	private static final String MESSAGE = "NfrZkKrqk0SQnzPhBXfWzbFcJMi8RlKzcyko9ciBBPkYbPQiiSDiPB9QfKYKYIo"
 			+ "fDUAvqUNiYQy1jbqIyJoMOAlQvIDHC93eBbsk77JcWO66tvwzYNJ8Ucvsb4ayE2nB"
 			+ "Ck0IHHQ1KmFDIRwE5OQ2TnAK53KC9e5m9FcNBKyA5MAsQXGrDrhtxnNjiLDhcNGHYwXLF18O";
+	
+	private static final String MESSAGE_2000 = "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";
 
 	static boolean running = true;
 
@@ -27,11 +49,14 @@ public class Client {
 	private static int workLoad;
 	private static int peer;
 	private static int noOfClients;
+	private static int personalQueueId;
+	private static int messType;
+	private static String textSend;
 
 	public static void main(String[] args) {
-		if (args.length != 5) {
+		if (args.length != 6) {
 			System.err
-					.println("Usage: java Client <host name> <port number> <duration> <work_load> <number_of_clients>");
+					.println("Usage: java Client <host name> <port number> <duration> <work_load> <number_of_clients> <mess_type>");
 			System.exit(1);
 		}
 
@@ -47,28 +72,17 @@ public class Client {
 		int duration = Integer.parseInt(args[2]);
 		workLoad = Integer.parseInt(args[3]);
 		noOfClients = Integer.parseInt(args[4]);
+		messType = Integer.parseInt(args[5]);
+		
+		if(messType == 1){
+			textSend = MESSAGE;
+		}else{
+			textSend = MESSAGE_2000;
+		}
 
 		long start = System.currentTimeMillis();
 		long end = start + duration * 1000;
 
-		// // get ClientID
-		// try (Socket clientSocket = new Socket(hostName, portNumber);
-		// PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),
-		// true);
-		// BufferedReader in = new BufferedReader(new
-		// InputStreamReader(clientSocket.getInputStream()));) {
-		//
-		// initClientID = getClientID(out, in);
-		//
-		//
-		// } catch (IOException e) {
-		// e.printStackTrace();
-		// System.out.println(e.getMessage());
-		// }
-		//
-		//
-
-		// logger.info("Client started");
 
 		try (Socket clientSocket = new Socket(hostName, portNumber);
 				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -83,7 +97,7 @@ public class Client {
 			logger = Logger.getLogger(Client.class.getName());
 
 			
-			createQueue(out, in); // Each client creates a queue in the beginning
+			personalQueueId = createQueue(out, in); // Each client creates a queue in the beginning
 			
 			if (workLoad == 1) { // Standard "random" workload
 				pi[0] = 0;
@@ -162,20 +176,23 @@ public class Client {
 
 	public static void sendMessage(PrintWriter out, BufferedReader in) throws IOException {
 		int receiver = -1;
+		int queue = -1;
 		if(workLoad != 4)
 		{
 			receiver = getClient(out, in);
+			queue = getQueue(out, in);
 		}else{
 			receiver = peer;
+			queue = personalQueueId;
 		}
 		
-		int queue = getQueue(out, in);
+		
 		if (queue > 0) {
 			if (receiver > 0) {
-				logger.info("[QUERY][SM] client(" + receiver + ") queue(" + queue + ")");
+				//logger.info("[QUERY][SM] client(" + receiver + ") queue(" + queue + ")");
 				startQuery = System.currentTimeMillis();
 
-				out.println("SM#" + clientID + "#" + receiver + "#" + queue + "#" + MESSAGE);
+				out.println("SM#" + clientID + "#" + receiver + "#" + queue + "#" + textSend);
 				String sendStatus = in.readLine();
 
 				responseTime = System.currentTimeMillis() - startQuery;
@@ -192,7 +209,7 @@ public class Client {
 		
 		if(queue != -1){
 		
-			logger.info("[QUERY][PMQ] queue(" + queue + ")");
+			//logger.info("[QUERY][PMQ] queue(" + queue + ")");
 			startQuery = System.currentTimeMillis();
 			out.println("PMQ#" + clientID + "#" + queue);
 			String messagePeeked = in.readLine();
@@ -200,7 +217,7 @@ public class Client {
 			if (messagePeeked == null || messagePeeked.equals("null")) {
 				logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
 			} else {
-				logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked + "]");
+				logger.info("[RESPONSE][PMQ] " + responseTime + " [" + messagePeeked.length() + "]");
 			}
 		}
 	}
@@ -216,7 +233,7 @@ public class Client {
 		}
 		
 		if(sender != -1){
-			logger.info("[QUERY][PMS] sender(" + sender + ")");
+			//logger.info("[QUERY][PMS] sender(" + sender + ")");
 			startQuery = System.currentTimeMillis();
 			out.println("PMS#" + clientID + "#" + sender);
 			String messagePeeked = in.readLine();
@@ -225,7 +242,7 @@ public class Client {
 			if (messagePeeked == null || messagePeeked.equals("null")) {
 				logger.info("[RESPONSE][PMS] " + responseTime + " [EMPTY]");
 			} else {
-				logger.info("[RESPONSE][PMS] " + responseTime + " [" + messagePeeked + "]");
+				logger.info("[RESPONSE][PMS] " + responseTime + " [" + messagePeeked.length() + "]");
 			}
 		}
 
@@ -236,7 +253,7 @@ public class Client {
 		
 		if(queue != -1){
 		
-			logger.info("[QUERY][GMQ] queue(" + queue + ")");
+			//logger.info("[QUERY][GMQ] queue(" + queue + ")");
 			startQuery = System.currentTimeMillis();
 	
 			out.println("GMQ#" + clientID + "#" + queue);
@@ -246,7 +263,7 @@ public class Client {
 			if (messageFromQueue == null || messageFromQueue.equals("null")) {
 				logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
 			} else {
-				logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue + "]");
+				logger.info("[RESPONSE][GMQ] " + responseTime + " [" + messageFromQueue.length() + "]");
 			}
 		}
 
@@ -263,7 +280,7 @@ public class Client {
 		}
 		
 		if(sender != -1){
-			logger.info("[QUERY][GMS] sender(" + sender + ")");
+			//logger.info("[QUERY][GMS] sender(" + sender + ")");
 			startQuery = System.currentTimeMillis();
 	
 			out.println("GMS#" + clientID + "#" + sender);
@@ -273,28 +290,31 @@ public class Client {
 			if (messageFromSender == null || messageFromSender.equals("null")) {
 				logger.info("[RESPONSE][GMS] " + responseTime + " [EMPTY]");
 			} else {
-				logger.info("[RESPONSE][GMS] " + responseTime + " [" + messageFromSender + "]");
+				logger.info("[RESPONSE][GMS] " + responseTime + " [" + messageFromSender.length() + "]");
 			}
 		}
 
 
 	}
 
-	public static void createQueue(PrintWriter out, BufferedReader in) throws IOException {
-		logger.info("[QUERY][CQ]");
+	public static int createQueue(PrintWriter out, BufferedReader in) throws IOException {
+		//logger.info("[QUERY][CQ]");
 		startQuery = System.currentTimeMillis();
 
 		out.println("CQ#" + clientID + "");
 		String queueid = in.readLine();
 
 		responseTime = System.currentTimeMillis() - startQuery;
+		
 		logger.info("[RESPONSE][CQ] " + responseTime + " [" + queueid + "]");
+		
+		return Integer.parseInt(queueid);
 	}
 
 	public static void deleteQueue(PrintWriter out, BufferedReader in) throws IOException {
 		int queueid = getQueue(out, in);
 		if (queueid >= 0) {
-			logger.info("[QUERY][DQ] queue(" + queueid + ")");
+			//logger.info("[QUERY][DQ] queue(" + queueid + ")");
 			startQuery = System.currentTimeMillis();
 
 			out.println("DQ#" + queueid);
@@ -330,7 +350,7 @@ public class Client {
 	}
 
 	private static int getClientWithMSG(PrintWriter out, BufferedReader in) throws IOException {
-		logger.info("[QUERY][LCWM]");
+		//logger.info("[QUERY][LCWM]");
 		startQuery = System.currentTimeMillis();
 
 		out.println("LCWM#" + clientID + "");
@@ -351,7 +371,7 @@ public class Client {
 	}
 
 	private static int getQueue(PrintWriter out, BufferedReader in) throws IOException {
-		logger.info("[QUERY][LQ]");
+		//logger.info("[QUERY][LQ]");
 		startQuery = System.currentTimeMillis();
 
 		out.println("LQ#" + clientID);
@@ -372,7 +392,7 @@ public class Client {
 	}
 
 	private static int getQueueWithMSG(PrintWriter out, BufferedReader in) throws IOException {
-		logger.info("[QUERY][LQWM]");
+		//logger.info("[QUERY][LQWM]");
 		startQuery = System.currentTimeMillis();
 
 		out.println("LQWM#" + clientID);

@@ -37,8 +37,7 @@ def main():
         for line in client_file:
             line = line.strip()
             lineArray = line.split(' ')
-            #if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
-            if "RESPONSE" in line:
+            if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
                 rt = int(lineArray[7])
                 sumRTSec += rt
@@ -61,14 +60,14 @@ def main():
         
         client_file.close()
 
-    rtSec_trunc = rtSec[120:len(rtSec)-30]
+    #rtSec_trunc = rtSec[120:len(rtSec)-30]
 
-    stop = len(rtSec)-30
+    #stop = len(rtSec)-30
     
-    nsamples = len(rtSec_trunc)
+    #nsamples = len(rtSec_trunc)
 
     #rtMean = np.mean(rtSec_trunc, axis=0)
-    rtMean = np.mean(rtSec_trunc)
+    rtMean = np.mean(rtSec)
     #rtSD = np.std(rtSec_trunc, axis=0)
 
     with open(pathClients+'/allclients', 'r') as client_file:
@@ -96,12 +95,12 @@ def main():
                         curT = t
                         delta = 0.0
                 
-                if nbSecs>=120 and nbSecs < stop:
-                    rtCnt += 1
-                    tmp = (rt-rtMean) **2
-                   # print 'rt : %d' % rt
-                    #print 'rt - rtMean **2 :  %d ' % tmp
-                    tmpSTD += tmp
+                #if nbSecs>=120 and nbSecs < stop:
+                rtCnt += 1
+                tmp = (rt-rtMean) **2
+               # print 'rt : %d' % rt
+                #print 'rt - rtMean **2 :  %d ' % tmp
+                tmpSTD += tmp
 
 
         client_file.close()
@@ -109,13 +108,9 @@ def main():
     print 'rtCnt %d' % rtCnt
     rtSD = sqrt(tmpSTD/rtCnt)
 
-    print 'length'
-    print len(rtSec_trunc)
-
-    # Truncate database warmup (60s) and cooldown (30s)
 
 
-    allClientStats = open(pathClients+'/../../stats/clients_RT.stat', 'a')
+    allClientStats = open(pathClients+'/../../stats/clients_RT_uncut.stat', 'a')
     allClientStats.write(noOfClients+'\t'+`rtCnt`+'\t'+repeatN+'\t'+`rtMean`+'\t'+`rtSD`)
     allClientStats.write('\n')
     allClientStats.close()
@@ -127,7 +122,7 @@ def main():
     plt.ylabel('ResponseTime [ms]')
     plt.xlabel('Time [s]')
     plt.margins(0.1)
-    plt.savefig(pathClients+'/../../stats/client_rt_trace_'+repeatN+'.png', bbox_inches='tight')
+    plt.savefig(pathClients+'/../../stats/client_rt_trace_uncut_'+repeatN+'.png', bbox_inches='tight')
     #plt.show()
 
 if __name__ == "__main__":

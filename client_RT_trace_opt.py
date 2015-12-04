@@ -6,10 +6,13 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt
+import gc
 
 
 
 def main():
+    start = time.time()
+    gc.disable()
     experimentID = sys.argv[1]
     noOfClients = sys.argv[2]
     inThread = sys.argv[3]
@@ -37,8 +40,7 @@ def main():
         for line in client_file:
             line = line.strip()
             lineArray = line.split(' ')
-            #if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
-            if "RESPONSE" in line:
+            if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
                 rt = int(lineArray[7])
                 sumRTSec += rt
@@ -129,6 +131,10 @@ def main():
     plt.margins(0.1)
     plt.savefig(pathClients+'/../../stats/client_rt_trace_'+repeatN+'.png', bbox_inches='tight')
     #plt.show()
+
+    end = time.time()
+    print 'time elapsed :'
+    print start - end
 
 if __name__ == "__main__":
     main()

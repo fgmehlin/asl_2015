@@ -9,7 +9,16 @@ public class QueryObject {
 	private int clientID;
 	private int errorType;
 	private String errorMessage;
+	private long startTime;
 	
+
+	public long getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(long startTime) {
+		this.startTime = startTime;
+	}
 
 	private PrintWriter clientChannel;
 	
