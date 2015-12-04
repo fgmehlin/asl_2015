@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Middleware 
+for c in 5 10 15 20 25 30
+do
+   ./experiment_free_auto.sh 80 $c 450 1 10 5 1 1 1
+done
+
+for c in 5 10 15 20 25 30
+do
+   ./experiment_free_auto.sh 80 $c 450 1 15 5 1 1 1
+done
+
+for c in 5 10 15 20 25 30
+do
+   ./experiment_free_auto.sh 80 $c 450 1 20 5 1 1 1
+done
+
+
 # Stability 
 #./experiment_free_auto.sh 38 25 450 1 7 5 2 7 1 1
 
@@ -69,10 +86,10 @@
 # # RT Variation 4
 
 
-./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
+# ./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
 
 
-python compute_CI.py 44 60
+# python compute_CI.py 44 60
 
 # Scalability
 
