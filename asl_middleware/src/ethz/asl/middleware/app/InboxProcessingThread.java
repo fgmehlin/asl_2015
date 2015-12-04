@@ -42,16 +42,13 @@ public class InboxProcessingThread implements Runnable {
 				String cmd = splittedCommand[0];
 				int clientID = 0;
 				String echoServerReply = "ECHO_REPLY";
-
-				if (!cmd.equals("ECHO")) {
-					clientID = Integer.parseInt(splittedCommand[1]);
-				}
 				
 				if(cmd.equals("ECHO")){
 					MiddleWare.clientIndex += 1;
 					clientID = MiddleWare.clientIndex;
 					query.setReply(clientID + "");
 				}else{
+					clientID = Integer.parseInt(splittedCommand[1]);
 					query.setReply(echoServerReply);
 				}
 /*
