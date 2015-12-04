@@ -43,7 +43,7 @@ public class MiddleWare {
 		
 		System.setProperty("mwID", mwID);
 		
-		ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip, poolSize);
+	//	ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip, poolSize);
 		
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
 	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
@@ -52,7 +52,7 @@ public class MiddleWare {
 	    OutboxProcessingThread outboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(in, out, dbManager, i);
+	    	inboxProcessor = new InboxProcessingThread(in, out, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    

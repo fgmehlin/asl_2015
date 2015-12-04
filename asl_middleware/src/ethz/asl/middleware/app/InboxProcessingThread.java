@@ -8,17 +8,16 @@ public class InboxProcessingThread implements Runnable {
 
 	private final BlockingQueue<QueryObject> out;
 	private final BlockingQueue<QueryObject> in;
-	private final DatabaseCommunication dbComm;
+	//private final DatabaseCommunication dbComm;
 	private final int proc_id;
 	private static Logger logger = Logger.getLogger(InboxProcessingThread.class.getName());
 	private long startProcess;
 	private long stopProcess;
 
-	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out,
-			ConnectionPoolManager poolManager, int proc_id) {
+	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, int proc_id) {
 		this.in = in;
 		this.out = out;
-		this.dbComm = new DatabaseCommunication(poolManager);
+	//	this.dbComm = new DatabaseCommunication(poolManager);
 		this.proc_id = proc_id;
 
 	}
