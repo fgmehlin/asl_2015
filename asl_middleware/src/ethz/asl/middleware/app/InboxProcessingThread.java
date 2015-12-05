@@ -40,7 +40,7 @@ public class InboxProcessingThread implements Runnable {
 				String[] splittedCommand = command.split("#");
 				String cmd = splittedCommand[0];
 				int clientID = 0;
-				String echoServerReply = "ECHO_REPLY";
+				String echoServerReply = "99999999";
 				
 				if(cmd.equals("ECHO")){
 					MiddleWare.clientIndex += 1;

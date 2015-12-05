@@ -73,9 +73,6 @@ def main():
                 
                 mw_file.close()
 
-    print 'length'
-    print len(throughputSec[0])
-    print len(throughputSec[1])
 
     minlen = 999999999
 

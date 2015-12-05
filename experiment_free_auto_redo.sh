@@ -25,24 +25,24 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.113.59"
-serverMachine2="52.29.112.227"
-serverMachine3="52.28.232.14"
-serverMachine4="52.28.57.68"
+serverMachine1="52.29.142.246"
+serverMachine2=""
+serverMachine3=""
+serverMachine4=""
 serverMachine5=""
 serverMachine6=""
 
-clientMachine1="52.28.251.91"
-clientMachine2="52.28.132.249"
-clientMachine3="52.29.116.215"
-clientMachine4="52.29.116.9"
+clientMachine1="52.29.141.6"
+clientMachine2=""
+clientMachine3=""
+clientMachine4=""
 clientMachine5=""
 clientMachine6=""
 
 #databaseMachine="52.28.204.231"
 #databasePort="4445"
 # xlarge DB
-databaseMachine="asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
+databaseMachine=""
 # large DB
 #databaseMachine="asl-db.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
 databasePort="5432"
@@ -125,9 +125,9 @@ ec2Home="/home/ec2-user"
 # echo "OK"
 
 
-'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
-select resetDB();
-EOF
+# '/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+# select resetDB();
+# EOF
 
 echo "  Copying server.jar to server machine: $serverMachine1 ... "
 # Copy jar to server machine
@@ -516,7 +516,7 @@ ssh -i $rsa_key $remoteUserName@$clientMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.out*"
 
-if [ $noOfMW -ge "1" ]
+if [ $noOfMW -ge "2" ]
 then
 	ssh -i $rsa_key $remoteUserName@$clientMachine2 "rm ./*.log*"
 	
@@ -589,9 +589,9 @@ then
 	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*6.log*
 fi
 
-'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
-select resetDB();
-EOF
+# '/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+# select resetDB();
+# EOF
 
 python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
 python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
