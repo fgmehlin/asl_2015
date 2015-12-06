@@ -32,7 +32,7 @@ public class InboxProcessingThread implements Runnable {
 			try {
 				QueryObject query = in.take();
 				String command = query.getCommand();
-				startProcess = System.currentTimeMillis();
+				startProcess = System.nanoTime();
 				if(!command.contains("SM"))
 					logger.info("[POPING_QUERY] " + command + " size(" + in.size() + ")");
 				else 

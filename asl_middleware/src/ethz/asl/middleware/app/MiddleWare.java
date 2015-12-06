@@ -49,17 +49,17 @@ public class MiddleWare {
 	    
 	    InboxProcessingThread inboxProcessor;
 	    OutboxProcessingThread outboxProcessor;
-	    
-	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(in, out, dbManager, i);
-	    	(new Thread(inboxProcessor)).start();
-		}
-	    
-	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
-	    	outboxProcessor = new OutboxProcessingThread(out, i);
-	    	(new Thread(outboxProcessor)).start();
-		}
-	    
+//	    
+//	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
+//	    	inboxProcessor = new InboxProcessingThread(in, out, dbManager, i);
+//	    	(new Thread(inboxProcessor)).start();
+//		}
+//	    
+//	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
+//	    	outboxProcessor = new OutboxProcessingThread(out, i);
+//	    	(new Thread(outboxProcessor)).start();
+//		}
+//	    
 			
 			boolean listening = true;
 			
@@ -67,7 +67,7 @@ public class MiddleWare {
 				System.out.println("Server listening");
 				while(listening){
 					//start one thread for each new client
-					(new Thread(new ClientWorker(serverSocket.accept(), in))).start();
+					(new Thread(new ClientWorker(serverSocket.accept(),  dbManager))).start();
 				}
 				
 			//	executor.shutdown();
