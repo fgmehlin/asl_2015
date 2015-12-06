@@ -25,14 +25,14 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.142.246"
+serverMachine1="52.28.231.74"
 serverMachine2=""
 serverMachine3=""
 serverMachine4=""
 serverMachine5=""
 serverMachine6=""
 
-clientMachine1="52.29.141.6"
+clientMachine1="52.29.2.73"
 clientMachine2=""
 clientMachine3=""
 clientMachine4=""
@@ -68,7 +68,7 @@ poolSize="$8"
 messType="$9"
 repeatN="${10}"
 
-echo $repeatN
+echo $clientRunTime
 
 let totalClients=$noOfClients*$noOfMW
 
@@ -104,7 +104,7 @@ echo "   Database pool size : $poolSize" >> $experimentFolder/$experimentId/conf
 
 
 pathToRepo="/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/project_repo"
-rsa_key="/Users/florangmehlin/.ssh/ASL_Frankfurt.pem"
+rsa_key="/Users/florangmehlin/.ssh/ASL_2.pem"
 ec2Home="/home/ec2-user"
 
 # echo -ne "  Testing passwordless connection to the server machine and client machine... "

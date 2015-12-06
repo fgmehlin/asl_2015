@@ -1,3 +1,4 @@
+from __future__ import division
 import time
 from datetime import datetime
 import sys
@@ -40,7 +41,7 @@ def main():
             #if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
             if "RESPONSE" in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
-                rt = int(lineArray[7])
+                rt = int(lineArray[7])/1000000
                 sumRTSec += rt
                 rtCnt += 1
                 t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
@@ -85,7 +86,7 @@ def main():
             lineArray = line.split(' ')
             if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
-                rt = int(lineArray[7])
+                rt = int(lineArray[7])/1000000
                 lc +=1
                 t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
                 delta = t - curT

@@ -1,12 +1,13 @@
 package ethz.asl.middleware.app;
 
+import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
 
 import org.apache.log4j.Logger;
 
 public class InboxProcessingThread implements Runnable {
 
-	private final BlockingQueue<QueryObject> out;
+	//private final BlockingQueue<QueryObject> out;
 	private final BlockingQueue<QueryObject> in;
 	//private final DatabaseCommunication dbComm;
 	private final int proc_id;
@@ -14,9 +15,8 @@ public class InboxProcessingThread implements Runnable {
 	private long startProcess;
 	private long stopProcess;
 
-	InboxProcessingThread(BlockingQueue<QueryObject> in, BlockingQueue<QueryObject> out, int proc_id) {
+	InboxProcessingThread(BlockingQueue<QueryObject> in, int proc_id) {
 		this.in = in;
-		this.out = out;
 	//	this.dbComm = new DatabaseCommunication(poolManager);
 		this.proc_id = proc_id;
 
@@ -31,7 +31,7 @@ public class InboxProcessingThread implements Runnable {
 			try {
 				QueryObject query = in.take();
 				String command = query.getCommand();
-				startProcess = System.currentTimeMillis();
+				startProcess = System.nanoTime();
 				if(!command.contains("SM"))
 					logger.info("[POPING_QUERY] " + command + " size(" + in.size() + ")");
 				else 
@@ -121,8 +121,11 @@ public class InboxProcessingThread implements Runnable {
 					break;
 				}
 */
-				out.put(query);
-				stopProcess = System.currentTimeMillis() - startProcess;
+//				out.put(query);
+				PrintWriter clientChannel = query.getClientChannel();
+				clientChannel.println(query.getReply());
+				clientChannel.flush();
+				stopProcess = System.nanoTime() - startProcess;
 				if (query.getReply() != null)
 					logger.info("[PUTTING_REPLY] " + stopProcess + " " + cmd + " " + query.getReply());
 				else

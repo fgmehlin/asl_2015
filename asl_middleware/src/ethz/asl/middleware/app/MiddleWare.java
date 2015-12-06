@@ -46,21 +46,21 @@ public class MiddleWare {
 	//	ConnectionPoolManager dbManager = new ConnectionPoolManager(db_ip, poolSize);
 		
 		BlockingQueue<QueryObject> in = new LinkedBlockingQueue<QueryObject>();
-	    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
+	//    BlockingQueue<QueryObject> out = new LinkedBlockingQueue<QueryObject>();
 	    
 	    InboxProcessingThread inboxProcessor;
-	    OutboxProcessingThread outboxProcessor;
+	//    OutboxProcessingThread outboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(in, out, i);
+	    	inboxProcessor = new InboxProcessingThread(in, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    
-	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
-	    	outboxProcessor = new OutboxProcessingThread(out, i);
-	    	(new Thread(outboxProcessor)).start();
-		}
-	    
+//	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
+//	    	outboxProcessor = new OutboxProcessingThread(out, i);
+//	    	(new Thread(outboxProcessor)).start();
+//		}
+//	    
 			
 			boolean listening = true;
 			

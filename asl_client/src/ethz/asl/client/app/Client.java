@@ -133,7 +133,7 @@ public class Client {
 
 				if (workLoad != 4) {
 
-					if(workLoad == 3 && ((System.currentTimeMillis() - start) > ((end-start)/2))){
+					if(workLoad == 3 && ((System.nanoTime() - start) > ((end-start)/2))){
 						switchWriteToRead(pi);
 					}
 					
@@ -190,12 +190,12 @@ public class Client {
 		if (queue > 0) {
 			if (receiver > 0) {
 				//logger.info("[QUERY][SM] client(" + receiver + ") queue(" + queue + ")");
-				startQuery = System.currentTimeMillis();
+				startQuery = System.nanoTime();
 
 				out.println("SM#" + clientID + "#" + receiver + "#" + queue + "#" + textSend);
 				String sendStatus = in.readLine();
 
-				responseTime = System.currentTimeMillis() - startQuery;
+				responseTime = System.nanoTime() - startQuery;
 				logger.info("[RESPONSE][SM] " + responseTime + " [" + sendStatus + "]");
 			} else {
 			}
@@ -210,10 +210,10 @@ public class Client {
 		if(queue != -1){
 		
 			//logger.info("[QUERY][PMQ] queue(" + queue + ")");
-			startQuery = System.currentTimeMillis();
+			startQuery = System.nanoTime();
 			out.println("PMQ#" + clientID + "#" + queue);
 			String messagePeeked = in.readLine();
-			responseTime = System.currentTimeMillis() - startQuery;
+			responseTime = System.nanoTime() - startQuery;
 			if (messagePeeked == null || messagePeeked.equals("null")) {
 				logger.info("[RESPONSE][PMQ] " + responseTime + " [EMPTY]");
 			} else {
@@ -234,10 +234,10 @@ public class Client {
 		
 		if(sender != -1){
 			//logger.info("[QUERY][PMS] sender(" + sender + ")");
-			startQuery = System.currentTimeMillis();
+			startQuery = System.nanoTime();
 			out.println("PMS#" + clientID + "#" + sender);
 			String messagePeeked = in.readLine();
-			responseTime = System.currentTimeMillis() - startQuery;
+			responseTime = System.nanoTime() - startQuery;
 	
 			if (messagePeeked == null || messagePeeked.equals("null")) {
 				logger.info("[RESPONSE][PMS] " + responseTime + " [EMPTY]");
@@ -254,12 +254,12 @@ public class Client {
 		if(queue != -1){
 		
 			//logger.info("[QUERY][GMQ] queue(" + queue + ")");
-			startQuery = System.currentTimeMillis();
+			startQuery = System.nanoTime();
 	
 			out.println("GMQ#" + clientID + "#" + queue);
 			String messageFromQueue = in.readLine();
 	
-			responseTime = System.currentTimeMillis() - startQuery;
+			responseTime = System.nanoTime() - startQuery;
 			if (messageFromQueue == null || messageFromQueue.equals("null")) {
 				logger.info("[RESPONSE][GMQ] " + responseTime + " [EMPTY]");
 			} else {
@@ -281,11 +281,11 @@ public class Client {
 		
 		if(sender != -1){
 			//logger.info("[QUERY][GMS] sender(" + sender + ")");
-			startQuery = System.currentTimeMillis();
+			startQuery = System.nanoTime();
 	
 			out.println("GMS#" + clientID + "#" + sender);
 			String messageFromSender = in.readLine();
-			responseTime = System.currentTimeMillis() - startQuery;
+			responseTime = System.nanoTime() - startQuery;
 	
 			if (messageFromSender == null || messageFromSender.equals("null")) {
 				logger.info("[RESPONSE][GMS] " + responseTime + " [EMPTY]");
@@ -299,12 +299,12 @@ public class Client {
 
 	public static int createQueue(PrintWriter out, BufferedReader in) throws IOException {
 		//logger.info("[QUERY][CQ]");
-		startQuery = System.currentTimeMillis();
+		startQuery = System.nanoTime();
 
 		out.println("CQ#" + clientID + "");
 		String queueid = in.readLine();
 
-		responseTime = System.currentTimeMillis() - startQuery;
+		responseTime = System.nanoTime() - startQuery;
 		
 		logger.info("[RESPONSE][CQ] " + responseTime + " [" + queueid + "]");
 		
@@ -315,12 +315,12 @@ public class Client {
 		int queueid = getQueue(out, in);
 		if (queueid >= 0) {
 			//logger.info("[QUERY][DQ] queue(" + queueid + ")");
-			startQuery = System.currentTimeMillis();
+			startQuery = System.nanoTime();
 
 			out.println("DQ#" + queueid);
 			String response = in.readLine();
 
-			responseTime = System.currentTimeMillis() - startQuery;
+			responseTime = System.nanoTime() - startQuery;
 			logger.info("[RESPONSE][DQ] " + responseTime + " [" + response + "]");
 
 		} else {
@@ -331,12 +331,12 @@ public class Client {
 		return rand.nextInt(noOfClients)+1;
 		
 //		logger.info("[QUERY][LC]");
-//		startQuery = System.currentTimeMillis();
+//		startQuery = System.nanoTime();
 //
 //		out.println("LC#" + clientID + "");
 //		String clients = in.readLine();
 //
-//		responseTime = System.currentTimeMillis() - startQuery;
+//		responseTime = System.nanoTime() - startQuery;
 //
 //		String[] clientList = clients.split("#");
 //		logger.info("[RESPONSE][LC] " + responseTime + " [" + clientList.length + "]");
@@ -351,12 +351,12 @@ public class Client {
 
 	private static int getClientWithMSG(PrintWriter out, BufferedReader in) throws IOException {
 		//logger.info("[QUERY][LCWM]");
-		startQuery = System.currentTimeMillis();
+		startQuery = System.nanoTime();
 
 		out.println("LCWM#" + clientID + "");
 		String clients = in.readLine();
 
-		responseTime = System.currentTimeMillis() - startQuery;
+		responseTime = System.nanoTime() - startQuery;
 
 		if (!clients.equals("NONE") ) {
 			String[] clientList = clients.split("#");
@@ -372,12 +372,12 @@ public class Client {
 
 	private static int getQueue(PrintWriter out, BufferedReader in) throws IOException {
 		//logger.info("[QUERY][LQ]");
-		startQuery = System.currentTimeMillis();
+		startQuery = System.nanoTime();
 
 		out.println("LQ#" + clientID);
 		String queues = in.readLine();
 
-		responseTime = System.currentTimeMillis() - startQuery;
+		responseTime = System.nanoTime() - startQuery;
 
 		if (!queues.equals("NONE")) {
 			String[] queueList = queues.split("#");
@@ -393,12 +393,12 @@ public class Client {
 
 	private static int getQueueWithMSG(PrintWriter out, BufferedReader in) throws IOException {
 		//logger.info("[QUERY][LQWM]");
-		startQuery = System.currentTimeMillis();
+		startQuery = System.nanoTime();
 
 		out.println("LQWM#" + clientID);
 		String queues = in.readLine();
 
-		responseTime = System.currentTimeMillis() - startQuery;
+		responseTime = System.nanoTime() - startQuery;
 
 		
 

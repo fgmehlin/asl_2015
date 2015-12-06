@@ -50,7 +50,7 @@ def main():
     for dir_entry in os.listdir(pathMiddleware):
         dir_entry_path = os.path.join(pathMiddleware, dir_entry)
 
-        if os.path.isfile(dir_entry_path) and dir_entry != '.DS_Store' and dir_entry != 'allMW' and 'full' in dir_entry:
+        if os.path.isfile(dir_entry_path) and dir_entry != '.DS_Store' and dir_entry != 'allMW.log' and 'full' in dir_entry:
             mwID = re.findall(r'\d', dir_entry)[:1][0]
 
 
@@ -67,7 +67,7 @@ def main():
 
                         timestamp = lineArray[0]+" "+lineArray[1]
                         t = time.mktime(datetime.strptime(timestamp, "%d/%m/%Y %H:%M:%S,%f").timetuple())
-                        rt = int(lineArray[7])
+                        rt = int(lineArray[7])/1000000
                         if rt > 0:
                             cnt1 += 1
                         else:
