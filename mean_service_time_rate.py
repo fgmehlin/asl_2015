@@ -119,7 +119,7 @@ def main():
 
     # sum_RT_total = np.sum(sum_RT_sec_trunc)
     # cnt_RT_total = np.sum(cnt_RT_sec_trunc)
-    mean_service_time = np.mean(sum_RT_sec_trunc)
+    mean_service_time = np.mean(sum_RT_sec_trunc)/1000
 
 
     # mean_service_time = sum_RT_total / cnt_RT_total

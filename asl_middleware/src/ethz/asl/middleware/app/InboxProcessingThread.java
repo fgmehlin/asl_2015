@@ -30,8 +30,8 @@ public class InboxProcessingThread implements Runnable {
 
 			try {
 				QueryObject query = in.take();
-				String command = query.getCommand();
 				startProcess = System.nanoTime();
+				String command = query.getCommand();
 				if(!command.contains("SM"))
 					logger.info("[POPING_QUERY] " + command + " size(" + in.size() + ")");
 				else 
@@ -122,6 +122,8 @@ public class InboxProcessingThread implements Runnable {
 				}
 */
 //				out.put(query);
+
+				
 				PrintWriter clientChannel = query.getClientChannel();
 				clientChannel.println(query.getReply());
 				clientChannel.flush();
@@ -130,6 +132,8 @@ public class InboxProcessingThread implements Runnable {
 					logger.info("[PUTTING_REPLY] " + stopProcess + " " + cmd + " " + query.getReply());
 				else
 					logger.info("[PUTTING_REPLY] " + stopProcess + " " + cmd + " EMPTY");
+
+				
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
