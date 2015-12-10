@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+# Database 
+
+for c in 10
+do
+   ./experiment_free_auto_redo.sh 87 $c 450 1 0 0 1 10 1 1
+done
+
 # Stability 
 #./experiment_free_auto.sh 38 25 450 1 7 5 2 7 1 1
 

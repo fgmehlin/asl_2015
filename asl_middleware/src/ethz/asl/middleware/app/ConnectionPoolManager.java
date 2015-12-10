@@ -79,7 +79,8 @@ class ConnectionPoolManager
 	{
 		Connection connection = null;
 
-		//Check if there is a connection available. There are times when all the connections in the pool may be used up
+		//Check if there is a connection available. 
+		//There are times when all the connections in the pool may be used up
 		if(connectionPool.size() > 0)
 		{
 			connection = connectionPool.firstElement();
