@@ -77,10 +77,10 @@ done
 # # RT Variation 4
 
 
-./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
+# ./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
 
 
-python compute_CI.py 44 60
+# python compute_CI.py 44 60
 
 # Scalability
 

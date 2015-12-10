@@ -495,7 +495,7 @@ ssh -i $rsa_key $remoteUserName@$clientMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.out*"
 
-if [ $noOfMW -ge "1" ]
+if [ $noOfMW -ge "2" ]
 then
 	ssh -i $rsa_key $remoteUserName@$clientMachine2 "rm ./*.log*"
 	
