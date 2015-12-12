@@ -11,7 +11,7 @@
 #    ./experiment_free_auto_redo.sh 81 $c 450 1 20 5 1 0 1 1
 # done
 
-for c in 2 5 15 20 25 30
+for c in 5
 do
    ./experiment_free_auto_redo.sh 86 $c 450 1 10 0 1 0 1 1
 done

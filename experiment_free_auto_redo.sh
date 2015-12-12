@@ -25,14 +25,14 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.28.191.128"
+serverMachine1="52.29.140.106"
 serverMachine2=""
 serverMachine3=""
 serverMachine4=""
 serverMachine5=""
 serverMachine6=""
 
-clientMachine1="52.28.226.65"
+clientMachine1="52.28.210.173"
 clientMachine2=""
 clientMachine3=""
 clientMachine4=""
