@@ -2,11 +2,27 @@
 
 
 # Database 
+experimentId=87
+inThread=0
+outThread=0
+noOfMW=1
+poolSize=10
+workLoad=1
+repeatN=1
 
-for c in 10
+# for c in 2 5 15 20 25 30
+# do
+#    ./experiment_free_auto_redo.sh 87 $c 450 1 0 0 1 10 1 1
+# done
+
+for totalClients in 2 5 15 20 25 30
 do
-   ./experiment_free_auto_redo.sh 87 $c 450 1 0 0 1 10 1 1
+    # python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+    python database_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+    # python msrt_improved.py $experimentId $totalClients $noOfMW $repeatN
 done
+
+
 
 # Stability 
 #./experiment_free_auto.sh 38 25 450 1 7 5 2 7 1 1
