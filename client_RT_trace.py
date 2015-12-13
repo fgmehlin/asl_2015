@@ -83,7 +83,7 @@ def main():
         for line in client_file:
             line = line.strip()
             lineArray = line.split(' ')
-            if "RESPONSE" in line and 'false' not in line and 'ERROR' not in line and 'False' not in line and 'FALSE' not in line:
+            if "RESPONSE" in line and 'ERROR' not in line:
                 timestamp = lineArray[0]+" "+lineArray[1]
                 rt = int(lineArray[7])/1000000
                 lc +=1
