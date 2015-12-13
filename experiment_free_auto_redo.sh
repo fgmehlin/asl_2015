@@ -25,24 +25,24 @@ function usage() {
 	exit -1
 }
 
-serverMachine1="52.29.113.59"
-serverMachine2="52.29.112.227"
-serverMachine3="52.28.232.14"
-serverMachine4="52.28.57.68"
+serverMachine1="52.29.140.106"
+serverMachine2="52.29.151.9"
+serverMachine3=""
+serverMachine4=""
 serverMachine5=""
 serverMachine6=""
 
-clientMachine1="52.28.251.91"
-clientMachine2="52.28.132.249"
-clientMachine3="52.29.116.215"
-clientMachine4="52.29.116.9"
+clientMachine1="52.28.210.173"
+clientMachine2="52.29.20.173"
+clientMachine3=""
+clientMachine4=""
 clientMachine5=""
 clientMachine6=""
 
 #databaseMachine="52.28.204.231"
 #databasePort="4445"
 # xlarge DB
-databaseMachine="asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
+databaseMachine="asl-redo2.cuovvcdtlmar.eu-central-1.rds.amazonaws.com"
 # large DB
 #databaseMachine="asl-db.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com"
 databasePort="5432"
@@ -104,28 +104,12 @@ echo "   Database pool size : $poolSize" >> $experimentFolder/$experimentId/conf
 
 
 pathToRepo="/Users/florangmehlin/Documents/ETHZ/Advanced Systems Lab_2015/project_repo"
-rsa_key="/Users/florangmehlin/.ssh/ASL_Frankfurt.pem"
+rsa_key="/Users/florangmehlin/.ssh/ASL_2.pem"
 ec2Home="/home/ec2-user"
 
-# echo -ne "  Testing passwordless connection to the server machine and client machine... "
-# # Check if command can be run on server and client
-# success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$serverMachine1 echo ok 2>&1 )
-# if [ $success != "ok" ]
-# then
-# 	echo "Passwordless login not successful for $remoteUserName on $serverMachine1. Exiting..."
-# 	exit -1
-# fi
-
-# success=$( ssh -i $rsa_key -o BatchMode=yes  $remoteUserName@$clientMachine1 echo ok 2>&1 )
-# if [ $success != "ok" ]
-# then
-# 	echo "Passwordless login not successful for $remoteUserName on $clientMachine1. Exiting..."
-# 	exit -1
-# fi
-# echo "OK"
 
 
-'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-redo2.cuovvcdtlmar.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
 select resetDB();
 EOF
 
@@ -185,24 +169,6 @@ then
 	scp -i $rsa_key "$pathToRepo"/asl_client/asl_client.jar $remoteUserName@$clientMachine6:.	
 fi
 
-
-
-######################################
-#
-# Start database
-#
-######################################
-#echo "  Starting the database"
-
-# echo " Installing database"
-# ssh -i $rsa_key $remoteUserName@$databaseMachine "./partInstallDBEC2.sh"
-# while [ `ssh -i $rsa_key $remoteUserName@$databaseMachine "cat db.out | grep 'database system is ready to accept connections' | wc -l"` != 1 ]
-# do
-# 	sleep 1
-# done 
-# echo "OK"
-#echo " Resetting the database"
-#ssh -i $rsa_key $remoteUserName@$databaseMachine "$ec2Home/postgres/bin/psql -p $databasePort -U asl_pg asl --command='select resetDB();'"
 
 ######################################
 #
@@ -516,7 +482,7 @@ ssh -i $rsa_key $remoteUserName@$clientMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.log*"
 ssh -i $rsa_key $remoteUserName@$serverMachine1 "rm ./*.out*"
 
-if [ $noOfMW -ge "1" ]
+if [ $noOfMW -ge "2" ]
 then
 	ssh -i $rsa_key $remoteUserName@$clientMachine2 "rm ./*.log*"
 	
@@ -548,11 +514,6 @@ then
 	ssh -i $rsa_key $remoteUserName@$serverMachine6 "rm ./*.out*"
 fi
 
-
-
-# ssh -i $rsa_key $remoteUserName@$databaseMachine "rm ./db.out"
-# ssh -i $rsa_key $remoteUserName@$databaseMachine "rm -rf /home/ec2-user/postgres/db"
-# ssh -i $rsa_key $remoteUserName@$databaseMachine "killall postgres"
 echo "OK"
 
 #Process the log files from the clients
@@ -589,11 +550,11 @@ then
 	rm $experimentFolder/$experimentId/$totalClients/$repeatN/MW/*6.log*
 fi
 
-'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-xlarge.cnq3qzzs08l2.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
+'/Applications/pgAdmin3.app/Contents/SharedSupport/psql' --host 'asl-redo2.cuovvcdtlmar.eu-central-1.rds.amazonaws.com' --port 5432 --username 'asl_pg' 'asl' << EOF
 select resetDB();
 EOF
 
-python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
-python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+# python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+# python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
 
 

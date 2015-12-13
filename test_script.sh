@@ -1,5 +1,45 @@
 #!/bin/bash
 
+experimentId=88
+clientRunTime=450
+workLoad=1
+inThread=10
+outThread=0
+noOfMW=1
+poolSize=10
+messType=1
+repeatN=1
+
+
+# for noOfClients in 2 6 12 18 24 30
+# do
+#    ./experiment_free_auto_redo.sh $experimentId $noOfClients $clientRunTime $workLoad $inThread $outThread $noOfMW $poolSize $messType $repeatN
+# done
+
+# experimentId=89
+# noOfMW=2
+
+# for noOfClients in 1 3 6 9 12 15
+# do
+#    ./experiment_free_auto_redo.sh $experimentId $noOfClients $clientRunTime $workLoad $inThread $outThread $noOfMW $poolSize $messType $repeatN
+# done
+
+experimentId=88
+noOfMW=1
+for totalClients in 2 6 12 18 24 30
+do
+	python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+	python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+done
+
+experimentId=89
+noOfMW=2
+for totalClients in 2 6 12 18 24 30
+do
+	python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+	python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+done
+
 # Stability 
 #./experiment_free_auto.sh 38 25 450 1 7 5 2 7 1 1
 
@@ -69,10 +109,10 @@
 # # RT Variation 4
 
 
-./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
+# ./experiment_free_auto.sh 44 15 450 1 13 5 4 13 2 2
 
 
-python compute_CI.py 44 60
+# python compute_CI.py 44 60
 
 # Scalability
 

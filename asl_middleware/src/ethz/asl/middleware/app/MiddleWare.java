@@ -51,15 +51,15 @@ public class MiddleWare {
 	    OutboxProcessingThread outboxProcessor;
 	    
 	    for (int i = 1; i <= NUMBER_OF_INBOX_PROCESSORS; i++) {
-	    	inboxProcessor = new InboxProcessingThread(in, out, dbManager, i);
+	    	inboxProcessor = new InboxProcessingThread(in, dbManager, i);
 	    	(new Thread(inboxProcessor)).start();
 		}
 	    
-	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
-	    	outboxProcessor = new OutboxProcessingThread(out, i);
-	    	(new Thread(outboxProcessor)).start();
-		}
-	    
+//	    for (int i = 1; i <= NUMBER_OF_OUTBOX_PROCESSORS; i++) {
+//	    	outboxProcessor = new OutboxProcessingThread(out, i);
+//	    	(new Thread(outboxProcessor)).start();
+//		}
+//	    
 			
 			boolean listening = true;
 			
