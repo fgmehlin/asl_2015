@@ -28,17 +28,17 @@ experimentId=88
 noOfMW=1
 for totalClients in 2 6 12 18 24 30
 do
-	# python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+	python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
 	python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
 done
 
-# experimentId=89
-# noOfMW=2
-# for totalClients in 2 6 12 18 24 30
-# do
-# 	# python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
-# 	python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
-# done
+experimentId=89
+noOfMW=2
+for totalClients in 2 6 18 24 30
+do
+	python client_RT_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+	# python middleware_TP_trace.py $experimentId $totalClients $inThread $outThread $noOfMW $poolSize $workLoad $repeatN
+done
 
 # Stability 
 #./experiment_free_auto.sh 38 25 450 1 7 5 2 7 1 1
